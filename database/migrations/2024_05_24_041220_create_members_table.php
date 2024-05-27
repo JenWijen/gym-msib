@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('contact');
             $table->foreignId('membership_id')
-            ->constrained('membership')
+            ->constrained('memberships')
             ->onDelete('restrict')
             ->onUpdate('cascade');
             $table->timestamps();
