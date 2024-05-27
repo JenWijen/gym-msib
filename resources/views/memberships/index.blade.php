@@ -28,6 +28,7 @@
                 <th>Trainer ID</th>
                 <th width="280px">Action</th>
             </tr>
+             @php $i = 0; @endphp
             @foreach ($memberships as $membership)
             <tr>
                 <td>{{ ++$i }}</td>
