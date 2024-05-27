@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\MembershipController;
+use App\Http\Controllers\MembersController;
 use App\Models\Membership;
 use App\Models\Trainer;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/memberships/{membership}/edit', [MembershipController::class, 'edit'])->name('memberships.edit');
     Route::put('admin/memberships/{membership}', [MembershipController::class, 'update'])->name('memberships.update');
     Route::delete('admin/memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy');
+    
+    //members
+    Route::get('admin/members', [MembersController::class, 'index'])->name('members.index');
+    Route::get('admin/members/create', [MembersController::class, 'create'])->name('members.create');
+    Route::post('admin/members', [MembersController::class, 'store'])->name('members.store');
+    Route::get('admin/members/{member}', [MembersController::class, 'show'])->name('members.show');
+    Route::get('admin/members/{member}/edit', [MembersController::class, 'edit'])->name('members.edit');
+    Route::put('admin/members/{member}', [MembersController::class, 'update'])->name('members.update');
+    Route::delete('admin/members/{member}', [MembersController::class, 'destroy'])->name('members.destroy');
+
+
 });
 
 // Route::get('admin/dashboard',[AdminController::class,'index'])->
