@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('trainer_id')->constrained('trainers')
             ->onDelete('restrict')
             ->onUpdate('cascade');
-            $table->foreignId('membership_id')->constrained('membership')
+            $table->foreignId('membership_id')->constrained('memberships')
             ->onDelete('restrict')
             ->onUpdate('cascade');
             $table->timestamps();
