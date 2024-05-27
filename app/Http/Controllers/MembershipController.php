@@ -21,7 +21,8 @@ class MembershipController extends Controller
      */
     public function create()
     {
-        return view('memberships.create');
+        $trainers = Trainer::all();
+        return view('memberships.create', compact('trainers'));
 
     }
 
@@ -31,15 +32,15 @@ class MembershipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'packet_name' => 'required|string|max:255',
+            'packet_name' => 'required',
             'price' => 'required|numeric',
             'duration' => 'required|integer',
             'trainer_id' => 'required|exists:trainers,id',
         ]);
 
         Membership::create($request->all());
-        return redirect()->route('memberships.index')
-                         ->with('success', 'Membership created successfully.');
+
+        return redirect()->route('memberships.index')->with('success', 'Membership created successfully.');
     }
 
     /**
