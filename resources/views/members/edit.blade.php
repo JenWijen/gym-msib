@@ -21,7 +21,7 @@
             <select class="form-control" name="membership_id" required>
                 @foreach($memberships as $membership)
                     <option value="{{ $membership->id }}" {{ $member->membership_id == $membership->id ? 'selected' : '' }}>
-                        {{ $membership->name }}
+                        {{ $membership->packet_name }}
                     </option>
                 @endforeach
             </select>
