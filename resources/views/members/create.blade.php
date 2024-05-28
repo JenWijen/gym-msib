@@ -19,8 +19,7 @@
             <label for="membership_id">Membership:</label>
             <select class="form-control" name="membership_id" required>
                 @foreach($memberships as $membership)
-                    <option value="{{ $membership->id }}">{{ $membership->name }}</option>
-                    <option value="{{ $trainer->id }}">{{ $trainer->trainer_name }}</option>
+                    <option value="{{ $membership->id }}">{{ $membership->packet_name }}</option>
                 @endforeach
             </select>
         </div>

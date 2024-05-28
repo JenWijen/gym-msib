@@ -8,7 +8,7 @@
                     <h2>Membership List</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-success" href="{{ route('memberships.create') }}"> Create New Membership</a>
+                    <a class="btn btn-primary mb-3" href="{{ route('memberships.create') }}"> Create New Membership</a>
                 </div>
             </div>
         </div>
