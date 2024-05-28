@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         <label>Membership:</label>
-        <p>{{ $member->membership->name }}</p>
+        <p>{{ $member->membership->packet_name }}</p>
     </div>
     <a class="btn btn-primary" href="{{ route('members.index') }}">Back</a>
 </div>

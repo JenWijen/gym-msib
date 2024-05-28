@@ -22,7 +22,7 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $member->name }}</td>
             <td>{{ $member->contact }}</td>
-            <td>{{ $member->membership->name }}</td>
+            <td>{{ $member->membership->packet_name }}</td>
             <td>
                 <form action="{{ route('members.destroy', $member->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('members.show', $member->id) }}">Show</a>
