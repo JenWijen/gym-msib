@@ -18,8 +18,8 @@
         <div class="form-group">
             <label for="membership_id">Membership:</label>
             <select class="form-control" name="membership_id" required>
-                @foreach($memberships as $membership) 
-                    <option value="{{ $membership->id }}">{{ $membership->id }}</option>
+                @foreach($memberships as $membership)
+                    <option value="{{ $membership->id }}">{{ $membership->packet_name }}</option>
                 @endforeach
             </select>
         </div>
