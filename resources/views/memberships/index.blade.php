@@ -1,14 +1,35 @@
 @extends('admin.index')
 
 @section('content')
+
+<!-- Content Wrapper. Contains page content -->
+<div class="">
+    <!-- Content Header (Page header) -->
+    <div class="content-header bg-white">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Membership Page</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Admin</a></li>
+              <li class="breadcrumb-item active">Memberships</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Membership List</h2>
+                    <h2 class="mt-5">Membership List</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-success" href="{{ route('memberships.create') }}"> Create New Membership</a>
+                    <a class="btn btn-primary mb-3" href="{{ route('memberships.create') }}"> Create New Membership</a>
                 </div>
             </div>
         </div>
@@ -19,7 +40,7 @@
             </div>
         @endif
 
-        <table class="table table-bordered">
+        <table class="table table-bordered bg-white">
             <tr>
                 <th>No</th>
                 <th>Packet Name</th>

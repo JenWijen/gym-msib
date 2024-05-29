@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('staff.index')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->

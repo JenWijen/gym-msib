@@ -34,18 +34,6 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                 <a href="{{ route('trainers.index') }}" class="nav-link {{ request()->routeIs('trainers.index') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Trainers</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('memberships.index') }}" class="nav-link {{ request()->routeIs('memberships.index') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Memberships</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{ route('members.index') }}" class="nav-link {{ request()->routeIs('members.index') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Members</p>
