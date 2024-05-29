@@ -34,7 +34,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('members.index') }}" class="nav-link {{ request()->routeIs('members.index') ? 'active' : '' }}">
+                <a href="{{ route('staff.members.index') }}" class="nav-link {{ request()->routeIs('staff.members.index') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Members</p>
                 </a>

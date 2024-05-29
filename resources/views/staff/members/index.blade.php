@@ -13,7 +13,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/admin/dashboard">Admin</a></li>
+              <li class="breadcrumb-item"><a href="/staff/dashboard">Staff</a></li>
               <li class="breadcrumb-item active">Members</li>
             </ol>
           </div><!-- /.col -->
@@ -24,7 +24,7 @@
 
 <div class="container">
     <h1 class="mt-5">Member List</h1>
-    <a href="{{ route('members.create') }}" class="btn btn-primary mb-3">Add Member</a>
+    <a href="{{ route('staff.members.create') }}" class="btn btn-primary mb-3">Add Member</a>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             {{ $message }}
@@ -45,9 +45,9 @@
             <td>{{ $member->contact }}</td>
             <td>{{ $member->membership->packet_name }}</td>
             <td>
-                <form action="{{ route('members.destroy', $member->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('members.show', $member->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('members.edit', $member->id) }}">Edit</a>
+                <form action="{{ route('staff.members.destroy', $member->id) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('staff.members.show', $member->id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('staff.members.edit', $member->id) }}">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
