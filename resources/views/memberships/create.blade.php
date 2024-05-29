@@ -1,8 +1,30 @@
 @extends('admin.index')
 
 @section('content')
+
+<!-- Content Wrapper. Contains page content -->
+<div class="">
+    <!-- Content Header (Page header) -->
+    <div class="content-header bg-white">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Membership Page</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Admin</a></li>
+              <li class="breadcrumb-item active">Memberships</li>
+              <li class="breadcrumb-item active">Create</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
 <div class="container">
-    <h1>Add Membership</h1>
+    <h1 class="mt-5">Add Membership</h1>
     <form action="{{ route('memberships.store') }}" method="POST">
         @csrf
         <div class="form-group">
@@ -25,7 +47,8 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>
 @endsection

@@ -1,43 +1,48 @@
 @extends('admin.index')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show Membership</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('memberships.index') }}"> Back</a>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Packet Name:</strong>
-                {{ $membership->packet_name }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Price:</strong>
-                {{ $membership->price }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Duration:</strong>
-                {{ $membership->duration }} days
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Trainer ID:</strong>
-                {{ $membership->trainer_id }}
-            </div>
-        </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="">
+    <!-- Content Header (Page header) -->
+    <div class="content-header bg-white">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Membership Page</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Admin</a></li>
+              <li class="breadcrumb-item active">Memberships</li>
+              <li class="breadcrumb-item active">Show</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
+
+<div class="container">
+    <h1 class="mt-5">Membership Details</h1>
+        <table class="table table-bordered bg-white">
+            <tr>
+                <th>Packet Name:</th>
+                <td>{{ $membership->packet_name }}</td>
+            </tr>
+            <tr>
+                <th>Price:</th>
+                <td>Rp.{{ $membership->price }}</td>
+            </tr>
+            <tr>
+                <th>Duration:</th>
+                <td>{{ $membership->duration }} days</td>
+            </tr>
+            <tr>
+                <th>Trainer ID:</th>
+                <td>{{ $membership->trainer_id }}</td>
+            </tr>
+        </table>
+        <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
 </div>
 @endsection
