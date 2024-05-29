@@ -27,7 +27,7 @@
 
 <div class="container">
     <h1 class="mt-5">Add Member</h1>
-    <form action="{{ route('members.store') }}" method="POST">
+    <form action="{{ route('admin.members.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="name">Name:</label>
@@ -45,7 +45,7 @@
                 @endforeach
             </select>
         </div>
-        <a class="btn btn-primary" href="{{ route('members.index') }}">Back</a>
+        <a class="btn btn-primary" href="{{ route('admin.members.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>

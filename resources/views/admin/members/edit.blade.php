@@ -27,7 +27,7 @@
 
 <div class="container">
     <h1 class="mt-5">Edit Member</h1>
-    <form action="{{ route('members.update', $member->id) }}" method="POST">
+    <form action="{{ route('admin.members.update', $member->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -48,7 +48,7 @@
                 @endforeach
             </select>
         </div>
-        <a class="btn btn-primary" href="{{ route('members.index') }}">Back</a>
+        <a class="btn btn-primary" href="{{ route('admin.members.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Update</button>
     </form>
 </div>

@@ -46,7 +46,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('members.index') }}" class="nav-link {{ request()->routeIs('members.index') ? 'active' : '' }}">
+                <a href="{{ route('admin.members.index') }}" class="nav-link {{ request()->routeIs('members.index') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Members</p>
                 </a>
