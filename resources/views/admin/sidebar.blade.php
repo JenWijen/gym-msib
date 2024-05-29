@@ -1,10 +1,10 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ '/' }}" class="brand-link">
       <img src="{{asset('adminlte')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">GymFit</span>
     </a>
 
     <!-- Sidebar -->
@@ -34,19 +34,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('trainers.index') }}" class="nav-link">
+                 <a href="{{ route('trainers.index') }}" class="nav-link {{ request()->routeIs('trainers.index') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Trainers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('memberships.index') }}" class="nav-link">
+                <a href="{{ route('memberships.index') }}" class="nav-link {{ request()->routeIs('memberships.index') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Memberships</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('members.index') }}" class="nav-link">
+                <a href="{{ route('members.index') }}" class="nav-link {{ request()->routeIs('members.index') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Members</p>
                 </a>
@@ -57,6 +57,10 @@
                   <p>Receipts</p>
                 </a>
               </li> --}}
+>
+                </a>
+              </li>
+   </li>
               {{-- <li class="nav-item">
                 <a href="./index3.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
@@ -565,4 +569,5 @@
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
+  </aside>
   </aside>
