@@ -51,9 +51,8 @@
         <ul>
           <li><a href="{{asset('user')}}/index.html#hero" class="">Home</a></li>
           <li><a href="{{asset('user')}}/index.html#about">About</a></li>
-          <li><a href="{{asset('user')}}/index.html#services">Services</a></li>
           <li><a href="{{asset('user')}}/index.html#portfolio">Galeri</a></li>
-          <li><a href="{{asset('user')}}/index.html#pricing">Paketan</a></li>
+          <li><a href="{{asset('user')}}/index.html#pricing">Membership</a></li>
           <li><a href="{{asset('user')}}/index.html#team">Trainer</a></li>
           <li><a href="{{asset('user')}}/index.html#contact">Contact</a></li>
         </ul>
@@ -70,13 +69,13 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <img src="https://www.evolutiongymryde.co.uk/wp-content/uploads/2021/12/Evolution-Gym-Ryde.jpeg" alt="" data-aos="fade-in">
 
       <div class="container">
         <div class="row">
           <div class="col-lg-10">
-            <h2 data-aos="fade-up" data-aos-delay="100">Welcome to gym</h2>
-            <p data-aos="fade-up" data-aos-delay="200">miliki tubuh impian anda dengan mulai dari sekarang</p>
+            <h2 data-aos="fade-up" data-aos-delay="100">Welcome to GymFit.</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Have the body of your dreams by starting now</p>
           </div>
           <div class="col-lg-5">
             <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300">
@@ -95,31 +94,6 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row gy-4">
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
         </div>
 
       </div>
@@ -128,15 +102,16 @@
 
     <!-- About Section -->
     <section id="about" class="about section">
+      
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-xl-center gy-5">
 
           <div class="col-xl-5 content">
-            <h3>About Us</h3>
-            <h2>Tentang gym</h2>
-            <p>motivasi untuk membentuk tubuh impian anda.</p>
-            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <h3>About</h3>
+            <h2>GymFit.</h2>
+            <p>Motivation to form the body of your dreams.</p>
+           
           </div>
 
           <div class="col-xl-7">
@@ -145,32 +120,32 @@
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box">
                   <i class="bi bi-buildings"></i>
-                  <h3>Eius provident</h3>
-                  <p>Magni repellendus vel ullam hic officia accusantium ipsa dolor omnis dolor voluptatem</p>
+                  <h3>POSTURE</h3>
+                  <p> Correcting your posture will reduce stress and strain on your body. You’ll  stand taller, move better, and feel less fatigue.</p>
                 </div>
               </div> <!-- End Icon Box -->
 
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
                   <i class="bi bi-clipboard-pulse"></i>
-                  <h3>Rerum aperiam</h3>
-                  <p>Autem saepe animi et aut aspernatur culpa facere. Rerum saepe rerum voluptates quia</p>
+                  <h3>MOBILITY</h3>
+                  <p>Good mobility allows your body to move the way it was designed to move – pain free and with a good range of motion.</p>
                 </div>
               </div> <!-- End Icon Box -->
 
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                 <div class="icon-box">
                   <i class="bi bi-command"></i>
-                  <h3>Veniam omnis</h3>
-                  <p>Omnis perferendis molestias culpa sed. Recusandae quas possimus. Quod consequatur corrupti</p>
+                  <h3>CORE</h3>
+                  <p>Your core is part of almost every move you make. Strong core muscles act as a stabilizer, making moving safer and more efficient.</p>
                 </div>
               </div> <!-- End Icon Box -->
 
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                 <div class="icon-box">
                   <i class="bi bi-graph-up-arrow"></i>
-                  <h3>Delares sapiente</h3>
-                  <p>Sint et dolor voluptas minus possimus nostrum. Reiciendis commodi eligendi omnis quideme lorenda</p>
+                  <h3>STRENGTH</h3>
+                  <p>Strength training helps you develop strong bones, manage weight and help you do everyday activities better and easier.</p>
                 </div>
               </div> <!-- End Icon Box -->
 
@@ -181,129 +156,6 @@
       </div>
 
     </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
-
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Lorem Ipsum</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-              </div>
-            </div>
-          </div>
-          <!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Dolor Sitema</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Sed ut perspiciatis</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Magni Dolores</a></h4>
-                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Nemo Enim</a></h4>
-                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Eiusmod Tempor</a></h4>
-                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
 
     <!-- Features Section -->
     <section id="features" class="features section">
@@ -324,100 +176,83 @@
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">Trainer</li>
-            <li data-filter=".filter-product">Alat</li>
-            <li data-filter=".filter-branding">Web</li>
+            <li data-filter=".filter-app">1</li>
+            <li data-filter=".filter-product">2</li>
+            <li data-filter=".filter-branding">3</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
+              <img src="https://berita.99.co/wp-content/uploads/2022/07/dumbbell.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h6>Alat</h6>
+                <a href="https://berita.99.co/wp-content/uploads/2022/07/dumbbell.jpg" title="Alat"  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
+              <img src="https://berita.99.co/wp-content/uploads/2022/07/sepeda-statis.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h6>Alat</h6>
+                <a href="https://berita.99.co/wp-content/uploads/2022/07/sepeda-statis.jpg" title="Alat"  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
+              <img src="https://www.sfidn.com/image/catalog/Fitness/sfidn-home-gym-alat-fitness.png" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Branding 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h6>Alat</h6>
+                <a href="https://www.sfidn.com/image/catalog/Fitness/sfidn-home-gym-alat-fitness.png" title="Alat" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
+              <img src="https://akcdn.detik.net.id/community/media/visual/2021/11/10/terapkan-gaya-hidup-sehat-di-masa-pandemi-4_169.jpeg?w=700&q=90" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h7>Activity</h7>
+                <a href="https://akcdn.detik.net.id/community/media/visual/2021/11/10/terapkan-gaya-hidup-sehat-di-masa-pandemi-4_169.jpeg?w=700&q=90" title="Activity" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
+              <img src="https://imgx.parapuan.co/crop/photo/2021/09/27/outfit-gymjpg-20210927013850.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h7>Activity</h7>
+                <a href="https://imgx.parapuan.co/crop/photo/2021/09/27/outfit-gymjpg-20210927013850.jpg" title="Activity" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
+              <img src="https://akcdn.detik.net.id/community/media/visual/2021/03/01/outfit-nyamansumber-freepikcomwomanfitness.jpeg?w=620&q=90" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Branding 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h7>Activity</h7>
+                <a href="https://akcdn.detik.net.id/community/media/visual/2021/03/01/outfit-nyamansumber-freepikcomwomanfitness.jpeg?w=620&q=90" title="Activity" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
+              <img src="https://akcdn.detik.net.id/community/media/visual/2021/03/01/mengajak-temansumber-freepikcomwomanfitness.jpeg?w=620&q=90" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h7>Trainer</h7>
+                <a href="https://akcdn.detik.net.id/community/media/visual/2021/03/01/mengajak-temansumber-freepikcomwomanfitness.jpeg?w=620&q=90" title="Trainer" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+              <img src="https://fithub.id/_next/image?url=https%3A%2F%2Fphoto-fhad-fithub-staging.s3.ap-southeast-1.amazonaws.com%2Fimgonline_com_ua_resize_k_H5_O_Bac_Ht_SS_Akq_To_transformed_dae4148248.jpeg&w=1920&q=75" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h7>Trainer</h7>
+                <a href="https://fithub.id/_next/image?url=https%3A%2F%2Fphoto-fhad-fithub-staging.s3.ap-southeast-1.amazonaws.com%2Fimgonline_com_ua_resize_k_H5_O_Bac_Ht_SS_Akq_To_transformed_dae4148248.jpeg&w=1920&q=75" title="Trainer" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
+              <img src="https://ciputrahospital.com/wp-content/uploads/2019/01/Tahun_Baru_Workout_Baru_4.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Branding 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <h7>Trainer</h7>
+                <a href="https://ciputrahospital.com/wp-content/uploads/2019/01/Tahun_Baru_Workout_Baru_4.jpg" title="Trainer" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -434,8 +269,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Pilihan Paket</h2>
-        <p>Tentukan pilihan anda </p>
+        <h2>Membership Options</h2>
+        <p>Make your choice</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="zoom-in" data-aos-delay="100">
@@ -444,14 +279,13 @@
 
           <div class="col-lg-4">
             <div class="pricing-item">
-              <h3>Harian</h3>
+              <h3>Paket 1</h3>
               <div class="icon">
                 <i class="bi bi-box"></i>
               </div>
               <h4><sup>Rp</sup>15.000<span> / days</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> <span>Alat angkat beban</span></li>
-                <li><i class="bi bi-check"></i> <span>Alat menggunakan listrik</span></li>
+                <li><i class="bi bi-check"></i> <span>Semua Alat</span></li>
                 <li><i class="bi bi-check"></i> <span>tanpa batasan jam dalam sehari</span></li>
                 <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
               </ul>
@@ -461,15 +295,14 @@
 
           <div class="col-lg-4">
             <div class="pricing-item featured">
-              <h3>Paket 1 bulan</h3>
+              <h3>Paket 2</h3>
               <div class="icon">
                 <i class="bi bi-rocket"></i>
               </div>
 
               <h4><sup>Rp</sup>275.000<span> / month</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> <span>Alat angkat beban</span></li>
-                <li><i class="bi bi-check"></i> <span>Alat menggunakan listrik</span></li>
+                <li><i class="bi bi-check"></i> <span>Semua Alat</span></li>
                 <li><i class="bi bi-check"></i> <span>tanpa batasan jam dalam sehari</span></li>
                 <li><i class="bi bi-check"></i> <span>Trainer</span></li>
               </ul>
@@ -479,11 +312,27 @@
 
           <div class="col-lg-4">
             <div class="pricing-item">
-              <h3>Paket 3 bulan</h3>
+              <h3>Paket 3 </h3>
               <div class="icon">
                 <i class="bi bi-send"></i>
               </div>
-              <h4><sup>Rp</sup>1.175.000<span> / 3 month</span></h4>
+              <h4><sup>Rp</sup>375.000<span> / 2 month</span></h4>
+              <ul>
+                <li><i class="bi bi-check"></i> <span>Semua Alat</span></li>
+                <li><i class="bi bi-check"></i> <span>tanpa batasan jam dalam sehari</span></li>
+                <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+              </ul>
+              <div class="text-center"><a href="#" class="klik-btn">klik</a></div>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-lg-4">
+            <div class="pricing-item ">
+              <h3>Paket 4 </h3>
+              <div class="icon">
+              <i class="bi bi-rocket"></i>
+              </div>
+              <h4><sup>Rp</sup>475.000<span> / 3 month</span></h4>
               <ul>
                 <li><i class="bi bi-check"></i> <span>Alat angkat beban</span></li>
                 <li><i class="bi bi-check"></i> <span>Alat menggunakan listrik</span></li>
@@ -570,7 +419,6 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Trainer</h2>
-        <p>Trainer yang kami miliki</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -581,16 +429,12 @@
             <div class="member-img">
               <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
               <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Trainer 1</h4>
               <span>Andi</span>
-              <p>Senin-Selasa</p>
             </div>
           </div><!-- End Team Member -->
 
@@ -598,16 +442,12 @@
             <div class="member-img">
               <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
               <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Trainer 2</h4>
               <span>Rina</span>
-              <p>Rabu-Kamis</p>
             </div>
           </div><!-- End Team Member -->
 
@@ -615,16 +455,12 @@
             <div class="member-img">
               <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
               <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Trainer 3</h4>
               <span>Jona</span>
-              <p>Jumat-Sabtu</p>
             </div>
           </div><!-- End Team Member -->
 
@@ -632,16 +468,12 @@
             <div class="member-img">
               <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
               <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Trainer 4</h4>
               <span>Amanda</span>
-              <p>Minggu</p>
             </div>
           </div><!-- End Team Member -->
 
@@ -649,16 +481,12 @@
             <div class="member-img">
               <img src="assets/img/team/team-5.jpg" class="img-fluid" alt="">
               <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Trainer 5</h4>
               <span>Han</span>
-              <p>Senin-Kamis</p>
             </div>
           </div><!-- End Team Member -->
 
@@ -666,16 +494,12 @@
             <div class="member-img">
               <img src="assets/img/team/team-6.jpg" class="img-fluid" alt="">
               <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Trainer 6</h4>
               <span>Sasa</span>
-              <p>Jumat-Minggu</p>
             </div>
           </div><!-- End Team Member -->
 
@@ -692,11 +516,8 @@
         <div class="row align-items-center">
 
           <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
-            <h3>Testimonials</h3>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-            </p>
+            <h2>Testimonials</h2>
+            <p>How do you share your change with the experiences you've had contributing to GymFit</p>
           </div>
 
           <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
@@ -725,7 +546,7 @@
                       <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Saul Goodman</h3>
-                        <h4>Ceo &amp; Founder</h4>
+                        <h4>Ceo &amp; Member</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -733,7 +554,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                      <span>Setelah proses yang saya alami dan usaha saya akhirnya Badan impian saya,saya dapatkan .</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -745,7 +566,7 @@
                       <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Sara Wilsson</h3>
-                        <h4>Designer</h4>
+                        <h4>member</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -753,7 +574,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                      <span>Setelah usaha yang saya lakukan akhirnya bedan saya turun dan saya menjadi langsing</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -765,7 +586,7 @@
                       <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Jena Karlis</h3>
-                        <h4>Store Owner</h4>
+                        <h4>Member</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -773,7 +594,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                      <span>Dengan bantuan trainer saya dapat melakukan bulking dengan baik sehingga badan yang saya impikan saya dapatkan .</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -785,7 +606,7 @@
                       <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Matt Brandon</h3>
-                        <h4>Freelancer</h4>
+                        <h4>Member</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -793,7 +614,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                      <span>Dengan bantuan teman trainer saya selama saya di Gymfit saya dengan mudah mendapatkan otot yang saya miliki saat ini terimakasih Gymfit.</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -805,7 +626,7 @@
                       <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>John Larson</h3>
-                        <h4>Entrepreneur</h4>
+                        <h4>Member</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -813,7 +634,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
+                      <span>Jika bukan diri sendiri siapalagi yang akan merubahmu mulai selflove dan sadar olahraga adalah investasimu.</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -837,7 +658,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Please complete</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -851,8 +672,8 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Address</h3>
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
+                  <p>JL.Jendral Sudirman</p>
+                  <p>Salatiga</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -860,8 +681,8 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                   <i class="bi bi-telephone"></i>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
-                  <p>+1 6678 254445 41</p>
+                  <p>(Admin1) +62 85742078049</p>
+                  <p>(Admin2) +62 83753189000</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -869,8 +690,7 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="400">
                   <i class="bi bi-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>info@example.com</p>
-                  <p>contact@example.com</p>
+                  <p>Gymfit@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -878,8 +698,8 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="500">
                   <i class="bi bi-clock"></i>
                   <h3>Open Hours</h3>
-                  <p>Monday - Friday</p>
-                  <p>9:00AM - 05:00PM</p>
+                  <p>Monday - Sunday</p>
+                  <p>9:00AM - 10:00PM</p>
                 </div>
               </div><!-- End Info Item -->
 
