@@ -40,6 +40,7 @@
         <div class="form-group">
             <label for="membership_id">Membership:</label>
             <select class="form-control" name="membership_id" required>
+            <option value="" disabled selected>Silakan pilih paket</option>
                 @foreach($memberships as $membership)
                     <option value="{{ $membership->id }}">{{ $membership->packet_name }}</option>
                 @endforeach

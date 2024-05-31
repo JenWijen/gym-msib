@@ -40,13 +40,15 @@
             <input type="text" class="form-control" name="duration" required>
         </div>
         <div class="form-group">
-            <label for="trainer_id">Trainer:</label>
-            <select class="form-control" name="trainer_id" required>
-                @foreach ($trainers as $trainer)
-                <option value="{{ $trainer->id }}">{{ $trainer->trainer_name }}</option>
-                @endforeach
-            </select>
-        </div>
+    <label for="trainer_id">Trainer:</label>
+    <select class="form-control" name="trainer_id" required>
+        <option value="" disabled selected>Silakan pilih trainer</option>
+        @foreach ($trainers as $trainer)
+        <option value="{{ $trainer->id }}">{{ $trainer->trainer_name }}</option>
+        @endforeach
+    </select>
+</div>
+
         <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
