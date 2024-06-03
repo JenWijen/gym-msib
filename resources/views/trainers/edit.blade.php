@@ -41,6 +41,11 @@
             <label for="contact">Contact:</label>
             <input type="text" class="form-control" name="contact" value="{{ $trainer->contact }}">
         </div>
+        <div class="form-group">
+         <label for="address">Address:</label>
+         <textarea class="form-control" name="address" value="{{ $trainer->address }}"></textarea>
+        </div>
+
         <a class="btn btn-primary" href="{{ route('trainers.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Update</button>
     </form>

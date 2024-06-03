@@ -34,6 +34,7 @@
             <th>Name</th>
             <th>Gender</th>
             <th>Contact</th>
+            <th>Address</th>
             <th width="280px">Action</th>
         </tr>
         @php $i = 0; @endphp
@@ -43,6 +44,7 @@
             <td>{{ $trainer->trainer_name }}</td>
             <td>{{ $trainer->gender }}</td>
             <td>{{ $trainer->contact }}</td>
+            <td>{{ $trainer->address }}</td>
             <td>
                 <form action="{{ route('trainers.destroy', $trainer->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('trainers.show', $trainer->id) }}">Show</a>
