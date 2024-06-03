@@ -52,7 +52,6 @@
             </form>
         </div>
     </div>
-
     {{-- <script src="{{ asset('LoginAccount') }}/app.js"></script> --}}
 </body>
 

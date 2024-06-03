@@ -39,8 +39,8 @@
                 <td>{{ $membership->duration }} days</td>
             </tr>
             <tr>
-                <th>Trainer ID:</th>
-                <td>{{ $membership->trainer_id }}</td>
+                <th>Trainer:</th>
+                <td>{{ $membership->trainer_name }}</td>
             </tr>
         </table>
         <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
