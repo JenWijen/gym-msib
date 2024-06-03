@@ -9,10 +9,12 @@ use App\Http\Controllers\StaffController;
 use App\Models\Membership;
 use App\Models\Trainer;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    return view('auth.login');// diganti dlu ntar diganti lg ke landingpage.master
+    // return view('auth.login');// diganti dlu ntar diganti lg ke landingpage.master
+    return view('landingpage.master');
 });
 
 // Route::get('/dashboard', function () {

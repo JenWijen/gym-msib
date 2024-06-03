@@ -35,8 +35,8 @@
             <input type="text" class="form-control" name="name" value="{{ $member->name }}" required>
         </div>
         <div class="form-group">
-            <label for="contact">Contact:</label>
-            <input type="text" class="form-control" name="contact" value="{{ $member->contact }}" required>
+              <label for="contact">Contact:</label>
+              <input type="text" class="form-control" name="contact" value="{{ $member->contact }}" required>
         </div>
         <div class="form-group">
             <label for="membership_id">Membership:</label>
@@ -47,6 +47,10 @@
                     </option>
                 @endforeach
             </select>
+        </div>
+        <div class="form-group">
+            <label for="startdate">Start Date:</label>
+            <input type="date" class="form-control" name="startdate" value="{{ $member->startdate }}" required>
         </div>
         <a class="btn btn-primary" href="{{ route('admin.members.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Update</button>

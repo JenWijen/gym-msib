@@ -38,7 +38,7 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  {{-- <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
@@ -52,7 +52,7 @@
           <li><a href="{{asset('user')}}/index.html#hero" class="">Home</a></li>
           <li><a href="{{asset('user')}}/index.html#about">About</a></li>
           <li><a href="{{asset('user')}}/index.html#portfolio">Galeri</a></li>
-          <li><a href="{{asset('user')}}/index.html#pricing">Membership</a></li>
+          <li><a href="{{asset('user')}}/index.html#pricing">Paketan</a></li>
           <li><a href="{{asset('user')}}/index.html#team">Trainer</a></li>
           <li><a href="{{asset('user')}}/index.html#contact">Contact</a></li>
         </ul>
@@ -809,7 +809,15 @@
       </div>
     </div>
 
-  </footer>
+  </footer> --}}
+
+  @include('landingpage.header')
+
+  <div>
+    @yield('landingpage.content')
+  </div>
+
+  @include('landingpage.footer')
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -829,5 +837,3 @@
 
   <!-- Main JS File -->
   <script src="{{asset('user')}}/assets/js/main.js"></script>
-
-</body>
