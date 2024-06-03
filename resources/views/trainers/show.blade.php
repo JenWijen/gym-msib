@@ -36,6 +36,10 @@
             <th>Contact:</th>
             <td>{{ $trainer->contact }}</td>
         </tr>
+        <tr>
+            <th>Address:</th>
+            <td>{{ $trainer->address }}</td>
+        </tr>
     </table>
     <a class="btn btn-primary" href="{{ route('trainers.index') }}">Back</a>
 </div>

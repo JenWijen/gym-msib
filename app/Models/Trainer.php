@@ -13,5 +13,6 @@ class Trainer extends Model
         'trainer_name',
         'gender',
         'contact',
+        'address',
     ];
 }
