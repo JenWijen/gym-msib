@@ -40,10 +40,15 @@
         <div class="form-group">
             <label for="membership_id">Membership:</label>
             <select class="form-control" name="membership_id" required>
+            <option value="" disabled selected>Silakan pilih paket</option>
                 @foreach($memberships as $membership)
                     <option value="{{ $membership->id }}">{{ $membership->packet_name }}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="form-group">
+          <label for="startdate">Start Date:</label>
+          <input type="date" class="form-control" name="startdate" required>
         </div>
         <a class="btn btn-primary" href="{{ route('admin.members.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Submit</button>

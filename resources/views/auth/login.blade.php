@@ -52,8 +52,7 @@
             </form>
         </div>
     </div>
-
-    <!-- <script src="{{ asset('LoginAccount') }}/app.js"></script> -->
+    {{-- <script src="{{ asset('LoginAccount') }}/app.js"></script> --}}
 </body>
 
 </html>

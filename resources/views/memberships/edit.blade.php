@@ -30,7 +30,6 @@
                 <h2 class="mt-5">Edit Membership</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('memberships.index') }}"> Back</a>
             </div>
         </div>
     </div>

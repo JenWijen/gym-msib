@@ -36,6 +36,7 @@
             <th>Name</th>
             <th>Contact</th>
             <th>Membership</th>
+            <th>Start Date</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($members as $member)
@@ -44,6 +45,7 @@
             <td>{{ $member->name }}</td>
             <td>{{ $member->contact }}</td>
             <td>{{ $member->membership->packet_name }}</td>
+            <td>{{ $member->startdate }}</td>
             <td>
                 <form action="{{ route('admin.members.destroy', $member->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('admin.members.show', $member->id) }}">Show</a>
