@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('memberships', function (Blueprint $table) {
             $table->id();
             $table->string('packet_name');
-            $table->decimal('price', 10, 2);
+            $table->integer('price');
             $table->integer('duration');
             $table->foreignId('trainer_id')
                   ->constrained('trainers')

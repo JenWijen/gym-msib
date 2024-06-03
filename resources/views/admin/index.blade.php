@@ -30,6 +30,8 @@
 
 <!-- jQuery -->
 <script src="{{asset('adminlte')}}/plugins/jquery/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+  <script src="jquery.maskMoney.js" type="text/javascript"></script>
 <!-- Bootstrap -->
 <script src="{{asset('adminlte')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE -->
