@@ -53,4 +53,25 @@
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
   </div>
-  @endsection
+
+<!-- Script untuk mengatur format mata uang IDR -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('IDR').addEventListener('keyup', function(e) {
+      let cursorPosition = this.selectionStart;
+      let value = parseInt(this.value.replace(/[^,\d]/g, ''));
+      let originalLength = this.value.length;
+      if (isNaN(value)) {
+        this.value = "";
+      } else {    
+        this.value = value.toLocaleString('id-ID', {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }).replace(/\./g, '.');
+        cursorPosition = this.value.length - originalLength + cursorPosition;
+        this.setSelectionRange(cursorPosition, cursorPosition);
+      }
+    });
+  });
+</script>
+@endsection

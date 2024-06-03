@@ -54,7 +54,7 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $membership->packet_name }}</td>
-                <td>{{ $membership->price }}</td>
+                <td>{{ formatRupiah($membership->price) }}</td>
                 <td>{{ $membership->duration }}</td>
                 <td>{{ $membership->trainer->trainer_name }}</td>
                 <td>
