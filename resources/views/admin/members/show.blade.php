@@ -38,6 +38,10 @@
           <th>Membership:</th>
           <td>{{ $member->membership->packet_name }}</td>
       </tr>
+      <tr>
+          <th>Start date:</th>
+          <td>{{ $member->startdate }}</td>
+      </tr>
   </table>
     <a class="btn btn-primary" href="{{ route('admin.members.index') }}">Back</a>
 </div>

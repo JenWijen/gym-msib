@@ -33,6 +33,7 @@ class TrainerController extends Controller
             'trainer_name' => 'required',
             'gender' => 'required|in:L,P',
             'contact' => 'required',
+            'address' => 'required',
         ]);
 
         Trainer::create($request->all());
@@ -65,6 +66,7 @@ class TrainerController extends Controller
             'trainer_name' => 'required',
             'gender' => 'required|in:L,P',
             'contact' => 'required',
+            'address' => 'required',
         ]);
 
         $trainer->update($request->all());

@@ -23,34 +23,35 @@
     </div>
     <!-- /.content-header -->
 
-    <div class="container">
-        <h1 class="mt-5">Add Membership</h1>
-        <form action="{{ route('memberships.store') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="packet_name">Packet Name:</label>
-                <input type="text" class="form-control" name="packet_name" required>
-            </div>
-            <div class="form-group">
+<div class="container">
+    <h1 class="mt-5">Add Membership</h1>
+    <form action="{{ route('memberships.store') }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <label for="packet_name">Packet Name:</label>
+            <input type="text" class="form-control" name="packet_name" required>
+        </div>
+        <div class="form-group">
                 <label for="price">Price:</label>
                 <input type="text" class="form-control price" id="currency" name="price" required>
-            </div>
-            <div class="form-group">
-                <label for="duration">Duration:</label>
-                <input type="text" class="form-control" name="duration" required>
-            </div>
-            <div class="form-group">
-                <label for="trainer_id">Trainer:</label>
-                <select class="form-control" name="trainer_id" required>
-                    @foreach ($trainers as $trainer)
-                    <option value="{{ $trainer->id }}">{{ $trainer->trainer_name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
-            <button type="submit" class="btn btn-success">Submit</button>
-        </form>
-    </div>
+        </div>
+        <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="text" class="form-control" name="duration" required>
+        </div>
+        <div class="form-group">
+    <label for="trainer_id">Trainer:</label>
+    <select class="form-control" name="trainer_id" required>
+        <option value="" disabled selected>Silakan pilih trainer</option>
+        @foreach ($trainers as $trainer)
+        <option value="{{ $trainer->id }}">{{ $trainer->trainer_name }}</option>
+        @endforeach
+    </select>
+</div>
+
+        <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
 </div>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
