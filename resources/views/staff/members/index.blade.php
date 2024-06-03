@@ -44,6 +44,7 @@
             <td>{{ $member->name }}</td>
             <td>{{ $member->contact }}</td>
             <td>{{ $member->membership->packet_name }}</td>
+            <td>{{ $member->startdate }}</td>
             <td>
                 <form action="{{ route('staff.members.destroy', $member->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('staff.members.show', $member->id) }}">Show</a>
