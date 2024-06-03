@@ -294,7 +294,7 @@
           </div><!-- End Pricing Item -->
 
           <div class="col-lg-4">
-            <div class="pricing-item featured">
+            <div class="pricing-item">
               <h3>Paket 2</h3>
               <div class="icon">
                 <i class="bi bi-rocket"></i>

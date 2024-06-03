@@ -46,7 +46,7 @@
                 <th>Packet Name</th>
                 <th>Price</th>
                 <th>Duration</th>
-                <th>Trainer ID</th>
+                <th>Trainer Name</th>
                 <th width="280px">Action</th>
             </tr>
              @php $i = 0; @endphp
@@ -56,7 +56,7 @@
                 <td>{{ $membership->packet_name }}</td>
                 <td>{{ $membership->price }}</td>
                 <td>{{ $membership->duration }}</td>
-                <td>{{ $membership->trainer_id }}</td>
+                <td>{{ $membership->trainer->trainer_name }}</td>
                 <td>
                     <form action="{{ route('memberships.destroy', $membership->id) }}" method="POST">
                         <a class="btn btn-info" href="{{ route('memberships.show', $membership->id) }}">Show</a>

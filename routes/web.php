@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('auth.login');// diganti dlu ntar diganti lg ke landingpage.master
+    return view('landingpage.master');// diganti dlu ntar diganti lg ke landingpage.master
 });
 
 // Route::get('/dashboard', function () {

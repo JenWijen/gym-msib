@@ -14,4 +14,8 @@ class Membership extends Model
         'duration',
         'trainer_id',
     ];
+    public function trainer()
+    {
+        return $this->belongsTo(Trainer::class, 'trainer_id', 'id');
+    }
 }
