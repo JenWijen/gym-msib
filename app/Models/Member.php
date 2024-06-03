@@ -14,6 +14,7 @@ class Member extends Model
         'name',
         'contact',
         'membership_id',
+        'startdate'
     ];
 
     public function membership()

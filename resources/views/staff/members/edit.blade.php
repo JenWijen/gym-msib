@@ -48,6 +48,10 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+          <label for="startdate">Start Date:</label>
+          <input type="date" class="form-control" name="startdate" value="{{ $member->startdate }}" required>
+      </div>
         <a class="btn btn-primary" href="{{ route('staff.members.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Update</button>
     </form>

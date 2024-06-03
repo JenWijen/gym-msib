@@ -46,6 +46,10 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+          <label for="startdate">Start Date:</label>
+          <input type="date" class="form-control" name="startdate" required>
+        </div>
         <a class="btn btn-primary" href="{{ route('admin.members.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
