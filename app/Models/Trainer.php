@@ -15,4 +15,6 @@ class Trainer extends Model
         'contact',
         'address',
     ];
+    
+    
 }
