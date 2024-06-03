@@ -32,8 +32,8 @@
             <input type="text" class="form-control" name="packet_name" required>
         </div>
         <div class="form-group">
-            <label for="price">Price:</label>
-            <input type="number" class="form-control" name="price" required>
+                <label for="price">Price:</label>
+                <input type="text" class="form-control price" id="currency" name="price" required>
         </div>
         <div class="form-group">
             <label for="duration">Duration:</label>
@@ -53,4 +53,13 @@
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+<script>
+$(document).ready(function() {
+    $('.price').mask("#.##0,00", {
+        reverse: true
+    });
+});
+</script>
 @endsection
