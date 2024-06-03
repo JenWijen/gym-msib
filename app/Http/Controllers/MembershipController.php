@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Membership;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
@@ -23,7 +24,6 @@ class MembershipController extends Controller
     {
         $trainers = Trainer::all();
         return view('memberships.create', compact('trainers'));
-
     }
 
     /**
@@ -54,9 +54,11 @@ class MembershipController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Membership $membership)
+    public function edit($id)
     {
-        return view('memberships.edit', compact('membership'));
+        $membership = Membership::find($id);
+        $trainers = Trainer::all();
+        return view('memberships.edit', compact('membership', 'trainers'));
     }
 
     /**
@@ -73,7 +75,7 @@ class MembershipController extends Controller
 
         $membership->update($request->all());
         return redirect()->route('memberships.index')
-                         ->with('success', 'Membership updated successfully.');
+            ->with('success', 'Membership updated successfully.');
     }
 
     /**
@@ -83,6 +85,6 @@ class MembershipController extends Controller
     {
         $membership->delete();
         return redirect()->route('memberships.index')
-                         ->with('success', 'Membership deleted successfully.');
+            ->with('success', 'Membership deleted successfully.');
     }
 }

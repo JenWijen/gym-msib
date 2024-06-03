@@ -40,7 +40,7 @@
             </tr>
             <tr>
                 <th>Trainer:</th>
-                <td>{{ $membership->trainer_name }}</td>
+                <td>{{ $membership->trainer->trainer_name }}</td>
             </tr>
         </table>
         <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
