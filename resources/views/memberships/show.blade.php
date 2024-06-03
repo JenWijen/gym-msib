@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <th>Price:</th>
-                <td>Rp.{{ $membership->price }}</td>
+                <td>{{ formatRupiah($membership->price) }}</td>
             </tr>
             <tr>
                 <th>Duration:</th>

@@ -33,11 +33,11 @@ class MembershipController extends Controller
     {
         $request->validate([
             'packet_name' => 'required',
-            'price' => 'required|numeric',
+            'price' => 'required',
             'duration' => 'required|integer',
             'trainer_id' => 'required|exists:trainers,id',
         ]);
-
+        $request['price'] = str_replace('.', '', $request['price']);
         Membership::create($request->all());
 
         return redirect()->route('memberships.index')->with('success', 'Membership created successfully.');
