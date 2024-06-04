@@ -1,4 +1,4 @@
-@extends('staff.index')
+@extends('staff.master')
 
 @section('content')
 
