@@ -1,6 +1,6 @@
 <!-- resources/views/admin/trainers/edit.blade.php -->
 
-@extends('admin.index')
+@extends('admin.master')
 
 @section('content')
 
