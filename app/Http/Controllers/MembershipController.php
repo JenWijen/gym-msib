@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Membership;
 use App\Models\Trainer;
+use App\Models\Member;
+use App\Models\Package;
 use Illuminate\Http\Request;
 
 class MembershipController extends Controller
@@ -22,8 +24,10 @@ class MembershipController extends Controller
      */
     public function create()
     {
+        $members = Member::all();
+        $packages = Package::all();
         $trainers = Trainer::all();
-        return view('memberships.create', compact('trainers'));
+        return view('memberships.create', compact('members', 'packages', 'trainers'));
     }
 
     /**
@@ -32,12 +36,11 @@ class MembershipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'packet_name' => 'required',
-            'price' => 'required',
-            'duration' => 'required|integer',
+            'member_id' => 'required|exists:members,id',
+            'package_id' => 'required|exists:member_packages,id',
             'trainer_id' => 'required|exists:trainers,id',
+            'startdate' => 'required|date',
         ]);
-        $request['price'] = str_replace('.', '', $request['price']);
         Membership::create($request->all());
 
         return redirect()->route('memberships.index')->with('success', 'Membership created successfully.');
@@ -56,9 +59,10 @@ class MembershipController extends Controller
      */
     public function edit($id)
     {
-        $membership = Membership::find($id);
+        $members = Member::all();
+        $packages = Package::all();
         $trainers = Trainer::all();
-        return view('memberships.edit', compact('membership', 'trainers'));
+        return view('memberships.edit', compact('membership', 'members', 'packages', 'trainers'));
     }
 
     /**
@@ -67,10 +71,10 @@ class MembershipController extends Controller
     public function update(Request $request, Membership $membership)
     {
         $request->validate([
-            'packet_name' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'duration' => 'required|integer',
+            'member_id' => 'required|exists:members,id',
+            'package_id' => 'required|exists:member_packages,id',
             'trainer_id' => 'required|exists:trainers,id',
+            'startdate' => 'required|date',
         ]);
 
         $membership->update($request->all());
