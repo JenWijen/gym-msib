@@ -6,16 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Trainer extends Model
+class Package extends Model
 {
     use HasFactory,SoftDeletes;
-
-    protected $fillable = [
-        'trainer_name',
-        'gender',
-        'contact',
-        'address',
-    ];
-    
-    
 }

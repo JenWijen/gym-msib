@@ -15,11 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('contact');
-            $table->foreignId('membership_id')
-            ->constrained('memberships')
-            ->onDelete('restrict')
-            ->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

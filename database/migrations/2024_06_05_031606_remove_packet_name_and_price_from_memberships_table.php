@@ -21,7 +21,7 @@ return new class extends Migration
             ->constrained('member_packages')
             ->onDelete('restrict')
             ->onUpdate('cascade');
-            $table->date('startdate')->after('member_id');
+            $table->date('startdate')->after('trainer_id');
         });
     }
 
