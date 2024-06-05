@@ -8,25 +8,31 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/admin/trainers">
-        <i class="icon-bar-graph menu-icon"></i>
+        <i class="mdi mdi-account-star menu-icon"></i>
         <span class="menu-title">Trainer</span>
         <i class="menu-arrow"></i>
       </a>
-      
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/admin/memberships">
-        <i class="icon-grid-2 menu-icon"></i>
-        <span class="menu-title">Memberships</span>
+      <a class="nav-link" href="memberPackages">
+        <i class="mdi mdi-account-box-outline menu-icon"></i>
+        <span class="menu-title">Members Package</span>
         <i class="menu-arrow"></i>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/admin/members" >
-        <i class="icon-contract menu-icon"></i>
+        <i class="mdi mdi-account-outline menu-icon"></i>
         <span class="menu-title">Members</span>
         <i class="menu-arrow"></i>
       </a>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/memberships">
+        <i class="mdi mdi-account-multiple-outline menu-icon"></i>
+        <span class="menu-title">Memberships</span>
+        <i class="menu-arrow"></i>
+      </a>
+    </li>
       <div class="collapse" id="icons">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>

@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="{{asset('skydash')}}/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="{{asset('skydash')}}/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" type="text/css" href="{{asset('skydash')}}/js/select.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{asset('skydash')}}/css/vertical-layout-light/style.css">
