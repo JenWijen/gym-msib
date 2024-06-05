@@ -9,4 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Package extends Model
 {
     use HasFactory,SoftDeletes;
+
+    protected $table = 'member_packages';
+
+    protected $fillable = [
+        'packet_name',
+        'price',
+        'duration',
+    ];
 }
