@@ -14,7 +14,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="memberPackages">
+      <a class="nav-link" href="/admin/packages">
         <i class="mdi mdi-account-box-outline menu-icon"></i>
         <span class="menu-title">Members Package</span>
         <i class="menu-arrow"></i>
