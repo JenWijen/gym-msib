@@ -10,13 +10,24 @@ class Membership extends Model
 {
     use HasFactory,SoftDeletes;
     protected $fillable = [
-        'packet_name',
-        'price',
-        'duration',
+        'member_id',
+        'package_id',
         'trainer_id',
+        'startdate'
     ];
+
+    public function member()
+    {
+        return $this->belongsTo(Member::class, 'member_id');
+    }
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class, 'package_id');
+    }
+
     public function trainer()
     {
-        return $this->belongsTo(Trainer::class, 'trainer_id', 'id');
+        return $this->belongsTo(Trainer::class, 'trainer_id');
     }
 }
