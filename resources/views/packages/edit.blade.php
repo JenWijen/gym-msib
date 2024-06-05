@@ -1,50 +1,83 @@
-<!-- resources/views/admin/memberships/create.blade.php -->
-
 @extends('admin.master')
 
 @section('content')
 
-<div class="container-fluid">
-  <div class="stretch-card">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Membership Form</h4>
-        <p class="card-description">
-          Adding New Membership
-        </p>
-        <form class="forms-sample" action="{{ route('memberships.store') }}" method="POST">
-          @csrf
-          <div class="form-group">
-            <label for="packet_name">Packet Name:</label>
-            <input type="text" class="form-control" name="packet_name" required>
-          </div>
-          <div class="form-group">
-            <label for="price">Price:</label>
-            <input type="text" class="form-control" id="IDR" name="price" required>
-          </div>
-          <div class="form-group">
-            <label for="duration">Duration:</label>
-            <input type="text" class="form-control" name="duration" required>
-          </div>
-          <div class="form-group">
-            <label for="trainer_id">Trainer:</label>
-            <select class="form-control" name="trainer_id" required>
-              <option value="" disabled selected>Silakan pilih trainer</option>
-              @foreach ($trainers as $trainer)
-                <option value="{{ $trainer->id }}">{{ $trainer->trainer_name }}</option>
-              @endforeach
-            </select>
-          </div>
-
-          <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
-          <button type="submit" class="btn btn-success">Submit</button>
-        </form>
-      </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="">
+    <!-- Content Header (Page header) -->
+    <div class="content-header bg-white">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">packages Page</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/admin/dashboard">Admin</a></li>
+                        <li class="breadcrumb-item active">packagess</li>
+                        <li class="breadcrumb-item active">Edit</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
-  </div>
-</div>
+    <!-- /.content-header -->
 
-<script>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2 class="mt-5">Edit packages</h2>
+                </div>
+                <div class="pull-right">
+                </div>
+            </div>
+        </div>
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        <form action="{{ route('packages.update', $package->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Packet Name:</strong>
+                        <input type="text" name="packet_name" value="{{ $package->packet_name }}" class="form-control" placeholder="Packet Name">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Price:</strong>
+                        <input type="text" step="0.01" name="price" value="{{ $package->price }}" class="form-control" id="IDR" placeholder="Price">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Duration:</strong>
+                        <input type="number" name="duration" value="{{ $package->duration }}" class="form-control" placeholder="Duration (in days)">
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <a class="btn btn-primary" href="{{ route('packages.index') }}">Back</a>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
   document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('IDR').addEventListener('keyup', function(e) {
       let cursorPosition = this.selectionStart;
@@ -63,4 +96,4 @@
     });
   });
 </script>
-@endsection
+    @endsection

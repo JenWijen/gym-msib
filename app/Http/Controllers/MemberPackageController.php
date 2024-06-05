@@ -67,9 +67,12 @@ class MemberPackageController extends Controller
             'price' => 'required',
             'duration' => 'required|integer',
         ]);
-
-        $package->update($request->all());
+        
+        $request['price'] = str_replace('.', '', $request['price']);
+        $package->update($request->all());;
         return redirect()->route('packages.index')
+        
+
             ->with('success', 'Member Package updated successfully.');
     }
 
