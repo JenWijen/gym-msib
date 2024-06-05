@@ -10,7 +10,7 @@
       <div class="card-body">
         <h4 class="card-title">Membership Form</h4>
         <p class="card-description">
-          Adding new membership
+          Adding New Membership
         </p>
         <form class="forms-sample" action="{{ route('memberships.store') }}" method="POST">
           @csrf
@@ -35,7 +35,7 @@
               @endforeach
             </select>
           </div>
-          
+
           <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -44,7 +44,6 @@
   </div>
 </div>
 
-<!-- Script untuk mengatur format mata uang IDR -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('IDR').addEventListener('keyup', function(e) {
@@ -64,5 +63,4 @@
     });
   });
 </script>
-
 @endsection

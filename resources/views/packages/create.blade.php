@@ -1,4 +1,3 @@
-<!-- resources/views/admin/memberships/create.blade.php -->
 
 @extends('admin.master')
 
@@ -8,35 +7,26 @@
   <div class="stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Membership Form</h4>
+        <h4 class="card-title">Package Form</h4>
         <p class="card-description">
-          Adding new membership
+          Adding Mew Package
         </p>
-        <form class="forms-sample" action="{{ route('memberships.store') }}" method="POST">
+        <form class="forms-sample" action="{{ route('packages.store') }}" method="POST">
           @csrf
           <div class="form-group">
-            <label for="packet_name">Packet Name:</label>
-            <input type="text" class="form-control" name="packet_name" required>
+              <label for="packet_name">Package Name:</label>
+              <input type="text" class="form-control" name="packet_name" required>
           </div>
           <div class="form-group">
-            <label for="price">Price:</label>
-            <input type="text" class="form-control" id="IDR" name="price" required>
+              <label for="price">Price:</label>
+              <input type="text" class="form-control" id="IDR" name="price" required>
           </div>
           <div class="form-group">
-            <label for="duration">Duration:</label>
-            <input type="text" class="form-control" name="duration" required>
+              <label for="duration">Duration:</label>
+              <input type="number" class="form-control" name="duration" required>
           </div>
-          <div class="form-group">
-            <label for="trainer_id">Trainer:</label>
-            <select class="form-control" name="trainer_id" required>
-              <option value="" disabled selected>Silakan pilih trainer</option>
-              @foreach ($trainers as $trainer)
-                <option value="{{ $trainer->id }}">{{ $trainer->trainer_name }}</option>
-              @endforeach
-            </select>
-          </div>
-          
-          <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
+
+          <a class="btn btn-primary" href="{{ route('packages.index') }}">Back</a>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
       </div>
@@ -44,7 +34,6 @@
   </div>
 </div>
 
-<!-- Script untuk mengatur format mata uang IDR -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('IDR').addEventListener('keyup', function(e) {
@@ -64,5 +53,4 @@
     });
   });
 </script>
-
 @endsection

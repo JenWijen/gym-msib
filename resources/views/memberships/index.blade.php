@@ -19,8 +19,8 @@
                     <tr>
                         <th>No</th>
                         <th>Packet Name</th>
-                        <th>Price</th>
-                        <th>Duration</th>
+                        <th>Member Name</th>
+                        <th>Package</th>
                         <th>Trainer Name</th>
                         <th width="280px">Action</th>
                     </tr>
@@ -30,9 +30,8 @@
                     @foreach ($memberships as $membership)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $membership->packet_name }}</td>
-                        <td>{{ formatRupiah($membership->price) }}</td>
-                        <td>{{ $membership->duration }}</td>
+                        <td>{{ $membership->package->packet_name }}</td>
+                        <td>{{ $membership->member->name }}</td>
                         <td>{{ $membership->trainer->trainer_name }}</td>
                         <td>
                             <form action="{{ route('memberships.destroy', $membership->id) }}" method="POST">

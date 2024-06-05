@@ -12,7 +12,7 @@ class MemberPackageController extends Controller
      */
     public function index()
     {
-        $trainers = Package::all();
+        $packages = Package::all();
         return view('packages.index', compact('packages'));
     }
 
