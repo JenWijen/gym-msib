@@ -10,7 +10,7 @@ class MembersController extends Controller
      // Admin methods
      public function adminIndex()
      {
-         $members = Member::with('membership')->get();
+         $members = Member::all();
          return view('admin.members.index', compact('members'));
      }
  
@@ -109,5 +109,5 @@ class MembersController extends Controller
      {
          $member->delete();
          return redirect()->route('staff.members.index')->with('success', 'Member deleted successfully.');
-     }  
+     }
 }

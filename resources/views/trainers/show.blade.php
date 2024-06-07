@@ -6,11 +6,10 @@
   <div class="stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Trainer Form</h4>
+        <h4 class="card-title">Trainer Information</h4>
         <p class="card-description">
-          Edit trainer information
+          Trainer Details
         </p>
-          <h1 class="mt-5">Trainer Details</h1>
           <table class="table table-bordered">
           <tr>
             <th>Name:</th>
@@ -28,8 +27,9 @@
             <th>Address:</th>
             <td>{{ $trainer->address }}</td>
           </tr>
-          </table>
+          </table><br>
           <a class="btn btn-primary" href="{{ route('trainers.index') }}">Back</a>
+      </form>
       </div>
     </div>
   </div>

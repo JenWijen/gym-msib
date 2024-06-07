@@ -15,16 +15,22 @@
         <form class="forms-sample" action="{{ route('memberships.store') }}" method="POST">
           @csrf
           <div class="form-group">
-            <label for="packet_name">Packet Name:</label>
-            <input type="text" class="form-control" name="packet_name" required>
+            <label for="member_id">Member:</label>
+            <select class="form-control" name="member_id" required>
+              <option value="" disabled selected>Silakan pilih member</option>
+              @foreach ($members as $member)
+                <option value="{{ $member->id }}">{{ $member->name }}</option>
+              @endforeach
+            </select>
           </div>
           <div class="form-group">
-            <label for="price">Price:</label>
-            <input type="text" class="form-control" id="IDR" name="price" required>
-          </div>
-          <div class="form-group">
-            <label for="duration">Duration:</label>
-            <input type="text" class="form-control" name="duration" required>
+            <label for="package_id">Package:</label>
+            <select class="form-control" name="package_id" required>
+              <option value="" disabled selected>Silakan pilih package</option>
+              @foreach ($packages as $package)
+                <option value="{{ $package->id }}">{{ $package->packet_name }}</option>
+              @endforeach
+            </select>
           </div>
           <div class="form-group">
             <label for="trainer_id">Trainer:</label>
@@ -35,7 +41,10 @@
               @endforeach
             </select>
           </div>
-          
+          <div class="form-group">
+            <label for="startdate">Start Date:</label>
+            <input type="date" class="form-control" name="startdate" required>
+          </div>
           <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -43,26 +52,5 @@
     </div>
   </div>
 </div>
-
-<!-- Script untuk mengatur format mata uang IDR -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('IDR').addEventListener('keyup', function(e) {
-      let cursorPosition = this.selectionStart;
-      let value = parseInt(this.value.replace(/[^,\d]/g, ''));
-      let originalLength = this.value.length;
-      if (isNaN(value)) {
-        this.value = "";
-      } else {    
-        this.value = value.toLocaleString('id-ID', {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0
-        }).replace(/\./g, '.');
-        cursorPosition = this.value.length - originalLength + cursorPosition;
-        this.setSelectionRange(cursorPosition, cursorPosition);
-      }
-    });
-  });
-</script>
 
 @endsection

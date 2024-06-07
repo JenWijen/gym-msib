@@ -62,7 +62,9 @@ class MembershipController extends Controller
         $members = Member::all();
         $packages = Package::all();
         $trainers = Trainer::all();
-        return view('memberships.edit', compact('membership', 'members', 'packages', 'trainers'));
+        $memberships = Membership::find($id);
+        // dd($memberships);
+        return view('memberships.edit', compact( 'members', 'packages', 'trainers', 'memberships'));
     }
 
     /**
