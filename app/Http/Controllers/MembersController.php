@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
-use App\Models\Membership;
 use Illuminate\Http\Request;
 
 class MembersController extends Controller
@@ -17,8 +16,7 @@ class MembersController extends Controller
  
      public function adminCreate()
      {
-         $memberships = Membership::all();
-         return view('admin.members.create', compact('memberships'));
+         return view('admin.members.create');
      }
  
      public function adminStore(Request $request)
@@ -26,7 +24,6 @@ class MembersController extends Controller
          $request->validate([
              'name' => 'required|string|max:255',
              'contact' => 'required|string|max:255',
-             'membership_id' => 'required|exists:memberships,id',
          ]);
  
          Member::create($request->all());
@@ -41,8 +38,7 @@ class MembersController extends Controller
  
      public function adminEdit(Member $member)
      {
-         $memberships = Membership::all();
-         return view('admin.members.edit', compact('member', 'memberships'));
+         return view('admin.members.edit', compact('member'));
      }
  
      public function adminUpdate(Request $request, Member $member)
@@ -50,7 +46,6 @@ class MembersController extends Controller
          $request->validate([
              'name' => 'required|string|max:255',
              'contact' => 'required|string|max:255',
-             'membership_id' => 'required|exists:memberships,id',
          ]);
  
          $member->update($request->all());
@@ -73,8 +68,7 @@ class MembersController extends Controller
  
      public function staffCreate()
      {
-         $memberships = Membership::all();
-         return view('staff.members.create', compact('memberships'));
+         return view('staff.members.create');
      }
  
      public function staffStore(Request $request)
@@ -82,7 +76,6 @@ class MembersController extends Controller
          $request->validate([
              'name' => 'required|string|max:255',
              'contact' => 'required|string|max:255',
-             'membership_id' => 'required|exists:memberships,id',
          ]);
  
          Member::create($request->all());
@@ -97,8 +90,7 @@ class MembersController extends Controller
  
      public function staffEdit(Member $member)
      {
-         $memberships = Membership::all();
-         return view('staff.members.edit', compact('member', 'memberships'));
+         return view('staff.members.edit', compact('member'));
      }
  
      public function staffUpdate(Request $request, Member $member)
@@ -106,7 +98,6 @@ class MembersController extends Controller
          $request->validate([
              'name' => 'required|string|max:255',
              'contact' => 'required|string|max:255',
-             'membership_id' => 'required|exists:memberships,id',
          ]);
  
          $member->update($request->all());
