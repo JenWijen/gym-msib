@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MemberPackageController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\MembershipController;
@@ -13,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
-Route::get('/', function () {
-    // return view('auth.login');// diganti dlu ntar diganti lg ke landingpage.master
-    return view('landingpage.master');
-});
-
+// Route::get('/', function () {
+//     // return view('auth.login');// diganti dlu ntar diganti lg ke landingpage.master
+//     return view('landingpage.master');
+// });
+Route::get('/', [LandingController::class, 'index'])->name('landingpage.master');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
