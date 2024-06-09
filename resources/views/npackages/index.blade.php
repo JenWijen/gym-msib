@@ -5,8 +5,8 @@
     <div class="container-fluid">
     <div class="card">
       <div class="card-body">
-        <p class="card-title">Package list</p>
-        <a href="{{ route('packages.create') }}" class="btn btn-primary mb-3">Add Package</a>
+        <p class="card-title">Non-Trainer Package list</p>
+        <a href="{{ route('npackages.create') }}" class="btn btn-primary mb-3">Add Package</a>
           @if ($message = Session::get('success'))
           <div class="alert alert-success">
             {{ $message }}
@@ -28,17 +28,17 @@
                 <tbody>
                      @php $i = 0; @endphp
 
-                @foreach ($packages as $package)
+                @foreach ($npackages as $npackage)
                   <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $package->package_name }}</td>
-                    <td>{{ formatRupiah($package->price) }}</td>
-                    <td>{{ $package->duration }}</td>
+                    <td>{{ $npackage->package_name }}</td>
+                    <td>{{ formatRupiah($npackage->price) }}</td>
+                    <td>{{ $npackage->duration }}</td>
 
                     <td>
-                        <form action="{{ route('packages.destroy', $package->id) }}" method="POST">
-                            <a class="btn btn-info" href="{{ route('packages.show', $package->id) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('packages.edit', $package->id) }}">Edit</a>
+                        <form action="{{ route('npackages.destroy', $npackage->id) }}" method="POST">
+                            <a class="btn btn-info" href="{{ route('npackages.show', $npackage->id) }}">Show</a>
+                            <a class="btn btn-primary" href="{{ route('npackages.edit', $npackage->id) }}">Edit</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>

@@ -9,9 +9,9 @@
       <div class="card-body">
         <h4 class="card-title">Package Form</h4>
         <p class="card-description">
-          Adding Mew Package
+          Adding New Package
         </p>
-        <form class="forms-sample" action="{{ route('packages.store') }}" method="POST">
+        <form class="forms-sample" action="{{ route('npackages.store') }}" method="POST">
           @csrf
           <div class="form-group">
               <label for="package_name">Package Name:</label>
@@ -26,7 +26,7 @@
               <input type="number" class="form-control" name="duration" required>
           </div>
 
-          <a class="btn btn-primary" href="{{ route('packages.index') }}">Back</a>
+          <a class="btn btn-primary" href="{{ route('npackages.index') }}">Back</a>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
       </div>
