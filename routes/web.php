@@ -7,6 +7,8 @@ use App\Http\Controllers\MemberPackageController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\MembersController;
+use App\Http\Controllers\NTMembershipController;
+use App\Http\Controllers\NTPackageController;
 use App\Http\Controllers\StaffController;
 use App\Models\Membership;
 use App\Models\Trainer;
@@ -70,6 +72,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::delete('{package}', [MemberPackageController::class, 'destroy'])->name('destroy');
     });
 
+    // Non-TrainerPackages routes
+    Route::prefix('admin/npackages')->name('npackages.')->group(function () {
+        Route::get('/', [NTPackageController::class, 'index'])->name('index');
+        Route::get('create', [NTPackageController::class, 'create'])->name('create');
+        Route::post('/', [NTPackageController::class, 'store'])->name('store');
+        Route::get('{npackage}', [NTPackageController::class, 'show'])->name('show');
+        Route::get('{npackage}/edit', [NTPackageController::class, 'edit'])->name('edit');
+        Route::put('{npackage}', [NTPackageController::class, 'update'])->name('update');
+        Route::delete('{npackage}', [NTPackageController::class, 'destroy'])->name('destroy');
+    });
+
     // Members routes for admin
     Route::prefix('admin/members')->name('admin.members.')->group(function () {
         Route::get('/', [MembersController::class, 'adminIndex'])->name('index');
@@ -90,6 +103,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('{membership}/edit', [MembershipController::class, 'edit'])->name('edit');
         Route::put('{membership}', [MembershipController::class, 'update'])->name('update');
         Route::delete('{membership}', [MembershipController::class, 'destroy'])->name('destroy');
+    });
+
+    // Non-TrainerMemberships routes
+    Route::prefix('admin/nmemberships')->name('nmemberships.')->group(function () {
+        Route::get('/', [NTMembershipController::class, 'index'])->name('index');
+        Route::get('create', [NTMembershipController::class, 'create'])->name('create');
+        Route::post('/', [NTMembershipController::class, 'store'])->name('store');
+        Route::get('{nmembership}', [NTMembershipController::class, 'show'])->name('show');
+        Route::get('{nmembership}/edit', [NTMembershipController::class, 'edit'])->name('edit');
+        Route::put('{nmembership}', [NTMembershipController::class, 'update'])->name('update');
+        Route::delete('{nmembership}', [NTMembershipController::class, 'destroy'])->name('destroy');
     });
 
 });

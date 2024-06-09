@@ -13,26 +13,21 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>Packet Name:</th>
-                            <td>{{ $membership->member->name }}</td>
+                            <td>{{ $nmembership->member->name }}</td>
 
                         </tr>
                         <tr>
                             <th>Package:</th>
-                            <td>{{ $membership->package->package_name }}</td>
-
-                        </tr>
-                        <tr>
-                            <th>Trainer Name:</th>
-                            <td>{{ $membership->trainer->trainer_name }}</td>
+                            <td>{{ $nmembership->package->package_name }}</td>
 
                         </tr>
                         <tr>
                             <th>Start Date:</th>
-                            <td>{{ $membership->startdate }}</td>
+                            <td>{{ $nmembership->startdate }}</td>
 
                         </tr>
                     </table><br>
-                    <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ route('nmemberships.index') }}">Back</a>
                 </div>
             </div>
         </div>

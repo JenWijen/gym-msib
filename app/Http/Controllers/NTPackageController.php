@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Package;
+use App\Models\NonPackage;
 use Illuminate\Http\Request;
 
-class MemberPackageController extends Controller
+class NTPackageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $packages = Package::all();
-        return view('packages.index', compact('packages'));
+        $npackages = NonPackage::all();
+        return view('npackages.index', compact('npackages'));
     }
 
     /**
@@ -21,7 +21,7 @@ class MemberPackageController extends Controller
      */
     public function create()
     {
-        return view('packages.create');
+        return view('npackages.create');
     }
 
     /**
@@ -35,17 +35,17 @@ class MemberPackageController extends Controller
             'duration' => 'required|integer',
         ]);
         $request['price'] = str_replace('.', '', $request['price']);
-        Package::create($request->all());
+        NonPackage::create($request->all());
 
-        return redirect()->route('packages.index')->with('success', 'Membership created successfully.');
+        return redirect()->route('npackages.index')->with('success', 'Membership created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Package $package)
+    public function show(NonPackage $npackage)
     {
-        return view('packages.show', compact('package'));
+        return view('npackages.show', compact('npackage'));
     }
 
     /**
@@ -53,14 +53,14 @@ class MemberPackageController extends Controller
      */
     public function edit($id)
     {
-        $package = Package::find($id);
-        return view('packages.edit', compact('package'));
+        $npackage = NonPackage::find($id);
+        return view('npackages.edit', compact('npackage'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Package $package)
+    public function update(Request $request, NonPackage $npackage)
     {
         $request->validate([
             'package_name' => 'required',
@@ -69,8 +69,8 @@ class MemberPackageController extends Controller
         ]);
         
         $request['price'] = str_replace('.', '', $request['price']);
-        $package->update($request->all());;
-        return redirect()->route('packages.index')
+        $npackage->update($request->all());;
+        return redirect()->route('npackages.index')
         
 
             ->with('success', 'Member Package updated successfully.');
@@ -79,10 +79,11 @@ class MemberPackageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Package $package)
+    public function destroy(NonPackage $npackage)
     {
-        $package->delete();
-        return redirect()->route('packages.index')
+        $npackage->delete();
+        return redirect()->route('npackages.index')
             ->with('success', 'Member Package deleted successfully.');
+        
     }
 }

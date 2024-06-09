@@ -10,33 +10,33 @@
                     <p class="card-description">
                         Edit Package Information
                     </p>
-                    <form action="{{ route('packages.update', $package->id) }}" method="POST">
+                    <form action="{{ route('npackages.update', $npackage->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Packet Name:</strong>
-                                    <input type="text" name="packet_name" value="{{ $package->package_name }}"
-                                        class="form-control" placeholder="Packet Name">
+                                    <strong>Package Name:</strong>
+                                    <input type="text" name="package_name" value="{{ $npackage->package_name }}"
+                                        class="form-control" placeholder="Package Name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Price:</strong>
-                                    <input type="text" step="0.01" name="price" value="{{ $package->price }}"
+                                    <input type="text" step="0.01" name="price" value="{{ $npackage->price }}"
                                         class="form-control" id="IDR" placeholder="Price">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Duration:</strong>
-                                    <input type="number" name="duration" value="{{ $package->duration }}"
+                                    <input type="number" name="duration" value="{{ $npackage->duration }}"
                                         class="form-control" placeholder="Duration (in days)">
                                  </div>
                     
-                            <a class="btn btn-primary" href="{{ route('packages.index') }}">Back</a>
+                            <a class="btn btn-primary" href="{{ route('npackages.index') }}">Back</a>
                             <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>

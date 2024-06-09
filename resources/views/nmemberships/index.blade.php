@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card-body">
         <p class="card-title">list Membership</p>
-        <a href="{{ route('memberships.create') }}" class="btn btn-primary mb-3"> Create New Membership</a>
+        <a href="{{ route('nmemberships.create') }}" class="btn btn-primary mb-3"> Create New Membership</a>
           @if ($message = Session::get('success'))
           <div class="alert alert-success">
             {{ $message }}
@@ -20,24 +20,22 @@
                         <th>No</th>
                         <th>Member Name</th>
                         <th>Package</th>
-                        <th>Trainer Name</th>
                         <th>Start Date</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                      @php $i = 0; @endphp
-                    @foreach ($memberships as $membership)
+                    @foreach ($nmemberships as $nmembership)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $membership->member->name }}</td>
-                        <td>{{ $membership->package->package_name }}</td>
-                        <td>{{ $membership->trainer->trainer_name }}</td>
-                        <td>{{ $membership->startdate }}</td>
+                        <td>{{ $nmembership->member->name }}</td>
+                        <td>{{ $nmembership->package->package_name }}</td>
+                        <td>{{ $nmembership->startdate }}</td>
                         <td>
-                            <form action="{{ route('memberships.destroy', $membership->id) }}" method="POST">
-                                <a class="btn btn-info" href="{{ route('memberships.show', $membership->id) }}">Show</a>
-                                <a class="btn btn-primary" href="{{ route('memberships.edit', $membership->id) }}">Edit</a>
+                            <form action="{{ route('nmemberships.destroy', $nmembership->id) }}" method="POST">
+                                <a class="btn btn-info" href="{{ route('nmemberships.show', $nmembership->id) }}">Show</a>
+                                <a class="btn btn-primary" href="{{ route('nmemberships.edit', $nmembership->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
