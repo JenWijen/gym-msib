@@ -27,7 +27,7 @@
 
                         </tr>
                     </table><br>
-                    <a class="btn btn-primary" href="{{ route('nmemberships.index') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ route('non_membership.index') }}">Back</a>
                 </div>
             </div>
         </div>

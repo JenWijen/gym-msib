@@ -12,7 +12,7 @@
         <p class="card-description">
           Adding new membership
         </p>
-        <form class="forms-sample" action="{{ route('nmemberships.store') }}" method="POST">
+        <form class="forms-sample" action="{{ route('non_membership.store') }}" method="POST">
           @csrf
           <div class="form-group">
             <label for="member_id">Member:</label>
@@ -36,7 +36,7 @@
             <label for="startdate">Start Date:</label>
             <input type="date" class="form-control" name="startdate" required>
           </div>
-          <a class="btn btn-primary" href="{{ route('nmemberships.index') }}">Back</a>
+          <a class="btn btn-primary" href="{{ route('non_membership.index') }}">Back</a>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
       </div>

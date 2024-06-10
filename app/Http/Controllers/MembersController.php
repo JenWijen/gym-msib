@@ -31,13 +31,15 @@ class MembersController extends Controller
          return redirect()->route('admin.members.index')->with('success', 'Member added successfully.');
      }
  
-     public function adminShow(Member $member)
+     public function adminShow($id)
      {
+         $member = Member::find($id);
          return view('admin.members.show', compact('member'));
      }
  
-     public function adminEdit(Member $member)
+     public function adminEdit($id)
      {
+        $member = Member::findOrFail($id);
          return view('admin.members.edit', compact('member'));
      }
  

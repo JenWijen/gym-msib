@@ -43,8 +43,10 @@ class NTMembershipController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(NonMembership $nmembership)
+    public function show($id)
     {
+        $nmembership = NonMembership::find($id);
+        
         return view('nmemberships.show', compact('nmembership'));
     }
 

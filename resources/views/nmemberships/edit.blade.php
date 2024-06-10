@@ -10,7 +10,7 @@
                     <p class="card-description">
                         Edit Membership + Trainer Information
                     </p>
-                    <form action="{{ route('nmemberships.update', $nmemberships->id) }}" method="POST">
+                    <form action="{{ route('non_membership.update', $nmemberships->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -50,7 +50,7 @@
                                         class="form-control" placeholder="Duration (in days)">
                                 </div>
                             
-                            <a class="btn btn-primary" href="{{ route('nmemberships.index') }}">Back</a>
+                            <a class="btn btn-primary" href="{{ route('non_membership.index') }}">Back</a>
                             <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>

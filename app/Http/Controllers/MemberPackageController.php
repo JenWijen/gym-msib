@@ -43,8 +43,10 @@ class MemberPackageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Package $package)
+    public function show($id)
     {
+        
+        $package = Package::find($id);
         return view('packages.show', compact('package'));
     }
 

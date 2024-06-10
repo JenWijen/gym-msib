@@ -12,7 +12,7 @@
                     <p class="card-description">
                         Edit trainer information
                     </p>
-                    <form action="{{ route('admin.members.update', $member->id) }}" method="POST">
+                    <form action="{{ route('member_list.update', $member->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
@@ -24,7 +24,7 @@
                             <input type="text" class="form-control" name="contact" value="{{ $member->contact }}"
                                 required>
                         </div>
-                        <a class="btn btn-primary" href="{{ route('admin.members.index') }}">Back</a>
+                        <a class="btn btn-primary" href="{{ route('member_list.index') }}">Back</a>
                         <button type="submit" class="btn btn-success">Update</button>
                     </form>
                 </div>
