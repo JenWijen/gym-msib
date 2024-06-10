@@ -43,8 +43,10 @@ class NTPackageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(NonPackage $npackage)
+    public function show($id)
     {
+        $npackage = Nonpackage::find($id);
+
         return view('npackages.show', compact('npackage'));
     }
 

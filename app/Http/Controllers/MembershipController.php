@@ -49,8 +49,10 @@ class MembershipController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Membership $membership)
+    public function show($id)
     {
+        $membership = Membership::find($id);
+
         return view('memberships.show', compact('membership'));
     }
 

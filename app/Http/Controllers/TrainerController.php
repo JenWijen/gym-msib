@@ -44,8 +44,10 @@ class TrainerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Trainer $trainer)
+    public function show($id)
     {
+        $trainer = Trainer::find($id);
+
         return view('trainers.show', compact('trainer'));
     }
 

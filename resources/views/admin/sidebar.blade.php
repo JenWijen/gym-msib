@@ -15,40 +15,41 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('trainers.index') }}">
-        <i class="mdi mdi-account-star menu-icon"></i>
+        <i class="bi bi-person-badge-fill menu-icon"></i>
         <span class="menu-title">Trainer</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('admin.members.index') }}">
-        <i class="mdi mdi-account-star menu-icon"></i>
+      <a class="nav-link" href="{{ route('member_list.index') }}">
+        <i class="bi bi-people-fill menu-icon"></i>
         <span class="menu-title">Member</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('packages.index') }}">
-        <i class="mdi mdi-account-box-outline menu-icon"></i>
+        <i class="bi bi-box-seam menu-icon"></i>
         <span class="menu-title">Trainer Package</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('npackages.index') }}">
-        <i class="mdi mdi-account-box-outline menu-icon"></i>
+      <a class="nav-link" href="{{ route('non_package.index') }}">
+        <i class="bi bi-box menu-icon"></i>
         <span class="menu-title">Non-Trainer Package</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('memberships.index') }}">
-        <i class="mdi mdi-account-multiple-plus menu-icon"></i>
+        <i class="bi bi-card-checklist menu-icon"></i>
         <span class="menu-title">Membership + Trainer</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('nmemberships.index') }}">
-        <i class="mdi mdi-account-multiple-outline menu-icon"></i>
+      <a class="nav-link" href="{{ route('non_membership.index') }}">
+        <i class="bi bi-card-list menu-icon"></i>
         <span class="menu-title">Membership</span>
       </a>
     </li>
+    
 
     <script>
       // Get all nav links

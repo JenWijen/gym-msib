@@ -10,7 +10,7 @@
                     <p class="card-description">
                         Edit Package Information
                     </p>
-                    <form action="{{ route('npackages.update', $npackage->id) }}" method="POST">
+                    <form action="{{ route('non_package.update', $npackage->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -36,7 +36,7 @@
                                         class="form-control" placeholder="Duration (in days)">
                                  </div>
                     
-                            <a class="btn btn-primary" href="{{ route('npackages.index') }}">Back</a>
+                            <a class="btn btn-primary" href="{{ route('non_package.index') }}">Back</a>
                             <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>

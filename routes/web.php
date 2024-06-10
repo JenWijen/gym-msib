@@ -66,32 +66,33 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/', [MemberPackageController::class, 'index'])->name('index');
         Route::get('create', [MemberPackageController::class, 'create'])->name('create');
         Route::post('/', [MemberPackageController::class, 'store'])->name('store');
-        Route::get('{package}', [MemberPackageController::class, 'show'])->name('show');
+        Route::get('{package}/show', [MemberPackageController::class, 'show'])->name('show');
         Route::get('{package}/edit', [MemberPackageController::class, 'edit'])->name('edit');
         Route::put('{package}', [MemberPackageController::class, 'update'])->name('update');
         Route::delete('{package}', [MemberPackageController::class, 'destroy'])->name('destroy');
     });
 
     // Non-TrainerPackages routes
-    Route::prefix('admin/npackages')->name('npackages.')->group(function () {
+    Route::prefix('admin/non_package')->name('non_package.')->group(function () {
         Route::get('/', [NTPackageController::class, 'index'])->name('index');
         Route::get('create', [NTPackageController::class, 'create'])->name('create');
         Route::post('/', [NTPackageController::class, 'store'])->name('store');
-        Route::get('{npackage}', [NTPackageController::class, 'show'])->name('show');
-        Route::get('{npackage}/edit', [NTPackageController::class, 'edit'])->name('edit');
-        Route::put('{npackage}', [NTPackageController::class, 'update'])->name('update');
-        Route::delete('{npackage}', [NTPackageController::class, 'destroy'])->name('destroy');
+        Route::get('{non_package}/show', [NTPackageController::class, 'show'])->name('show');
+        Route::get('{non_package}/edit', [NTPackageController::class, 'edit'])->name('edit');
+        Route::put('{non_package}', [NTPackageController::class, 'update'])->name('update');
+        Route::delete('{non_package}', [NTPackageController::class, 'destroy'])->name('destroy');
     });
 
+
     // Members routes for admin
-    Route::prefix('admin/members')->name('admin.members.')->group(function () {
+    Route::prefix('admin/member_list')->name('member_list.')->group(function () {
         Route::get('/', [MembersController::class, 'adminIndex'])->name('index');
         Route::get('create', [MembersController::class, 'adminCreate'])->name('create');
         Route::post('/', [MembersController::class, 'adminStore'])->name('store');
-        Route::get('{member}', [MembersController::class, 'adminShow'])->name('show');
-        Route::get('{member}/edit', [MembersController::class, 'adminEdit'])->name('edit');
-        Route::put('{member}', [MembersController::class, 'adminUpdate'])->name('update');
-        Route::delete('{member}', [MembersController::class, 'adminDestroy'])->name('destroy');
+        Route::get('{member_list}/show', [MembersController::class, 'adminShow'])->name('show');
+        Route::get('{member_list}/edit', [MembersController::class, 'adminEdit'])->name('edit');
+        Route::put('{member_list}', [MembersController::class, 'adminUpdate'])->name('update');
+        Route::delete('{member_list}', [MembersController::class, 'adminDestroy'])->name('destroy');
     });
     
     // Memberships routes
@@ -99,21 +100,21 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/', [MembershipController::class, 'index'])->name('index');
         Route::get('create', [MembershipController::class, 'create'])->name('create');
         Route::post('/', [MembershipController::class, 'store'])->name('store');
-        Route::get('{membership}', [MembershipController::class, 'show'])->name('show');
+        Route::get('{membership}/show', [MembershipController::class, 'show'])->name('show');
         Route::get('{membership}/edit', [MembershipController::class, 'edit'])->name('edit');
         Route::put('{membership}', [MembershipController::class, 'update'])->name('update');
         Route::delete('{membership}', [MembershipController::class, 'destroy'])->name('destroy');
     });
 
     // Non-TrainerMemberships routes
-    Route::prefix('admin/nmemberships')->name('nmemberships.')->group(function () {
+    Route::prefix('admin/non_membership')->name('non_membership.')->group(function () {
         Route::get('/', [NTMembershipController::class, 'index'])->name('index');
         Route::get('create', [NTMembershipController::class, 'create'])->name('create');
         Route::post('/', [NTMembershipController::class, 'store'])->name('store');
-        Route::get('{nmembership}', [NTMembershipController::class, 'show'])->name('show');
-        Route::get('{nmembership}/edit', [NTMembershipController::class, 'edit'])->name('edit');
-        Route::put('{nmembership}', [NTMembershipController::class, 'update'])->name('update');
-        Route::delete('{nmembership}', [NTMembershipController::class, 'destroy'])->name('destroy');
+        Route::get('{non_membership}/show', [NTMembershipController::class, 'show'])->name('show');
+        Route::get('{non_membership}/edit', [NTMembershipController::class, 'edit'])->name('edit');
+        Route::put('{non_membership}', [NTMembershipController::class, 'update'])->name('update');
+        Route::delete('{non_membership}', [NTMembershipController::class, 'destroy'])->name('destroy');
     });
 
 });
