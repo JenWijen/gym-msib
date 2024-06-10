@@ -37,9 +37,9 @@ class MembersController extends Controller
          return view('admin.members.show', compact('member'));
      }
  
-     public function adminEdit(Member $member)
+     public function adminEdit($id)
      {
-        
+        $member = Member::findOrFail($id);
          return view('admin.members.edit', compact('member'));
      }
  
