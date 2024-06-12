@@ -37,7 +37,7 @@ class NTPackageController extends Controller
         $request['price'] = str_replace('.', '', $request['price']);
         NonPackage::create($request->all());
 
-        return redirect()->route('npackages.index')->with('success', 'Membership created successfully.');
+        return redirect()->route('non_package.index')->with('success', 'Membership created successfully.');
     }
 
     /**
@@ -72,7 +72,7 @@ class NTPackageController extends Controller
         
         $request['price'] = str_replace('.', '', $request['price']);
         $npackage->update($request->all());;
-        return redirect()->route('npackages.index')
+        return redirect()->route('non_package.index')
         
 
             ->with('success', 'Member Package updated successfully.');
@@ -81,10 +81,11 @@ class NTPackageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NonPackage $npackage)
+    public function destroy($id)
     {
+        $npackage = NonPackage::findOrFail($id);
         $npackage->delete();
-        return redirect()->route('npackages.index')
+        return redirect()->route('non_package.index')
             ->with('success', 'Member Package deleted successfully.');
         
     }

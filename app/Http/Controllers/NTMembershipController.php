@@ -20,9 +20,7 @@ class NTMembershipController extends Controller
      */
     public function create()
     {
-        $members = Member::all();
-        $npackages = nonPackage::all();
-        return view('nmemberships.create', compact('members', 'npackages'));
+        return view('nmemberships.create');
     }
 
     /**
@@ -37,7 +35,7 @@ class NTMembershipController extends Controller
         ]);
         NonMembership::create($request->all());
 
-        return redirect()->route('nmemberships.index')->with('success', 'Membership created successfully.');
+        return redirect()->route('memberships.index')->with('success', 'Membership created successfully.');
     }
 
     /**
@@ -74,17 +72,18 @@ class NTMembershipController extends Controller
         ]);
 
         $nmembership->update($request->all());
-        return redirect()->route('nmemberships.index')
+        return redirect()->route('non_membership.index')
             ->with('success', 'Membership updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NonMembership $nmembership)
+    public function destroy($id)
     {
+        $nmembership = NonMembership::findOrFail($id);
         $nmembership->delete();
-        return redirect()->route('nmemberships.index')
+        return redirect()->route('non_membership.index')
             ->with('success', 'Membership deleted successfully.');
     }
 }
