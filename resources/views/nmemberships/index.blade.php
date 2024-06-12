@@ -31,7 +31,7 @@
                         <td>{{ ++$i }}</td>
                         <td>{{ $nmembership->member->name }}</td>
                         <td>{{ $nmembership->package->package_name }}</td>
-                        <td>{{ $nmembership->startdate }}</td>
+                        <td>{{ \Carbon\Carbon::parse($nmembership->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
                         <td>
                             <form action="{{ route('non_membership.destroy', $nmembership->id) }}" method="POST">
                                 <a class="btn btn-info" href="{{ route('non_membership.show', $nmembership->id) }}">Show</a>
