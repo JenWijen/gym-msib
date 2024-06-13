@@ -49,6 +49,12 @@
         <span class="menu-title">Membership</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('non_membership.index') }}">
+        <i class="bi bi-bag-plus menu-icon"></i>
+        <span class="menu-title">Rental Package</span>
+      </a>
+    </li>
     
 
     <script>
