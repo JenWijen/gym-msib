@@ -12,7 +12,19 @@ class Rent extends Model
     protected $table = 'rents';
 
     protected $fillable = [
+        'user_id',
+        'rent_package_id',
         'rent_hours',
         'startdate',
+       
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function rpackage()
+    {
+        return $this->belongsTo(RentPackage::class, 'rent_package_id');
+    }
 }

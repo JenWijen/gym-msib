@@ -55,6 +55,12 @@
         <span class="menu-title">Rental Package</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('rent_book.index') }}">
+        <i class="bi bi-bag-plus menu-icon"></i>
+        <span class="menu-title">Rental</span>
+      </a>
+    </li>
     
 
     <script>

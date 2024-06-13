@@ -21,10 +21,20 @@ class RentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+     // public function create()
+    // {
+    //     $users = User::all();
+    //     $rpackages = RentPackage::all();
+    //     return view('rent.create', compact('users', 'rpackages'));
+    // }
     public function create()
     {
-        return view('rent.create');
+        $users = User::all();
+        $rentPackages = RentPackage::all();
+        return view('rent.create', compact('users', 'rentPackages'));
     }
+    
 
     /**
      * Store a newly created resource in storage.
