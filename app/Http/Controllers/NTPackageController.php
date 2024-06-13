@@ -71,7 +71,7 @@ class NTPackageController extends Controller
         ]);
         
         $request['price'] = str_replace('.', '', $request['price']);
-        $npackage->update($request->all());;
+        $npackage->update($request->all());
         return redirect()->route('non_package.index')
         
 

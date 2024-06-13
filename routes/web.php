@@ -9,9 +9,10 @@ use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\NTMembershipController;
 use App\Http\Controllers\NTPackageController;
+use App\Http\Controllers\RentController;
+use App\Http\Controllers\RentPackageController;
 use App\Http\Controllers\StaffController;
-use App\Models\Membership;
-use App\Models\Trainer;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,6 +34,18 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('landingpage.master');
+
+    // Rents routes for user
+    Route::prefix('user/rent')->name('user.rent.')->group(function () {
+        Route::get('/', [RentController::class, 'userIndex'])->name('index');
+        Route::get('create', [RentController::class, 'userCreate'])->name('create');
+        Route::post('/', [RentController::class, 'userStore'])->name('store');
+        Route::get('{user.rent}', [RentController::class, 'userShow'])->name('show');
+    });
+});
+
+Route::middleware(['auth', 'staff'])->group(function () {
     Route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.master');
 
     // Members routes for staff
@@ -40,10 +53,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/', [MembersController::class, 'staffIndex'])->name('index');
         Route::get('create', [MembersController::class, 'staffCreate'])->name('create');
         Route::post('/', [MembersController::class, 'staffStore'])->name('store');
-        Route::get('{member}', [MembersController::class, 'staffShow'])->name('show');
-        Route::get('{member}/edit', [MembersController::class, 'staffEdit'])->name('edit');
-        Route::put('{member}', [MembersController::class, 'staffUpdate'])->name('update');
-        Route::delete('{member}', [MembersController::class, 'staffDestroy'])->name('destroy');
+        Route::get('{staff.members}', [MembersController::class, 'staffShow'])->name('show');
+        Route::get('{staff.members}/edit', [MembersController::class, 'staffEdit'])->name('edit');
+        Route::put('{staff.members}', [MembersController::class, 'staffUpdate'])->name('update');
+        Route::delete('{staff.members}', [MembersController::class, 'staffDestroy'])->name('destroy');
     });
 });
 
@@ -115,6 +128,28 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('{non_membership}/edit', [NTMembershipController::class, 'edit'])->name('edit');
         Route::put('{non_membership}', [NTMembershipController::class, 'update'])->name('update');
         Route::delete('{non_membership}', [NTMembershipController::class, 'destroy'])->name('destroy');
+    });
+
+    // RentPackage routes
+    Route::prefix('admin/rent_package')->name('rent_package.')->group(function () {
+        Route::get('/', [RentPackageController::class, 'index'])->name('index');
+        Route::get('create', [RentPackageController::class, 'create'])->name('create');
+        Route::post('/', [RentPackageController::class, 'store'])->name('store');
+        Route::get('{rent_package}/show', [RentPackageController::class, 'show'])->name('show');
+        Route::get('{rent_package}/edit', [RentPackageController::class, 'edit'])->name('edit');
+        Route::put('{rent_package}', [RentPackageController::class, 'update'])->name('update');
+        Route::delete('{rent_package}', [RentPackageController::class, 'destroy'])->name('destroy');
+    });
+
+    // Rent routes for admin
+    Route::prefix('admin/rent')->name('rent.')->group(function () {
+        Route::get('/', [RentController::class, 'index'])->name('index');
+        Route::get('create', [RentController::class, 'create'])->name('create');
+        Route::post('/', [RentController::class, 'store'])->name('store');
+        Route::get('{rent}/show', [RentController::class, 'show'])->name('show');
+        Route::get('{rent}/edit', [RentController::class, 'edit'])->name('edit');
+        Route::put('{rent}', [RentController::class, 'update'])->name('update');
+        Route::delete('{rent}', [RentController::class, 'destroy'])->name('destroy');
     });
 
 });
