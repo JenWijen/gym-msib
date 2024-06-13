@@ -59,7 +59,7 @@
 
 <body class="index-page">
 
-  @include('landingpage.header')
+  @include('user.header')
 
   <main class="main">
     <!-- Hero Section -->
@@ -69,13 +69,6 @@
       <div class="row">
           <div class="col-lg-10">
               <h2 data-aos="fade-up" data-aos-delay="100">Welcome to GymFit.</h2>
-              <p data-aos="fade-up" data-aos-delay="200">Have the body of your dreams by starting now</p>
-          </div>
-          <div class="col-lg-5">
-              <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300">
-                  <input type="text" class="form-control" placeholder="Enter email address">
-                  <input type="submit" class="btn btn-primary" value="Sign up">
-              </form>
           </div>
       </div>
   </div>
@@ -89,98 +82,6 @@
       </div>
   </div>
 </section><!-- /Clients Section -->
-
-<!-- About Section -->
-<section id="about" class="about section">
-  <div class="container" data-aos="fade-up" data-aos-delay="200">
-      <div class="row align-items-xl-center gy-7">
-          <div class="col-xxl-5 content">
-              <h3>About</h3>
-              <h2>GymFit.</h2>
-              <p>Motivation to form the body of your dreams.</p>
-          </div>
-          <div class="col-xl-7">
-              <div class="row gy-4 icon-boxes">
-                  <div class="col-md-12" data-aos="fade-up" data-aos-delay="200">
-                      <div class="icon-box">
-                          <p>GymFit is the place you need to invest for yourself because in gymfit you can do many things from gym sports to the existence of a field to do your hobby, many benefits that you can feel and also many promos that will be given, so wait, let alone join GymFit immediately .</p>
-                      </div>
-                  </div> <!-- End Icon Box -->
-              </div>
-          </div>
-      </div>
-  </div>
-</section><!-- /About Section -->
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio section">
-  <div class="container section-title" data-aos="fade-up">
-      <h2>Gallery</h2>
-      <p>Images of our facilities and activities</p>
-  </div>
-  <div class="container">
-      <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-              <li data-filter="*" class="filter-active">All</li>
-          </ul>
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                  <img src="\user\assets\img\galeri\ac1.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\ac1.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                  <img src="\user\assets\img\galeri\ac2.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\ac2.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                  <img src="\user\assets\img\galeri\ac3.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\ac3.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                  <img src="\user\assets\img\galeri\lpbd.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\lpbd.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  </div>
-              </div>
-              
-              <!-- End Portfolio Item -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                  <img src="\user\assets\img\galeri\lpfs.jpeg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\lpfs.jpeg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  </div>
-              </div>
-              <!-- End Portfolio Item -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                  <img src="\user\assets\img\galeri\lptn.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\lptn.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                  <img src="\user\assets\img\galeri\lpbk.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\lpbk.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  </div>
-              </div><!-- End Portfolio Item -->
-              <!-- More portfolio items can be added here -->
-          </div><!-- End Portfolio Container -->
-      </div>
-  </div>
-</section><!-- /Portfolio Section -->
 
 <!-- Member Section -->
 <section id="pricing" class="pricing section">
@@ -246,7 +147,7 @@
                       
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 3</h3>
+                              <h3>Package 4</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
@@ -262,7 +163,7 @@
 
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 3</h3>
+                              <h3>Package 5</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
@@ -278,7 +179,7 @@
 
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 3</h3>
+                              <h3>Package 6</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
@@ -469,7 +370,7 @@
 
   </main><!-- End #main -->
 
-  @include('landingpage.footer')
+  @include('user.footer')
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
