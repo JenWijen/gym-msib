@@ -5,8 +5,8 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-            <p class="card-title">Rental Package list</p>
-            <a href="{{ route('rent_book.create') }}" class="btn btn-primary mb-3">Add Package</a>
+            <p class="card-title">Rental list</p>
+            <a href="{{ route('rent_book.create') }}" class="btn btn-primary mb-3">Add list</a>
             @if ($message = Session::get('success'))
                 <div class="alert alert-success">
                     {{ $message }}
@@ -19,25 +19,25 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>User Name</th>
-                                    <th>Package Name</th>
+                                    <th>Name</th>
+                                    <th>Field Name</th>
                                     <th>Rental Hours</th>
-                                    <th>Date</th>
+                                    <th>Start Date</th>
                                     <th width="280px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($rental as $rental)
+                                @foreach ($rental as $rent)
                                     <tr>
-                                        <td>{{ $rental->id }}</td>
-                                        <td>{{ $rental->user->name }}</td>
-                                        <td>{{ $rental->rentPackage->name }}</td>
-                                        <td>{{ $rental->rent_hours }}</td>
-                                        <td>{{ $rental->startdate }}</td>
+                                        <td>{{ $rent->id }}</td>
+                                        <td>{{ $rent->user->name }}</td>
+                                        <td>{{ $rent->rpackage->field_name }}</td>
+                                        <td>{{ $rent->rent_hours }}</td>
+                                        <td>{{ $rent->startdate }}</td>
                                         <td>
-                                            <form action="{{ route('rent_book.destroy', $rental->id) }}" method="POST">
-                                                <a class="btn btn-info" href="{{ route('rent_book.show', $rental->id) }}">Show</a>
-                                                <a class="btn btn-primary" href="{{ route('rent_book.edit', $rental->id) }}">Edit</a>
+                                            <form action="{{ route('rent_book.destroy', $rent->id) }}" method="POST">
+                                                <a class="btn btn-info" href="{{ route('rent_book.show', $rent->id) }}">Show</a>
+                                                <a class="btn btn-primary" href="{{ route('rent_book.edit', $rent->id) }}">Edit</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>

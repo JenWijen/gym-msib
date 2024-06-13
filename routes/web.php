@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('landingpage.master');
+    Route::get('/user', [UserController::class, 'index'])->name('landingpage.master');
 
     // Rents routes for user
     Route::prefix('user/rent')->name('user.rent.')->group(function () {

@@ -21,18 +21,12 @@ class RentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-
-     // public function create()
-    // {
-    //     $users = User::all();
-    //     $rpackages = RentPackage::all();
-    //     return view('rent.create', compact('users', 'rpackages'));
-    // }
     public function create()
     {
-        $users = User::all();
-        $rentPackages = RentPackage::all();
-        return view('rent.create', compact('users', 'rentPackages'));
+        $users = User::where('userType', 'user')->get();
+        $rpackages = RentPackage::all();
+        $authUserType = auth()->user()->userType;
+        return view('rent.create', compact('users', 'rpackages', 'authUserType'));
     }
     
 
@@ -49,7 +43,7 @@ class RentController extends Controller
         ]);
         Rent::create($request->all());
 
-        return redirect()->route('rent.index')->with('success', 'Rent created successfully.');
+        return redirect()->route('rent_book.index')->with('success', 'Rent created successfully.');
     }
 
     /**
@@ -66,11 +60,12 @@ class RentController extends Controller
      */
     public function edit(string $id)
     {
-        $users = User::all();
+        $users = User::where('userType', 'user')->get();
         $rpackages = RentPackage::all();
-        $rental = Rent::all();
+        $rental = Rent::findOrFail($id);
+        $authUserType = auth()->user()->userType;
 
-        return view('rent.edit', compact( 'users', 'rpackages', 'rental'));
+        return view('rent.edit', compact( 'users', 'rpackages', 'rental', 'authUserType'));
     }
 
     /**
@@ -86,7 +81,7 @@ class RentController extends Controller
         ]);
         $rental->update($request->all());
 
-        return redirect()->route('rent.index')->with('success', 'Rent updated successfully.');
+        return redirect()->route('rent_book.index')->with('success', 'Rental list updated successfully.');
     }
 
     /**
@@ -96,8 +91,8 @@ class RentController extends Controller
     {
         $rental = Rent::findOrFail($id);
         $rental->delete();
-        return redirect()->route('non_membership.index')
-            ->with('success', 'Membership deleted successfully.');
+        return redirect()->route('rent_book.index')
+            ->with('success', 'Rental list deleted successfully.');
     }
 
     //User method

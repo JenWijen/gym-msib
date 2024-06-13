@@ -1,73 +1,44 @@
 @extends('admin.master')
 
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
-    <div class="container-fluid">
-        <div class="stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Rental Package Form</h4>
-                    <p class="card-description">
-                        Edit Rental Package Information
-                    </p>
-                    <form action="{{ route('rent.update', $rpackage->id) }}" method="POST"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
 
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Court Name:</strong>
-                                    <input type="text" name="field_name" value="{{ $rpackage->field_name }}"
-                                        class="form-control" placeholder="field_Name">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Picture:</strong>
-                                    <input type="file" name="field_picture" class="form-control">
-                                    @if ($rpackage->field_picture)
-                                        <img src="{{ asset('path/to/images/' . $rpackage->field_picture) }}"
-                                            alt="{{ $rpackage->field_name }}" style="max-width: 200px; margin-top: 10px;">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Price:</strong>
-                                    <input type="text" step="0.01" name="field_price"
-                                        value="{{ $rpackage->field_price }}" class="form-control" id="IDR"
-                                        placeholder="Price">
-                                </div>
-                            </div>
-                        </div>
-
-                        <a class="btn btn-primary" href="{{ route('rent.index') }}">Back</a>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </form>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Edit Rental Form</h4>
+            <p class="card-description">Editing Package Details</p>
+            <form class="forms-sample" action="{{ route('rent_book.update', $rental->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="form-group">
+                    <label for="user_id">Name:</label>
+                    <select class="form-control" id="user_id" name="user_id" required>
+                        @foreach ($users as $user)
+                            <option value="{{ $user->id }}" {{ $user->id == $rental->user_id ? 'selected' : '' }}>{{ $user->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="rent_package_id">Field Name:</label>
+                    <select class="form-control" id="rent_package_id" name="rent_package_id" required>
+                        @foreach ($rpackages as $rpackage)
+                            <option value="{{ $rpackage->id }}" {{ $rpackage->id == $rental->rent_package_id ? 'selected' : '' }}>{{ $rpackage->field_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rent_hours">Rental Hours:</label>
+                    <input type="number" class="form-control" id="rent_hours" name="rent_hours" value="{{ $rental->rent_hours }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="startdate">Date:</label>
+                    <input type="date" class="form-control" id="startdate" name="startdate" value="{{ $rental->startdate }}" required>
+                </div>
+                <a class="btn btn-primary" href="{{ route('rent_book.index') }}">Back</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
         </div>
     </div>
+</div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('IDR').addEventListener('keyup', function(e) {
-                let cursorPosition = this.selectionStart;
-                let value = parseInt(this.value.replace(/[^,\d]/g, ''));
-                let originalLength = this.value.length;
-                if (isNaN(value)) {
-                    this.value = "";
-                } else {
-                    this.value = value.toLocaleString('id-ID', {
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0
-                    }).replace(/\./g, '.');
-                    cursorPosition = this.value.length - originalLength + cursorPosition;
-                    this.setSelectionRange(cursorPosition, cursorPosition);
-                }
-            });
-        });
-    </script>
 @endsection
