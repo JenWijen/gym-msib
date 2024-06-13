@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class RentPackage extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $table = 'rents';
+    protected $table = 'rent_packages';
 
     protected $fillable = [
         'field_name',

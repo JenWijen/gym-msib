@@ -13,7 +13,7 @@ class RentPackageController extends Controller
      */
     public function index()
     {
-        $rpackage = RentPackage::all();
+        $rpackages = RentPackage::all();
         return view('rpackages.index', compact('rpackages'));
     }
 
@@ -25,9 +25,6 @@ class RentPackageController extends Controller
         return view('rpackages.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -35,29 +32,55 @@ class RentPackageController extends Controller
             'field_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'field_price' => 'required',
         ]);
-
+    
         $request['field_price'] = str_replace('.', '', $request['field_price']);
-
+    
         if ($request->hasFile('field_picture')) {
             $image = $request->file('field_picture');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/images', $imageName);
+            $path = $request->file('field_picture')->storeAs('public/images', $imageName);
             $request['field_picture'] = 'storage/images/' . $imageName;
         }
-
+    
         RentPackage::create($request->all());
-
-        return redirect()->route('rpackages.index')->with('success', 'Rent Package created successfully.');
+    
+        return redirect()->route('rent_package.index')->with('success', 'Rent Package created successfully.');
     }
+    
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'field_name' => 'required',
+    //         'field_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    //         'field_price' => 'required',
+    //     ]);
+
+    //     $request['field_price'] = str_replace('.', '', $request['field_price']);
+
+    //     if ($request->hasFile('field_picture')) {
+    //         $image = $request->file('field_picture');
+    //         $imageName = time() . '.' . $image->getClientOriginalExtension();
+    //         $image->storeAs('public/images', $imageName);
+    //         $request['field_picture'] = 'storage/images/' . $imageName;
+    //     }
+
+    //     RentPackage::create($request->all());
+
+    //     return redirect()->route('rent_package.index')->with('success', 'Rent Package created successfully.');
+    // }
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $rpackage = RentPackage::find($id);
+        $rpackages = RentPackage::find($id);
 
-        return view('rpackages.show', compact('rpackage'));
+        return view('rpackages.show', compact('rpackages'));
     }
 
     /**
@@ -65,14 +88,14 @@ class RentPackageController extends Controller
      */
     public function edit(string $id)
     {
-        $npackage = RentPackage::find($id);
+        $rpackages = RentPackage::find($id);
         return view('rpackages.edit', compact('rpackage'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, RentPackage $rpackage)
+    public function update(Request $request, RentPackage $rpackages)
     {
         $request->validate([
             'field_name' => 'required',
@@ -84,8 +107,8 @@ class RentPackageController extends Controller
 
         if ($request->hasFile('field_picture')) {
             // Delete the old picture if it exists
-            if ($rpackage->field_picture) {
-                $oldImagePath = public_path($rpackage->field_picture);
+            if ($rpackages->field_picture) {
+                $oldImagePath = public_path($rpackages->field_picture);
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
@@ -97,10 +120,10 @@ class RentPackageController extends Controller
             $request['field_picture'] = 'storage/images/' . $imageName;
         } else {
             // If no new picture is uploaded, retain the old picture path
-            $request['field_picture'] = $rpackage->field_picture;
+            $request['field_picture'] = $rpackages->field_picture;
         }
 
-        $rpackage->update($request->all());
+        $rpackages->update($request->all());
         return redirect()->route('rpackages.index')->with('success', 'Rent Package updated successfully.');
     }
 
@@ -109,9 +132,9 @@ class RentPackageController extends Controller
      */
     public function destroy(string $id)
     {
-        $rpackage = RentPackage::findOrFail($id);
-        $rpackage->delete();
-        return redirect()->route('rpackages.index')
+        $rpackages = RentPackage::findOrFail($id);
+        $rpackages->delete();
+        return redirect()->route('rent_package.index')
             ->with('success', 'Rent Package deleted successfully.');
         
     }
