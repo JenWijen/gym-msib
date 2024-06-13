@@ -3,34 +3,30 @@
 @section('content')
 
 <div class="container-fluid">
-  <div class="stretch-card">
     <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Rental Package Form</h4>
-        <p class="card-description">
-          Adding New Package
-        </p>
-        <form class="forms-sample" action="{{ route('non_package.store') }}" method="POST" enctype="multipart/form-data">
-          @csrf
-          <div class="form-group">
-              <label for="field_name">Court Name:</label>
-              <input type="text" class="form-control" name="field_name" required>
-          </div>
-          <div class="form-group">
-              <label for="field_picture">Picture:</label>
-              <input type="file" class="form-control" name="field_picture" required>
-          </div>
-          <div class="form-group">
-              <label for="field_price">Price:</label>
-              <input type="text" class="form-control" id="IDR" name="field_price" required>
-          </div>
+        <div class="card-body">
+            <h4 class="card-title">Rental Package Form</h4>
+            <p class="card-description">Adding New Package</p>
+            <form class="forms-sample" action="{{ route('rent_package.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <label for="field_name">Court Name:</label>
+                    <input type="text" class="form-control" id="field_name" name="field_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="field_picture">Picture:</label>
+                    <input type="file" class="form-control-file" id="field_picture" name="field_picture" required>
+                </div>
+                <div class="form-group">
+                    <label for="field_price">Price:</label>
+                    <input type="text" class="form-control" id="field_price" name="field_price" required>
+                </div>
 
-          <a class="btn btn-primary" href="{{ route('non_package.index') }}">Back</a>
-          <button type="submit" class="btn btn-success">Submit</button>
-        </form>
-      </div>
+                <a class="btn btn-primary" href="{{ route('rent_package.index') }}">Back</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
     </div>
-  </div>
 </div>
 
 <script>
