@@ -142,14 +142,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     });
 
     // Rent routes for admin
-    Route::prefix('admin/rent')->name('rent.')->group(function () {
+    Route::prefix('admin/rent_book')->name('rent_book.')->group(function () {
         Route::get('/', [RentController::class, 'index'])->name('index');
         Route::get('create', [RentController::class, 'create'])->name('create');
         Route::post('/', [RentController::class, 'store'])->name('store');
-        Route::get('{rent}/show', [RentController::class, 'show'])->name('show');
-        Route::get('{rent}/edit', [RentController::class, 'edit'])->name('edit');
-        Route::put('{rent}', [RentController::class, 'update'])->name('update');
-        Route::delete('{rent}', [RentController::class, 'destroy'])->name('destroy');
+        Route::get('{rent_book}/show', [RentController::class, 'show'])->name('show');
+        Route::get('{rent_book}/edit', [RentController::class, 'edit'])->name('edit');
+        Route::put('{rent_book}', [RentController::class, 'update'])->name('update');
+        Route::delete('{rent_book}', [RentController::class, 'destroy'])->name('destroy');
     });
 
 });
