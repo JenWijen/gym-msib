@@ -5,12 +5,12 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Rental Package Form</h4>
+            <h4 class="card-title">Rental Form</h4>
             <p class="card-description">Adding New Package</p>
             <form class="forms-sample" action="{{ route('rent_book.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="user_id">User Name:</label>
+                    <label for="user_id">Name:</label>
                     <select class="form-control" id="user_id" name="user_id" required>
                         @foreach ($users as $user)
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -21,7 +21,7 @@
                     <label for="rent_package_id">Name Package:</label>
                     <select class="form-control" id="rent_package_id" name="rent_package_id" required>
                         @foreach ($rpackages as $rpackage)
-                            <option value="{{ $rpackage->id }}">{{ $rpackage->name }}</option>
+                            <option value="{{ $rpackage->id }}">{{ $rpackage->field_name }}</option>
                         @endforeach
                     </select>
                 </div>

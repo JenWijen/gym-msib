@@ -10,7 +10,7 @@
                     <p class="card-description">
                         Edit Rental Package Information
                     </p>
-                    <form action="{{ route('rent_package.update', $rpackage->id) }}" method="POST"
+                    <form action="{{ route('rent_package.update', $rpackages->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -19,7 +19,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Court Name:</strong>
-                                    <input type="text" name="field_name" value="{{ $rpackage->field_name }}"
+                                    <input type="text" name="field_name" value="{{ $rpackages->field_name }}"
                                         class="form-control" placeholder="field_Name">
                                 </div>
                             </div>
@@ -27,9 +27,9 @@
                                 <div class="form-group">
                                     <strong>Picture:</strong>
                                     <input type="file" name="field_picture" class="form-control">
-                                    @if ($rpackage->field_picture)
-                                        <img src="{{ asset('path/to/images/' . $rpackage->field_picture) }}"
-                                            alt="{{ $rpackage->field_name }}" style="max-width: 200px; margin-top: 10px;">
+                                    @if ($rpackages->field_picture)
+                                        <img src="{{ asset('path/to/images/' . $rpackages->field_picture) }}"
+                                            alt="{{ $rpackages->field_name }}" style="max-width: 200px; margin-top: 10px;">
                                     @endif
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                                 <div class="form-group">
                                     <strong>Price:</strong>
                                     <input type="text" step="0.01" name="field_price"
-                                        value="{{ $rpackage->field_price }}" class="form-control" id="IDR"
+                                        value="{{ $rpackages->field_price }}" class="form-control" id="IDR"
                                         placeholder="Price">
                                 </div>
                             </div>

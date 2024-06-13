@@ -89,7 +89,7 @@ class RentPackageController extends Controller
     public function edit(string $id)
     {
         $rpackages = RentPackage::find($id);
-        return view('rpackages.edit', compact('rpackage'));
+        return view('rpackages.edit', compact('rpackages'));
     }
 
     /**
@@ -124,7 +124,7 @@ class RentPackageController extends Controller
         }
 
         $rpackages->update($request->all());
-        return redirect()->route('rpackages.index')->with('success', 'Rent Package updated successfully.');
+        return redirect()->route('rent_package.index')->with('success', 'Rent Package updated successfully.');
     }
 
     /**
