@@ -28,7 +28,7 @@
                                     <strong>Picture:</strong>
                                     <input type="file" name="field_picture" class="form-control">
                                     @if ($rpackages->field_picture)
-                                        <img src="{{ asset('path/to/images/' . $rpackages->field_picture) }}"
+                                        <img src="{{ asset('public/images' . $rpackages->field_picture) }}"
                                             alt="{{ $rpackages->field_name }}" style="max-width: 200px; margin-top: 10px;">
                                     @endif
                                 </div>

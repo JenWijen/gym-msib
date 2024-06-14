@@ -12,7 +12,7 @@
                     </p>
                     <table class="table table-bordered">
                         <tr>
-                            <th>Court Name:</th>
+                            <th>Field Name:</th>
                             <td>{{ $rpackages->field_name }}</td>
                         </tr>
                         <tr>

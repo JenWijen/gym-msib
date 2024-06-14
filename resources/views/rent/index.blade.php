@@ -32,8 +32,9 @@
                                         <td>{{ $rent->id }}</td>
                                         <td>{{ $rent->user->name }}</td>
                                         <td>{{ $rent->rpackage->field_name }}</td>
-                                        <td>{{ $rent->rent_hours }}</td>
-                                        <td>{{ $rent->startdate }}</td>
+                                        <td>{{ $rent->rent_hours }} Hours</td>
+                                        <td>{{ \Carbon\Carbon::parse($rent->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
+
                                         <td>
                                             <form action="{{ route('rent_book.destroy', $rent->id) }}" method="POST">
                                                 <a class="btn btn-info" href="{{ route('rent_book.show', $rent->id) }}">Show</a>
