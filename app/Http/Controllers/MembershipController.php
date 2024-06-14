@@ -95,4 +95,78 @@ class MembershipController extends Controller
         return redirect()->route('memberships.index')
             ->with('success', 'Membership deleted successfully.');
     }
+
+ ////////////////////////////////////////////////////////////////////////////////////////////   
+    public function staffIndex()
+    {
+        $memberships = Membership::all();
+        return view('staff.memberships.index', compact('memberships'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function staffCreate()
+    {
+        $members = Member::all();
+        $packages = Package::all();
+        $trainers = Trainer::all();
+        return view('staff.memberships.create', compact('members', 'packages', 'trainers'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function staffStore(Request $request)
+    {
+        $request->validate([
+            'member_id' => 'required|exists:members,id',
+            'package_id' => 'required|exists:member_packages,id',
+            'trainer_id' => 'required|exists:trainers,id',
+            'startdate' => 'required|date',
+        ]);
+        Membership::create($request->all());
+
+        return redirect()->route('staff_memberships.index')->with('success', 'Membership created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function staffShow($id)
+    {
+        $membership = Membership::find($id);
+
+        return view('staff.memberships.show', compact('membership'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function staffEdit($id)
+    {
+        $members = Member::all();
+        $packages = Package::all();
+        $trainers = Trainer::all();
+        $memberships = Membership::find($id);
+        // dd($memberships);
+        return view('staff.memberships.edit', compact( 'members', 'packages', 'trainers', 'memberships'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function staffUpdate(Request $request, Membership $membership)
+    {
+        $request->validate([
+            'member_id' => 'required|exists:members,id',
+            'package_id' => 'required|exists:member_packages,id',
+            'trainer_id' => 'required|exists:trainers,id',
+            'startdate' => 'required|date',
+        ]);
+
+        $membership->update($request->all());
+        return redirect()->route('staff_memberships.index')
+            ->with('success', 'Membership updated successfully.');
+    }
 }

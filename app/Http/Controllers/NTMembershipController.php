@@ -20,7 +20,9 @@ class NTMembershipController extends Controller
      */
     public function create()
     {
-        return view('nmemberships.create');
+        $members = Member::all();
+        $npackages = NonPackage::all();
+        return view('nmemberships.create', compact('members', 'npackages'));
     }
 
     /**
@@ -35,7 +37,7 @@ class NTMembershipController extends Controller
         ]);
         NonMembership::create($request->all());
 
-        return redirect()->route('memberships.index')->with('success', 'Membership created successfully.');
+        return redirect()->route('non_membership.index')->with('success', 'Membership created successfully.');
     }
 
     /**
@@ -85,5 +87,77 @@ class NTMembershipController extends Controller
         $nmembership->delete();
         return redirect()->route('non_membership.index')
             ->with('success', 'Membership deleted successfully.');
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function staffIndex()
+    {
+        $nmemberships = NonMembership::all();
+        return view('staff.nmemberships.index', compact('nmemberships'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function staffCreate()
+    {
+        $members = Member::all();
+        $npackages = NonPackage::all();
+        return view('staff.nmemberships.create', compact('members', 'npackages'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function staffStore(Request $request)
+    {
+        $request->validate([
+            'member_id' => 'required|exists:members,id',
+            'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
+            'startdate' => 'required|date',
+        ]);
+        NonMembership::create($request->all());
+
+        return redirect()->route('staff_non_memberships.index')->with('success', 'Membership created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function staffShow($id)
+    {
+        $nmembership = NonMembership::find($id);
+        
+        return view('staff.nmemberships.show', compact('nmembership'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function staffEdit($id)
+    {
+        $members = Member::all();
+        $npackages = NonPackage::all();
+        $nmemberships = NonMembership::find($id);
+        // dd($memberships);
+        return view('staff.nmemberships.edit', compact( 'members', 'npackages', 'nmemberships'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function staffUpdate(Request $request, NonMembership $nmembership)
+    {
+        $request->validate([
+            'member_id' => 'required|exists:members,id',
+            'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
+            'startdate' => 'required|date',
+        ]);
+        
+
+        $nmembership->update($request->all());
+        return redirect()->route('staff_non_membership.index')
+            ->with('success', 'Membership updated successfully.');
     }
 }
