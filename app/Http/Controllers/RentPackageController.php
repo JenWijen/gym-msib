@@ -27,25 +27,36 @@ class RentPackageController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
             'field_name' => 'required',
             'field_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'field_price' => 'required',
         ]);
     
+        // Menghilangkan tanda titik dari harga
         $request['field_price'] = str_replace('.', '', $request['field_price']);
     
         if ($request->hasFile('field_picture')) {
             $image = $request->file('field_picture');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('field_picture')->storeAs('public/images', $imageName);
-            $request['field_picture'] = 'storage/images/' . $imageName;
+            $folderPath = 'images/';
+            $imagePath = $image->store($folderPath, 'public');
+            $fieldPicturePath = 'storage/' . $imagePath;
+        } else {
+            $fieldPicturePath = null;
         }
+        $data = [
+            'field_name' => $request->input('field_name'),
+            'field_picture' => $fieldPicturePath,
+            'field_price' => $request->input('field_price'),
+        ];
+        RentPackage::create($data);
     
-        RentPackage::create($request->all());
-    
+        // Mengarahkan kembali ke halaman index dengan pesan sukses
         return redirect()->route('rent_package.index')->with('success', 'Rent Package created successfully.');
     }
+    
+
     
 
     /**

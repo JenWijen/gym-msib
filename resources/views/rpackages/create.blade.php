@@ -10,7 +10,7 @@
             <form class="forms-sample" action="{{ route('rent_package.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="field_name">Court Name:</label>
+                    <label for="field_name">Field Name:</label>
                     <input type="text" class="form-control" id="field_name" name="field_name" required>
                 </div>
                 <div class="form-group">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="field_price">Price:</label>
-                    <input type="text" class="form-control" id="field_price" name="field_price" required>
+                    <input type="text" class="form-control" id="IDR" name="field_price" required>
                 </div>
 
                 <a class="btn btn-primary" href="{{ route('rent_package.index') }}">Back</a>
