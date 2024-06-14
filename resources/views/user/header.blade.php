@@ -16,8 +16,15 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-      <a class="btn-getstarted" href="/#contact">Get Started</a>
+      @guest
+      <a href="">start</a>
+      @endguest
+    @auth
+      <a class="btn-getstarted" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+      </form>
+      @endauth
 
     </div>
   </header>

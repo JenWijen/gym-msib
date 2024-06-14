@@ -32,9 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::get('/', [UserController::class, 'index'])->name('user.master');
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('landingpage.master');
+ 
 
     // Rents routes for user
     Route::prefix('user/rent')->name('user.rent.')->group(function () {
