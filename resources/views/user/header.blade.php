@@ -11,10 +11,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="/" class="">Home</a></li>
-          <li><a href="/#about">About</a></li>
-          <li><a href="/#portfolio">Galeri</a></li>
           <li><a href="/#pricing">Membership</a></li>
-          <li><a href="/#team">Trainer</a></li>
           <li><a href="/#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
