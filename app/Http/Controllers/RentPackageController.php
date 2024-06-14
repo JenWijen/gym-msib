@@ -55,45 +55,7 @@ class RentPackageController extends Controller
         // Mengarahkan kembali ke halaman index dengan pesan sukses
         return redirect()->route('rent_package.index')->with('success', 'Rent Package created successfully.');
     }
-    
-
-    
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'field_name' => 'required',
-    //         'field_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-    //         'field_price' => 'required',
-    //     ]);
-
-    //     $request['field_price'] = str_replace('.', '', $request['field_price']);
-
-    //     if ($request->hasFile('field_picture')) {
-    //         $image = $request->file('field_picture');
-    //         $imageName = time() . '.' . $image->getClientOriginalExtension();
-    //         $image->storeAs('public/images', $imageName);
-    //         $request['field_picture'] = 'storage/images/' . $imageName;
-    //     }
-
-    //     RentPackage::create($request->all());
-
-    //     return redirect()->route('rent_package.index')->with('success', 'Rent Package created successfully.');
-    // }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $rpackages = RentPackage::find($id);
-
-        return view('rpackages.show', compact('rpackages'));
-    }
-
+   
     /**
      * Show the form for editing the specified resource.
      */
@@ -106,37 +68,49 @@ class RentPackageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, RentPackage $rpackages)
-    {
-        $request->validate([
-            'field_name' => 'required',
-            'field_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'field_price' => 'required',
-        ]);
+    public function update(Request $request, $id)
+{
+    // Find the RentPackage by ID
+    $rentPackage = RentPackage::findOrFail($id);
 
-        $request['field_price'] = str_replace('.', '', $request['field_price']);
+    // Validate input
+    $request->validate([
+        'field_name' => 'required|min:5',
+        'field_price' => 'required|string|min:5',
+        'field_picture' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+    ]);
 
-        if ($request->hasFile('field_picture')) {
-            // Delete the old picture if it exists
-            if ($rpackages->field_picture) {
-                $oldImagePath = public_path($rpackages->field_picture);
-                if (file_exists($oldImagePath)) {
-                    unlink($oldImagePath);
-                }
+    // Remove dots from the price
+    $field_price = str_replace('.', '', $request->field_price);
+
+    // Update fields
+    $rentPackage->update([
+        'field_name' => $request->field_name,
+        'field_price' => $field_price,
+    ]);
+
+    // Handle the picture file upload
+    if ($request->hasFile('field_picture')) {
+        // Delete the old picture if it exists
+        if ($rentPackage->field_picture) {
+            $oldImagePath = public_path($rentPackage->field_picture);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
             }
-    
-            $image = $request->file('field_picture');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/images', $imageName);
-            $request['field_picture'] = 'storage/images/' . $imageName;
-        } else {
-            // If no new picture is uploaded, retain the old picture path
-            $request['field_picture'] = $rpackages->field_picture;
         }
 
-        $rpackages->update($request->all());
-        return redirect()->route('rent_package.index')->with('success', 'Rent Package updated successfully.');
+        // Store the new picture
+        $image = $request->file('field_picture');
+        $image->storeAs('public/images', $image->hashName());
+        $rentPackage->update(['field_picture' => 'storage/images/' . $image->hashName()]);
     }
+
+    // Redirect back to the index page with a success message
+    return redirect()->route('rent_package.index')->with('success', 'Rent Package updated successfully.');
+}
+
+
+
 
     /**
      * Remove the specified resource from storage.

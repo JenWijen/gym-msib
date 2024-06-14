@@ -25,7 +25,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Price:</strong>
-                                    <input type="text" step="0.01" name="price" value="{{ $npackage->price }}"
+                                    <input type="text" name="price" value="{{ number_format($npackage->price, 0, ',', '.') }}"
                                         class="form-control" id="IDR" placeholder="Price">
                                 </div>
                             </div>
@@ -35,9 +35,11 @@
                                     <input type="number" name="duration" value="{{ $npackage->duration }}"
                                         class="form-control" placeholder="Duration (in days)">
                                  </div>
-                    
-                            <a class="btn btn-primary" href="{{ route('non_package.index') }}">Back</a>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                        <a class="btn btn-primary" href="{{ route('non_package.index') }}">Back</a>
+                        <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </div>
@@ -56,7 +58,7 @@
                     this.value = value.toLocaleString('id-ID', {
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 0
-                    }).replace(/\./g, '.');
+                    }).replace(/,/g, '.');
                     cursorPosition = this.value.length - originalLength + cursorPosition;
                     this.setSelectionRange(cursorPosition, cursorPosition);
                 }
