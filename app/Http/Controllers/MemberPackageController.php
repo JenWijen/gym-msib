@@ -63,20 +63,29 @@ class MemberPackageController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Package $package)
-    {
-        $request->validate([
-            'package_name' => 'required',
-            'price' => 'required',
-            'duration' => 'required|integer',
-        ]);
-        
-        $request['price'] = str_replace('.', '', $request['price']);
-        $package->update($request->all());;
-        return redirect()->route('packages.index')
-        
+{
+    // Validasi input
+    $request->validate([
+        'packet_name' => 'required|string|max:255',
+        'price' => 'required|string|min:1',
+        'duration' => 'required|integer|min:1',
+    ]);
 
-            ->with('success', 'Member Package updated successfully.');
-    }
+    // Menghapus titik dari harga
+    $price = str_replace('.', '', $request->price);
+
+    // Update field pada model package
+    $package->update([
+        'packet_name' => $request->packet_name,
+        'price' => $price,
+        'duration' => $request->duration,
+    ]);
+
+    // Redirect ke halaman index dengan pesan sukses
+    return redirect()->route('packages.index')
+                     ->with('success', 'Package updated successfully.');
+}
+
 
     /**
      * Remove the specified resource from storage.
