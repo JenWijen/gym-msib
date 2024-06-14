@@ -94,7 +94,7 @@ class RentController extends Controller
         return redirect()->route('rent_book.index')
             ->with('success', 'Rental list deleted successfully.');
     }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //User method
     public function userIndex()
     {
@@ -133,5 +133,90 @@ class RentController extends Controller
     {
         $rental = Rent::all();
         return view('rent.index', compact('rental'));
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function staffIndex()
+    {
+        $rental = Rent::all();
+        return view('staff.rent.index', compact('rental'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function staffCreate()
+    {
+        $users = User::where('userType', 'user')->get();
+        $rpackages = RentPackage::all();
+        $authUserType = auth()->user()->userType;
+        return view('staff.rent.create', compact('users', 'rpackages', 'authUserType'));
+    }
+    
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function staffStore(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'rent_package_id' => 'required|exists:rent_packages,id',
+            'rent_hours' => 'required|integer',
+            'startdate' => 'required|date',
+        ]);
+        Rent::create($request->all());
+
+        return redirect()->route('staff_rent_book.index')->with('success', 'Rent created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function staffShow(string $id)
+    {
+        $rental = Rent::all();
+        return view('staff.rent.index', compact('rental'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function staffEdit(string $id)
+    {
+        $users = User::where('userType', 'user')->get();
+        $rpackages = RentPackage::all();
+        $rental = Rent::findOrFail($id);
+        $authUserType = auth()->user()->userType;
+
+        return view('staff.rent.edit', compact( 'users', 'rpackages', 'rental', 'authUserType'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function staffUpdate(Request $request, Rent $rental)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'rent_package_id' => 'required|exists:rent_packages,id',
+            'rent_hours' => 'required|integer',
+            'startdate' => 'required|date',
+        ]);
+        $rental->update($request->all());
+
+        return redirect()->route('staff_rent_book.index')->with('success', 'Rental list updated successfully.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function staffDestroy(string $id)
+    {
+        $rental = Rent::findOrFail($id);
+        $rental->delete();
+        return redirect()->route('staff_rent_book.index')
+            ->with('success', 'Rental list deleted successfully.');
     }
 }
