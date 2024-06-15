@@ -176,7 +176,9 @@ class RentController extends Controller
      */
     public function staffShow(string $id)
     {
+
         $rental = Rent::findOrFail($id); // Mencari rent berdasarkan id
+
         return view('staff.rent.show', compact('rental'));
     }
 
@@ -205,6 +207,7 @@ class RentController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     // public function staffUpdate(Request $request, Rent $rental)
     // {
     //     $request->validate([
@@ -230,6 +233,7 @@ class RentController extends Controller
     $rental->update($request->all());
 
     return redirect()->route('staff_rent_book.index')->with('success', 'Rental list updated successfully.');
+
     }
 
     /**
