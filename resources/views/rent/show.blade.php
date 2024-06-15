@@ -28,7 +28,7 @@
                             <td>{{ \Carbon\Carbon::parse($rental->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
                         </tr>
                     </table><br>
-                    <a class="btn btn-primary" href="{{ route('rent.index') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ route('rent_book.index') }}">Back</a>
                 </div>
             </div>
         </div>
