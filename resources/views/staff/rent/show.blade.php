@@ -12,25 +12,23 @@
                     </p>
                     <table class="table table-bordered">
                         <tr>
+                            <th>Name:</th>
+                            <td>{{ $rents->user->name }}</td>
+                        </tr>
+                        <tr>
                             <th>Field Name:</th>
-                            <td>{{ $rpackages->field_name }}</td>
+                            <td>{{ optional($rents->rpackage)->field_name ?? 'N/A' }}</td>
                         </tr>
                         <tr>
-                            <th>Picture:</th>
-                            <td>
-                                @if ($rpackages->field_picture)
-                                    <img src="{{ asset('path/to/images/' . $rpackages->field_picture) }}" alt="{{ $rpackages->field_name }}" style="max-width: 200px;">
-                                @else
-                                    No Picture Available
-                                @endif
-                            </td>
+                            <th>Rental Hours:</th>
+                            <td>{{ $rents->rent_hours }} Hours</td>
                         </tr>
                         <tr>
-                            <th>Price:</th>
-                            <td>{{ $rpackages->field_price }}</td>
+                            <th>Start Date:</th>
+                            <td>{{ \Carbon\Carbon::parse($rent->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
                         </tr>
                     </table><br>
-                    <a class="btn btn-primary" href="{{ route('staff_rent.index') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ route('staff_rent_book.index') }}">Back</a>
                 </div>
             </div>
         </div>

@@ -177,7 +177,7 @@ class RentController extends Controller
     public function staffShow(string $id)
     {
         $rental = Rent::all();
-        return view('staff.rent.index', compact('rental'));
+        return view('staff.rent.show', compact('rental'));
     }
 
     /**
@@ -196,17 +196,31 @@ class RentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function staffUpdate(Request $request, Rent $rental)
+    public function staffUpdate(Request $request, $id)
     {
+        // Validasi data dari request
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'rent_package_id' => 'required|exists:rent_packages,id',
             'rent_hours' => 'required|integer',
             'startdate' => 'required|date',
         ]);
-        $rental->update($request->all());
-
-        return redirect()->route('staff_rent_book.index')->with('success', 'Rental list updated successfully.');
+    
+        // Ambil data rental berdasarkan $id
+        $rental = Rent::findOrFail($id);
+    
+        // Update data rental berdasarkan data yang diterima dari request
+        $rental->user_id = $request->user_id;
+        $rental->rent_package_id = $request->rent_package_id;
+        $rental->rent_hours = $request->rent_hours;
+        $rental->startdate = $request->startdate;
+    
+        // Simpan perubahan ke dalam database
+        $rental->save();
+    
+        // Redirect ke halaman index atau halaman lainnya dengan pesan sukses
+        return redirect()->route('staff_rent_book.index')
+                         ->with('success', 'Rental list updated successfully.');
     }
 
     /**

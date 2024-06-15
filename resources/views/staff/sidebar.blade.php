@@ -14,13 +14,13 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('staff_members.index') }}">
+      <a class="nav-link" href="{{ route('memb_only.index') }}">
         <i class="bi bi-people-fill menu-icon"></i>
         <span class="menu-title">Member</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('staff_memberships.index') }}">
+      <a class="nav-link" href="{{ route('with_trainer.index') }}">
         <i class="bi bi-card-checklist menu-icon"></i>
         <span class="menu-title">Membership + Trainer</span>
       </a>
