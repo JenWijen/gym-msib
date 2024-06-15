@@ -191,7 +191,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/', [RentController::class, 'index'])->name('index');
         Route::get('create', [RentController::class, 'create'])->name('create');
         Route::post('/', [RentController::class, 'store'])->name('store');
-        Route::get('{rent_book}/show', [RentController::class, 'show'])->name('show');
+        Route::get('{id}/show', [RentController::class, 'show'])->name('show');
         Route::get('{rent_book}/edit', [RentController::class, 'edit'])->name('edit');
         Route::put('{rent_book}', [RentController::class, 'update'])->name('update');
         Route::delete('{rent_book}', [RentController::class, 'destroy'])->name('destroy');
