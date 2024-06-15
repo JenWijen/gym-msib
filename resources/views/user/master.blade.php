@@ -491,7 +491,7 @@
       <div class="row gy-4">
           <div class="col-lg-6">
 
-          @auth
+        @auth
         <form action="{{ route('ulasan.store') }}" method="post">
             @csrf
             <div class="mb-3">
@@ -505,7 +505,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-@endauth
+        @endauth
 
           </div>
           <div class="col-lg-12">
