@@ -18,7 +18,7 @@ class Staff
     {
         if(Auth::user()->userType != 'staff'){
 
-            return redirect('/user');
+            return redirect('/');
         }
         return $next($request);
     }

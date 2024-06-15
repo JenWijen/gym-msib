@@ -12,6 +12,7 @@ use App\Http\Controllers\NTPackageController;
 use App\Http\Controllers\RentController;
 use App\Http\Controllers\RentPackageController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [UserController::class, 'index'])->name('user.master');
 Route::middleware(['auth', 'verified'])->group(function () {
- 
+    Route::resource('ulasan', UlasanController::class);
 
     // Rents routes for user
     Route::prefix('user/rent')->name('user.rent.')->group(function () {
@@ -42,6 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('create', [RentController::class, 'userCreate'])->name('create');
         Route::post('/', [RentController::class, 'userStore'])->name('store');
         Route::get('{user.rent}', [RentController::class, 'userShow'])->name('show');
+        
     });
 });
 
