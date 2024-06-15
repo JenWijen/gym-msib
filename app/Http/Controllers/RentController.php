@@ -176,37 +176,60 @@ class RentController extends Controller
      */
     public function staffShow(string $id)
     {
-        $rental = Rent::all();
-        return view('staff.rent.index', compact('rental'));
+        $rental = Rent::findOrFail($id); // Mencari rent berdasarkan id
+        return view('staff.rent.show', compact('rental'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function staffEdit(string $id)
-    {
-        $users = User::where('userType', 'user')->get();
-        $rpackages = RentPackage::all();
-        $rental = Rent::findOrFail($id);
-        $authUserType = auth()->user()->userType;
+    // public function staffEdit(string $id)
+    // {
+    //     $users = User::where('userType', 'user')->get();
+    //     $rpackages = RentPackage::all();
+    //     $rental = Rent::findOrFail($id);
+    //     $authUserType = auth()->user()->userType;
 
-        return view('staff.rent.edit', compact( 'users', 'rpackages', 'rental', 'authUserType'));
+    //     return view('staff.rent.edit', compact( 'users', 'rpackages', 'rental', 'authUserType'));
+    // }
+    public function staffEdit($id)
+    {
+    $users = User::where('userType', 'user')->get();
+    $rpackages = RentPackage::all();
+    $rental = Rent::findOrFail($id);
+    $authUserType = auth()->user()->userType;
+
+    return view('staff.rent.edit', compact('users', 'rpackages', 'rental', 'authUserType'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function staffUpdate(Request $request, Rent $rental)
-    {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'rent_package_id' => 'required|exists:rent_packages,id',
-            'rent_hours' => 'required|integer',
-            'startdate' => 'required|date',
-        ]);
-        $rental->update($request->all());
+    // public function staffUpdate(Request $request, Rent $rental)
+    // {
+    //     $request->validate([
+    //         'user_id' => 'required|exists:users,id',
+    //         'rent_package_id' => 'required|exists:rent_packages,id',
+    //         'rent_hours' => 'required|integer',
+    //         'startdate' => 'required|date',
+    //     ]);
+    //     $rental->update($request->all());
 
-        return redirect()->route('staff_rent_book.index')->with('success', 'Rental list updated successfully.');
+    //     return redirect()->route('staff_rent_book.index')->with('success', 'Rental list updated successfully.');
+    // }
+    public function staffUpdate(Request $request, $id)
+    {
+    $request->validate([
+        'user_id' => 'required|exists:users,id',
+        'rent_package_id' => 'required|exists:rent_packages,id',
+        'rent_hours' => 'required|integer',
+        'startdate' => 'required|date',
+    ]);
+
+    $rental = Rent::findOrFail($id);
+    $rental->update($request->all());
+
+    return redirect()->route('staff_rent_book.index')->with('success', 'Rental list updated successfully.');
     }
 
     /**

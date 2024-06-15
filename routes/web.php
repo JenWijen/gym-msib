@@ -82,14 +82,17 @@ Route::middleware(['auth', 'staff'])->group(function () {
         Route::put('{staff_non_membership}', [NTMembershipController::class, 'staffUpdate'])->name('update');
     });
 
-    // Rent routes for admin
+    // Rent routes for staff
     Route::prefix('staff/rent_book')->name('staff_rent_book.')->group(function () {
         Route::get('/', [RentController::class, 'staffIndex'])->name('index');
         Route::get('create', [RentController::class, 'staffCreate'])->name('create');
         Route::post('/', [RentController::class, 'staffStore'])->name('store');
-        Route::get('{staff_rent_book}/show', [RentController::class, 'staffShow'])->name('show');
-        Route::get('{staff_rent_book}/edit', [RentController::class, 'staffEdit'])->name('edit');
-        Route::put('{staff_rent_book}', [RentController::class, 'staffUpdate'])->name('update');
+        Route::get('{id}/show', [RentController::class, 'staffShow'])->name('show');
+        // Route::get('{staff_rent_book}/edit', [RentController::class, 'staffEdit'])->name('edit');
+        // Route::put('{staff_rent_book}', [RentController::class, 'staffUpdate'])->name('update');
+        Route::get('{id}/edit', [RentController::class, 'staffEdit'])->name('edit');
+        Route::put('{id}', [RentController::class, 'staffUpdate'])->name('update');
+        Route::delete('{id}', [RentController::class, 'staffDestroy'])->name('destroy');
         Route::delete('{staff_rent_book}', [RentController::class, 'staffDestroy'])->name('destroy');
     });
 });
@@ -97,6 +100,12 @@ Route::middleware(['auth', 'staff'])->group(function () {
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.master');
+
+    // Role routes
+    Route::prefix('admin/roles')->name('roles.')->group(function () {
+        Route::get('/', [UserController::class, 'roleIndex'])->name('index');
+        Route::patch('/{id}/updateType', [UserController::class, 'updateType'])->name('updateType');    
+    });
 
     // Trainers routes
     Route::prefix('admin/trainers')->name('trainers.')->group(function () {

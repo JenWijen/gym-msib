@@ -14,6 +14,12 @@
       </a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="{{ route('roles.index') }}">
+        <i class="bi bi-person-badge-fill menu-icon"></i>
+        <span class="menu-title">User Role</span>
+      </a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="{{ route('trainers.index') }}">
         <i class="bi bi-person-badge-fill menu-icon"></i>
         <span class="menu-title">Trainer</span>
