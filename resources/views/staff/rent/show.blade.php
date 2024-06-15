@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('staff.master')
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -30,7 +30,7 @@
                             <td>{{ $rpackages->field_price }}</td>
                         </tr>
                     </table><br>
-                    <a class="btn btn-primary" href="{{ route('rent.index') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ route('staff_rent.index') }}">Back</a>
                 </div>
             </div>
         </div>

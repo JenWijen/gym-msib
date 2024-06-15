@@ -67,7 +67,7 @@ class MembersController extends Controller
      // Staff methods
      public function staffIndex()
      {
-         $members = Member::with('membership')->get();
+         $members = Member::all();
          return view('staff.members.index', compact('members'));
      }
  
@@ -85,7 +85,7 @@ class MembersController extends Controller
  
          Member::create($request->all());
  
-         return redirect()->route('staff.members.index')->with('success', 'Member added successfully.');
+         return redirect()->route('staff_members.index')->with('success', 'Member added successfully.');
      }
  
      public function staffShow(Member $member)
@@ -107,12 +107,6 @@ class MembersController extends Controller
  
          $member->update($request->all());
  
-         return redirect()->route('staff.members.index')->with('success', 'Member updated successfully.');
-     }
- 
-     public function staffDestroy(Member $member)
-     {
-         $member->delete();
-         return redirect()->route('staff.members.index')->with('success', 'Member deleted successfully.');
+         return redirect()->route('staff_members.index')->with('success', 'Member updated successfully.');
      }
 }

@@ -62,21 +62,31 @@ class NTPackageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, NonPackage $npackage)
-    {
-        $request->validate([
-            'package_name' => 'required',
-            'price' => 'required',
-            'duration' => 'required|integer',
-        ]);
-        
-        $request['price'] = str_replace('.', '', $request['price']);
-        $npackage->update($request->all());
-        return redirect()->route('non_package.index')
-        
+    public function update(Request $request, $id)
+{
+    // Find the package by ID
+    $npackage = NonPackage::findOrFail($id);
 
-            ->with('success', 'Member Package updated successfully.');
-    }
+    // Validate input
+    $request->validate([
+        'package_name' => 'required|string|max:255',
+        'price' => 'required|string|min:1',
+        'duration' => 'required|integer|min:1',
+    ]);
+
+    // Remove dots from the price
+    $price = str_replace('.', '', $request->price);
+
+    // Update fields
+    $npackage->update([
+        'package_name' => $request->package_name,
+        'price' => $price,
+        'duration' => $request->duration,
+    ]);
+
+    // Redirect back to the index page with a success message
+    return redirect()->route('non_package.index')->with('success', 'Package updated successfully.');
+}
 
     /**
      * Remove the specified resource from storage.

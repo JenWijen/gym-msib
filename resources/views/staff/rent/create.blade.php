@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('staff.master')
 
 @section('content')
 
@@ -7,7 +7,7 @@
         <div class="card-body">
             <h4 class="card-title">Rental Form</h4>
             <p class="card-description">Adding New Package</p>
-            <form class="forms-sample" action="{{ route('rent_book.store') }}" method="POST" enctype="multipart/form-data">
+            <form class="forms-sample" action="{{ route('staff_rent_book.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="user_id">Name:</label>
@@ -33,7 +33,7 @@
                     <label for="startdate">Date:</label>
                     <input type="date" class="form-control" id="startdate" name="startdate" required>
                 </div>
-                <a class="btn btn-primary" href="{{ route('rent_book.index') }}">Back</a>
+                <a class="btn btn-primary" href="{{ route('staff_rent_book.index') }}">Back</a>
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>
         </div>

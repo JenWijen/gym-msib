@@ -10,8 +10,7 @@
                     <p class="card-description">
                         Edit Rental Package Information
                     </p>
-                    <form action="{{ route('rent_package.update', $rpackage->id) }}" method="POST"
-                        enctype="multipart/form-data">
+                    <form action="{{ route('rent_package.update', $rpackages->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -19,26 +18,22 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Court Name:</strong>
-                                    <input type="text" name="field_name" value="{{ $rpackage->field_name }}"
-                                        class="form-control" placeholder="field_Name">
+                                    <input type="text" name="field_name" value="{{ $rpackages->field_name }}" class="form-control" placeholder="Field Name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
+                                @if ($rpackages->field_picture)
+                                    <img src="{{ asset($rpackages->field_picture) }}" alt="{{ $rpackages->field_name }}" style="max-width: 200px; margin-top: 10px;">
+                                @endif
                                 <div class="form-group">
                                     <strong>Picture:</strong>
-                                    <input type="file" name="field_picture" class="form-control">
-                                    @if ($rpackage->field_picture)
-                                        <img src="{{ asset('path/to/images/' . $rpackage->field_picture) }}"
-                                            alt="{{ $rpackage->field_name }}" style="max-width: 200px; margin-top: 10px;">
-                                    @endif
+                                    <input type="file" class="form-control-file" id="field_picture" name="field_picture">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Price:</strong>
-                                    <input type="text" step="0.01" name="field_price"
-                                        value="{{ $rpackage->field_price }}" class="form-control" id="IDR"
-                                        placeholder="Price">
+                                    <input type="text" step="0.01" name="field_price" value="{{ number_format($rpackages->field_price, 0, ',', '.') }}" class="form-control" id="IDR" placeholder="Price">
                                 </div>
                             </div>
                         </div>
@@ -63,7 +58,7 @@
                     this.value = value.toLocaleString('id-ID', {
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 0
-                    }).replace(/\./g, '.');
+                    }).replace(/,/g, '.');
                     cursorPosition = this.value.length - originalLength + cursorPosition;
                     this.setSelectionRange(cursorPosition, cursorPosition);
                 }
