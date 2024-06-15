@@ -18,7 +18,6 @@
                         <table id="example" class="display expandable-table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Name</th>
                                     <th>Field Name</th>
                                     <th>Rental Hours</th>
@@ -29,7 +28,6 @@
                             <tbody>
                                 @foreach ($rental as $rent)
                                     <tr>
-                                        <td>{{ $rent->id }}</td>
                                         <td>{{ $rent->user->name }}</td>
                                         <td>{{ optional($rent->rpackage)->field_name ?? 'N/A' }}</td>
                                         {{-- <td>{{ $rent->rpackage->field_name }}</td> --}}

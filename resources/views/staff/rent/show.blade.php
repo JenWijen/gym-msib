@@ -13,19 +13,21 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>Name:</th>
-                            <td>{{ $rents->user->name }}</td>
+
+                            <td>{{ $rental->user->name }}</td>
                         </tr>
                         <tr>
                             <th>Field Name:</th>
-                            <td>{{ optional($rents->rpackage)->field_name ?? 'N/A' }}</td>
+                            <td>{{ optional($rental->rpackage)->field_name ?? 'N/A' }}</td>
                         </tr>
                         <tr>
                             <th>Rental Hours:</th>
-                            <td>{{ $rents->rent_hours }} Hours</td>
+                            <td>{{ $rental->rent_hours }} Hours</td>
                         </tr>
                         <tr>
                             <th>Start Date:</th>
-                            <td>{{ \Carbon\Carbon::parse($rent->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($rental->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
+
                         </tr>
                     </table><br>
                     <a class="btn btn-primary" href="{{ route('staff_rent_book.index') }}">Back</a>
