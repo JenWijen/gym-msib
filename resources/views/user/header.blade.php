@@ -23,6 +23,21 @@
       @endguest
 
       @auth
+      @guest
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/" class="">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#portfolio">Galeri</a></li>
+          <li><a href="/#pricing">Membership</a></li>
+          <li><a href="/#team">Trainer</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      @endguest
+
+      @auth
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="/" class="">Home</a></li>
@@ -32,8 +47,8 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
       @endauth
-
       @guest
+      <a class="btn-getstarted" href="/login">Get Started</a>
       <a class="btn-getstarted" href="/login">Get Started</a>
       @endguest
       @auth

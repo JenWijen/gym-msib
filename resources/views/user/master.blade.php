@@ -44,6 +44,103 @@
   object-fit: cover; /* Memastikan gambar diatur dengan rata */
   margin-bottom: 50px;
 }
+.sidebar {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    flex: 1 1 250px; /* Default to 250px width */
+    min-width: 200px; /* Minimum width of 200px */
+}
+
+.swiper-button-prev,
+  .swiper-button-next {
+    opacity: 0.2; /* Adjust opacity level as needed */
+  }
+
+/* Styling for star rating */
+.rating {
+    display: inline-block;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    float: right;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #fdd835;
+}
+
+.rating input:checked ~ label {
+    color: #fdd835;
+}
+
+.rating input:checked ~ label:hover,
+.rating input:checked ~ label:hover ~ label {
+    color: #fbc02d;
+}
+
+/* Optional: Adjust spacing or other styles as needed */
+.testimonials {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.section-title p {
+    font-size: 18px;
+    color: #666;
+}
+
+.swiper-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    color: #333;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next {
+    right: 20px;
+}
+
+.swiper-button-prev {
+    left: 20px;
+}
+
+
 
 </style>
 
@@ -60,7 +157,6 @@
 <body class="index-page">
 
   @include('user.header')
-
 @guest
 <main class="main">
     <!-- Hero Section -->
@@ -383,40 +479,58 @@
   </div>
 </section><!-- /Pricing Section -->
 
-<!-- Testimonials Section -->
+<!-- Testimonials guest Section -->
 <section id="testimonials" class="testimonials section">
   <div class="container section-title" data-aos="fade-up">
       <h2>Testimonials</h2>
       <p>What they are saying</p>
   </div>
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="testimonials-slider swiper">
-          <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                  <div class="testimonial-item">
-                      <img src="https://khabarfakt.com/wp-content/uploads/2022/12/1601223708_jacqueline-fernandez_workout_pose-6.jpg" class="testimonial-img" alt="">
-                      <h3>Sara Wilsson</h3>
-                      <h4>Member</h4>
-                      <div class="stars">
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                      </div>
-                      <p>
-                          <i class="bi bi-quote"></i>
-                          Excellent facilities and great support from the trainers.
-                          <i class="bi bi-quote"></i>
-                      </p>
-                  </div>
-              </div><!-- End Testimonial Item -->
-              <!-- Additional testimonial items can be added here -->
+      <div class="row gy-4">
+          <div class="col-lg-6">
+
+          @auth
+        <form action="{{ route('ulasan.store') }}" method="post">
+            @csrf
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" required readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="ulasan" class="form-label">Ulasan</label>
+                <textarea class="form-control" id="ulasan" name="ulasan" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+@endauth
+
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="col-lg-12">
+          <div class="testimonials-carousel swiper">
+    <div class="swiper-wrapper">
+        @foreach ($ulasan as $ulasans)
+            <div class="swiper-slide">
+                <div class="testimonial-item">
+                    <h3>{{ $ulasans->name }}</h3>
+                    <p>
+                        <i class="bi bi-quote"></i>
+                        {{ $ulasans->ulasan }}
+                        <i class="bi bi-quote"></i>
+                    </p>
+                </div>
+            </div><!-- End Testimonial Item -->
+        @endforeach
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+          </div>
       </div>
   </div>
-</section><!-- /Testimonials Section -->
+</section>
+<!-- /Testimonials Section -->
 
 <!-- Contact Section -->
 <section id="contact" class="contact section">
@@ -694,40 +808,83 @@
   </div>
 </section><!-- /Pricing Section -->
 
-<!-- Testimonials Section -->
+<!-- Testimonials user Section -->
 <section id="testimonials" class="testimonials section">
-  <div class="container section-title" data-aos="fade-up">
-      <h2>Testimonials</h2>
-      <p>What they are saying</p>
-  </div>
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="testimonials-slider swiper">
-          <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                  <div class="testimonial-item">
-                      <img src="https://khabarfakt.com/wp-content/uploads/2022/12/1601223708_jacqueline-fernandez_workout_pose-6.jpg" class="testimonial-img" alt="">
-                      <h3>Sara Wilsson</h3>
-                      <h4>Member</h4>
-                      <div class="stars">
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                      </div>
-                      <p>
-                          <i class="bi bi-quote"></i>
-                          Excellent facilities and great support from the trainers.
-                          <i class="bi bi-quote"></i>
-                      </p>
-                  </div>
-              </div><!-- End Testimonial Item -->
-              <!-- Additional testimonial items can be added here -->
-          </div>
-          <div class="swiper-pagination"></div>
-      </div>
-  </div>
-</section><!-- /Testimonials Section -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>What they are saying</p>
+    </div>
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+            <div class="col-lg-6">
+                @auth
+                <form action="{{ route('ulasan.store') }}" method="post">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" required readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Star Rating</label><br>
+                        <div class="rating">
+                            <input type="radio" id="star5" name="star_rating" value="5" required>
+                            <label for="star5"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star4" name="star_rating" value="4">
+                            <label for="star4"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star3" name="star_rating" value="3">
+                            <label for="star3"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star2" name="star_rating" value="2">
+                            <label for="star2"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star1" name="star_rating" value="1">
+                            <label for="star1"><i class="bi bi-star-fill"></i></label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ulasan" class="form-label">Ulasan</label>
+                        <textarea class="form-control" id="ulasan" name="ulasan" rows="3" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                @else
+                <p>Please log in to send a message.</p>
+                @endauth
+            </div>
+            <div class="col-lg-6">
+                <div class="testimonials-carousel swiper">
+                    <div class="swiper-wrapper">
+                        @foreach ($ulasan as $ulasans)
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <h3>{{ $ulasans->name }}</h3>
+                                <p>
+                                    <i class="bi bi-quote"></i>
+                                    {{ $ulasans->ulasan }}
+                                    <i class="bi bi-quote"></i>
+                                </p>
+                                <div class="rating">
+                                    @for ($i = 0; $i < $ulasans->star_rating; $i++)
+                                        <i class="bi bi-star-fill"></i>
+                                    @endfor
+                                </div>
+                            </div>
+                        </div><!-- End Testimonial Item -->
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- /Testimonials Section -->
 
 <!-- Contact Section -->
 <section id="contact" class="contact section">
@@ -754,34 +911,17 @@
                   <p>+123 456 789</p>
               </div>
           </div>
-          <div class="col-lg-6">
-              <form action="#" method="post" class="php-email-form">
-                  <div class="row gy-4">
-                      <div class="col-md-6">
-                          <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                      </div>
-                      <div class="col-md-6">
-                          <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                      </div>
-                      <div class="col-md-12">
-                          <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-                      </div>
-                      <div class="col-md-12">
-                          <textarea name="message" rows="6" class="form-control" placeholder="Message" required></textarea>
-                      </div>
-                      <div class="col-md-12 text-center">
-                          <button type="submit" class="klik-btn">Send Message</button>
-                      </div>
-                  </div>
-              </form>
-          </div>
+          <!-- <div class="col-lg-6">
+            <div class="row gy-4">
+            zzzz
+            </div>
+          </div> -->
       </div>
   </div>
 </section><!-- /Contact Section -->
 
   </main><!-- End #main -->
 @endauth
-
   @include('user.footer')
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -814,6 +954,21 @@
     loop: true, // Infinite loop
     autoplay: {
       delay: 5000,
+    },
+  });
+
+  var swiper = new Swiper('.testimonials-carousel', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
     },
   });
 </script>
