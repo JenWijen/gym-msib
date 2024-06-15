@@ -168,12 +168,6 @@
               <h2 data-aos="fade-up" data-aos-delay="100">Welcome to GymFit.</h2>
               <p data-aos="fade-up" data-aos-delay="200">Have the body of your dreams by starting now</p>
           </div>
-          <div class="col-lg-5">
-              <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300">
-                  <input type="text" class="form-control" placeholder="Enter email address">
-                  <input type="submit" class="btn btn-primary" value="Sign up">
-              </form>
-          </div>
       </div>
   </div>
 </section><!-- /Hero Section -->
@@ -224,29 +218,29 @@
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                   <img src="\user\assets\img\galeri\ac1.jpg" class="img-fluid" alt="">
                   <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\ac1.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <h6>gym</h6>
+                      <a href="\user\assets\img\galeri\ac1.jpg" title="gym" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   </div>
               </div><!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                   <img src="\user\assets\img\galeri\ac2.jpg" class="img-fluid" alt="">
                   <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\ac2.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <h6>gym</h6>
+                      <a href="\user\assets\img\galeri\ac2.jpg" title="gym" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   </div>
               </div><!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                   <img src="\user\assets\img\galeri\ac3.jpg" class="img-fluid" alt="">
                   <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\ac3.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <h6>gym</h6>
+                      <a href="\user\assets\img\galeri\ac3.jpg" title="gym" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   </div>
               </div><!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                   <img src="\user\assets\img\galeri\lpbd.jpg" class="img-fluid" alt="">
                   <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\lpbd.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <h6>Lapangan Badminton</h6>
+                      <a href="\user\assets\img\galeri\lpbd.jpg" title="Lapangan Badminton" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   </div>
               </div>
               
@@ -254,23 +248,23 @@
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                   <img src="\user\assets\img\galeri\lpfs.jpeg" class="img-fluid" alt="">
                   <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\lpfs.jpeg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <h6>Lapangan Futsal</h6>
+                      <a href="\user\assets\img\galeri\lpfs.jpeg" title="Lapangan Futsal" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   </div>
               </div>
               <!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                   <img src="\user\assets\img\galeri\lptn.jpg" class="img-fluid" alt="">
                   <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\lptn.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <h6>Lapangan Tenis</h6>
+                      <a href="\user\assets\img\galeri\lptn.jpg" title="Lapangan Tenis" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   </div>
               </div>
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                   <img src="\user\assets\img\galeri\lpbk.jpg" class="img-fluid" alt="">
                   <div class="portfolio-info">
-                      <h6>Equipment</h6>
-                      <a href="\user\assets\img\galeri\lpbk.jpg" title="Equipment" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <h6>Lapangan Basket</h6>
+                      <a href="\user\assets\img\galeri\lpbk.jpg" title="Lapangan Basket" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   </div>
               </div><!-- End Portfolio Item -->
               <!-- More portfolio items can be added here -->
@@ -293,7 +287,7 @@
                       <!-- Pricing Item 1 -->
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 1</h3>
+                              <h3>Package Y1</h3>
                               <div class="icon">
                                   <i class="bi bi-box"></i>
                               </div>
@@ -303,89 +297,97 @@
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
                                   <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
                       
                       <!-- Pricing Item 2 -->
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 2</h3>
+                              <h3>Package Y2</h3>
                               <div class="icon">
                                   <i class="bi bi-rocket"></i>
                               </div>
-                              <h4><sup>Rp</sup>275.000<span> / month</span></h4>
+                              <h4><sup>Rp</sup>175.000<span> /  1month</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
-                                  <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+                                  <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
                       
                       <!-- Pricing Item 3 -->
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 3</h3>
+                              <h3>Package Y3</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
-                              <h4><sup>Rp</sup>2.600.000<span> / year</span></h4>
+                              <h4><sup>Rp</sup>250.000<span> / 2month</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
-                                  <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+                                  <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
                       
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 3</h3>
+                              <h3>Package Y4</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
-                              <h4><sup>Rp</sup>2.600.000<span> / year</span></h4>
+                              <h4><sup>Rp</sup>350.000<span> / 3mount</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
-                                  <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+                                  <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
 
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 3</h3>
+                              <h3>Package X1</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
-                              <h4><sup>Rp</sup>2.600.000<span> / year</span></h4>
+                              <h4><sup>Rp</sup>475.000<span> / 1mount</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
                                   <li><i class="bi bi-check"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
 
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 3</h3>
+                              <h3>Package X2</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
-                              <h4><sup>Rp</sup>2.600.000<span> / year</span></h4>
+                              <h4><sup>Rp</sup>550.000<span> / 2mount</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
                                   <li><i class="bi bi-check"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
+                          </div>
+                      </div><!-- End Pricing Item -->
+                      <div class="swiper-slide">
+                          <div class="pricing-item">
+                              <h3>Package X3</h3>
+                              <div class="icon">
+                                  <i class="bi bi-send"></i>
+                              </div>
+                              <h4><sup>Rp</sup>650.000<span> / 3mount</span></h4>
+                              <ul>
+                                  <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
+                                  <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
+                                  <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+                              </ul>
                           </div>
                       </div><!-- End Pricing Item -->
 
@@ -420,7 +422,7 @@
                             <div class="pricing-item">
                                 <h3>Lapangan Tenis</h3>
                                 <img src="https://3.bp.blogspot.com/-SoekVZ9WFOk/WI_BsY_5BcI/AAAAAAAAe-Q/fIoOitd0EZgnsD-ooC21bhAgewJMv8PZgCLcB/s320/20140101_124313.jpg" class="img-fluid" alt="Field Image 1 style="max-width: 100%;">
-                                <h4><sup>Rp</sup>200.000<span> / hours</span></h4>
+                                <h4><sup>Rp</sup>150.000<span> / hours</span></h4>
                                 <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
@@ -432,7 +434,7 @@
                             <div class="pricing-item">
                                 <h3>Lapangan Badminton</h3>
                                 <img src="https://abouttng.com/wp-content/uploads/2022/06/gambar-01-6.jpg" class="img-fluid" alt="Field Image 1 style="max-width: 100%;">
-                                <h4><sup>Rp</sup>200.000<span> / hours</span></h4>
+                                <h4><sup>Rp</sup>100.000<span> / hours</span></h4>
                                 <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
@@ -444,7 +446,7 @@
                             <div class="pricing-item">
                                 <h3>Lapangan Futsal</h3>
                                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG1rLwun-jFfDvjaX1PxLgMsRiKL5oHhuuihfux5xL5jn2e2l1YATNlSSEHm7M_Esu_hUw-V-RieMSrSDlK3m1sVWbEcBISVKXfuasvhSypcpcTqYT2xMT_fUOGWcJKJhsZliLtweHLEM4/s640/lapangan_futsal11.jpeg" class="img-fluid" alt="Field Image 1 style="max-width: 100%;">
-                                <h4><sup>Rp</sup>200.000<span> / hours</span></h4>
+                                <h4><sup>Rp</sup>170.000<span> / hours</span></h4>
                                 <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
@@ -456,7 +458,7 @@
                             <div class="pricing-item">
                                 <h3>Lapangan Basket</h3>
                                 <img src="https://image.made-in-china.com/43f34j00vYHkeacEqrqp/Flooring-PVC-Indoor-Basketball-Court-Sports-Vinyl-Flooring.webp" class="img-fluid" alt="Field Image 1 style="max-width: 100%;">
-                                <h4><sup>Rp</sup>200.000<span> / hours</span></h4>
+                                <h4><sup>Rp</sup>100.000<span> / hours</span></h4>
                                 <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
@@ -510,7 +512,7 @@
           <div class="testimonials-carousel swiper">
     <div class="swiper-wrapper">
         @foreach ($ulasan as $ulasans)
-            <div class="swiper-slide">
+        <div class="swiper-slide">
                 <div class="testimonial-item">
                     <h3>{{ $ulasans->name }}</h3>
                     <p>
@@ -518,8 +520,13 @@
                         {{ $ulasans->ulasan }}
                         <i class="bi bi-quote"></i>
                     </p>
+                    <div class="rating">
+                        @for ($i = 0; $i < $ulasans->star_rating; $i++)
+                            <i class="bi bi-star-fill"></i>
+                        @endfor
+                    </div>
                 </div>
-            </div><!-- End Testimonial Item -->
+        </div><!-- End Testimonial Item -->
         @endforeach
     </div>
     <div class="swiper-pagination"></div>
@@ -560,21 +567,7 @@
           <div class="col-lg-6">
               <form action="#" method="post" class="php-email-form">
                   <div class="row gy-4">
-                      <div class="col-md-6">
-                          <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                      </div>
-                      <div class="col-md-6">
-                          <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                      </div>
-                      <div class="col-md-12">
-                          <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-                      </div>
-                      <div class="col-md-12">
-                          <textarea name="message" rows="6" class="form-control" placeholder="Message" required></textarea>
-                      </div>
-                      <div class="col-md-12 text-center">
-                          <button type="submit" class="klik-btn">Send Message</button>
-                      </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.97631999085!2d110.40338687438532!3d-7.12873549287514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7089002a5df913%3A0x4255a41a6a6310da!2sDiamond%20Gym%20Ungaran!5e0!3m2!1sid!2sid!4v1718446725623!5m2!1sid!2sid" width="500" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
                   </div>
               </form>
           </div>
@@ -622,7 +615,7 @@
                       <!-- Pricing Item 1 -->
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 1</h3>
+                              <h3>Package Y1</h3>
                               <div class="icon">
                                   <i class="bi bi-box"></i>
                               </div>
@@ -632,89 +625,97 @@
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
                                   <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
                       
                       <!-- Pricing Item 2 -->
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 2</h3>
+                              <h3>Package Y2</h3>
                               <div class="icon">
                                   <i class="bi bi-rocket"></i>
                               </div>
-                              <h4><sup>Rp</sup>275.000<span> / month</span></h4>
+                              <h4><sup>Rp</sup>175.000<span> /  1month</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
-                                  <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+                                  <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
                       
                       <!-- Pricing Item 3 -->
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 3</h3>
+                              <h3>Package Y3</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
-                              <h4><sup>Rp</sup>2.600.000<span> / year</span></h4>
+                              <h4><sup>Rp</sup>250.000<span> / 2month</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
-                                  <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+                                  <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
                       
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 4</h3>
+                              <h3>Package Y4</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
-                              <h4><sup>Rp</sup>2.600.000<span> / year</span></h4>
+                              <h4><sup>Rp</sup>350.000<span> / 3mount</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
-                                  <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+                                  <li class="na"><i class="bi bi-x"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
 
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 5</h3>
+                              <h3>Package X1</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
-                              <h4><sup>Rp</sup>2.600.000<span> / year</span></h4>
+                              <h4><sup>Rp</sup>475.000<span> / 1mount</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
                                   <li><i class="bi bi-check"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
                           </div>
                       </div><!-- End Pricing Item -->
 
                       <div class="swiper-slide">
                           <div class="pricing-item">
-                              <h3>Package 6</h3>
+                              <h3>Package X2</h3>
                               <div class="icon">
                                   <i class="bi bi-send"></i>
                               </div>
-                              <h4><sup>Rp</sup>2.600.000<span> / year</span></h4>
+                              <h4><sup>Rp</sup>550.000<span> / 2mount</span></h4>
                               <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
                                   <li><i class="bi bi-check"></i> <span>Trainer</span></li>
                               </ul>
-                              <div class="text-center"><a href="#" class="klik-btn">Sign Up</a></div>
+                          </div>
+                      </div><!-- End Pricing Item -->
+                      <div class="swiper-slide">
+                          <div class="pricing-item">
+                              <h3>Package X3</h3>
+                              <div class="icon">
+                                  <i class="bi bi-send"></i>
+                              </div>
+                              <h4><sup>Rp</sup>650.000<span> / 3mount</span></h4>
+                              <ul>
+                                  <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
+                                  <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
+                                  <li><i class="bi bi-check"></i> <span>Trainer</span></li>
+                              </ul>
                           </div>
                       </div><!-- End Pricing Item -->
 
@@ -749,7 +750,7 @@
                             <div class="pricing-item">
                                 <h3>Lapangan Tenis</h3>
                                 <img src="https://3.bp.blogspot.com/-SoekVZ9WFOk/WI_BsY_5BcI/AAAAAAAAe-Q/fIoOitd0EZgnsD-ooC21bhAgewJMv8PZgCLcB/s320/20140101_124313.jpg" class="img-fluid" alt="Field Image 1 style="max-width: 100%;">
-                                <h4><sup>Rp</sup>200.000<span> / hours</span></h4>
+                                <h4><sup>Rp</sup>150.000<span> / hours</span></h4>
                                 <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
@@ -761,7 +762,7 @@
                             <div class="pricing-item">
                                 <h3>Lapangan Badminton</h3>
                                 <img src="https://abouttng.com/wp-content/uploads/2022/06/gambar-01-6.jpg" class="img-fluid" alt="Field Image 1 style="max-width: 100%;">
-                                <h4><sup>Rp</sup>200.000<span> / hours</span></h4>
+                                <h4><sup>Rp</sup>100.000<span> / hours</span></h4>
                                 <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
@@ -773,7 +774,7 @@
                             <div class="pricing-item">
                                 <h3>Lapangan Futsal</h3>
                                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG1rLwun-jFfDvjaX1PxLgMsRiKL5oHhuuihfux5xL5jn2e2l1YATNlSSEHm7M_Esu_hUw-V-RieMSrSDlK3m1sVWbEcBISVKXfuasvhSypcpcTqYT2xMT_fUOGWcJKJhsZliLtweHLEM4/s640/lapangan_futsal11.jpeg" class="img-fluid" alt="Field Image 1 style="max-width: 100%;">
-                                <h4><sup>Rp</sup>200.000<span> / hours</span></h4>
+                                <h4><sup>Rp</sup>170.000<span> / hours</span></h4>
                                 <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
@@ -785,7 +786,7 @@
                             <div class="pricing-item">
                                 <h3>Lapangan Basket</h3>
                                 <img src="https://image.made-in-china.com/43f34j00vYHkeacEqrqp/Flooring-PVC-Indoor-Basketball-Court-Sports-Vinyl-Flooring.webp" class="img-fluid" alt="Field Image 1 style="max-width: 100%;">
-                                <h4><sup>Rp</sup>200.000<span> / hours</span></h4>
+                                <h4><sup>Rp</sup>100.000<span> / hours</span></h4>
                                 <ul>
                                   <li><i class="bi bi-check"></i> <span>All Equipment</span></li>
                                   <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
@@ -816,42 +817,51 @@
     </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
-            <div class="col-lg-6">
-                @auth
-                <form action="{{ route('ulasan.store') }}" method="post">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" required readonly>
-                    </div>
+        <div class="col-lg-6">
+    @auth
+    <form action="{{ route('ulasan.store') }}" method="post">
+        @csrf
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" required readonly>
+        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Star Rating</label><br>
-                        <div class="rating">
-                            <input type="radio" id="star5" name="star_rating" value="5" required>
-                            <label for="star5"><i class="bi bi-star-fill"></i></label>
-                            <input type="radio" id="star4" name="star_rating" value="4">
-                            <label for="star4"><i class="bi bi-star-fill"></i></label>
-                            <input type="radio" id="star3" name="star_rating" value="3">
-                            <label for="star3"><i class="bi bi-star-fill"></i></label>
-                            <input type="radio" id="star2" name="star_rating" value="2">
-                            <label for="star2"><i class="bi bi-star-fill"></i></label>
-                            <input type="radio" id="star1" name="star_rating" value="1">
-                            <label for="star1"><i class="bi bi-star-fill"></i></label>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="ulasan" class="form-label">Ulasan</label>
-                        <textarea class="form-control" id="ulasan" name="ulasan" rows="3" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-                @else
-                <p>Please log in to send a message.</p>
-                @endauth
+        <div class="mb-3">
+            <label class="form-label">Star Rating</label><br>
+            <div class="rating">
+                <input type="radio" id="star5" name="star_rating" value="5" required>
+                <label for="star5"><i class="bi bi-star-fill"></i></label>
+                <input type="radio" id="star4" name="star_rating" value="4">
+                <label for="star4"><i class="bi bi-star-fill"></i></label>
+                <input type="radio" id="star3" name="star_rating" value="3">
+                <label for="star3"><i class="bi bi-star-fill"></i></label>
+                <input type="radio" id="star2" name="star_rating" value="2">
+                <label for="star2"><i class="bi bi-star-fill"></i></label>
+                <input type="radio" id="star1" name="star_rating" value="1">
+                <label for="star1"><i class="bi bi-star-fill"></i></label>
             </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="ulasan" class="form-label">Ulasan</label>
+            <textarea class="form-control" id="ulasan" name="ulasan" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-control" id="status" name="status" required>
+                <option value="active">Active</option>
+                <option value="deactive">Deactive</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    @else
+    <p>Please log in to send a message.</p>
+    @endauth
+</div>
+
             <div class="col-lg-6">
                 <div class="testimonials-carousel swiper">
                     <div class="swiper-wrapper">
@@ -911,11 +921,13 @@
                   <p>+123 456 789</p>
               </div>
           </div>
-          <!-- <div class="col-lg-6">
-            <div class="row gy-4">
-            zzzz
-            </div>
-          </div> -->
+          <div class="col-lg-6">
+              <form action="#" method="post" class="php-email-form">
+                  <div class="row gy-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.97631999085!2d110.40338687438532!3d-7.12873549287514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7089002a5df913%3A0x4255a41a6a6310da!2sDiamond%20Gym%20Ungaran!5e0!3m2!1sid!2sid!4v1718446725623!5m2!1sid!2sid" width="500" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </div>
+              </form>
+          </div>
       </div>
   </div>
 </section><!-- /Contact Section -->
