@@ -20,7 +20,6 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Galeri</a></li>
             <li><a href="#">Membership</a></li>
-            <li><a href="#">Trainer</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </div>
@@ -30,7 +29,7 @@
           <p class="mt-4"><strong>Phone:</strong> <span>+123 456 7890</span></p>
           <p><strong>Email:</strong> <span>info@gymfit.com</span></p>
         </div>
-
+        
       </div>
     </div>
 
