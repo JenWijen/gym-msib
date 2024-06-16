@@ -66,7 +66,7 @@ class MemberPackageController extends Controller
 {
     // Validasi input
     $request->validate([
-        'packet_name' => 'required|string|max:255',
+        'package_name' => 'required|string|max:255',
         'price' => 'required|string|min:1',
         'duration' => 'required|integer|min:1',
     ]);
@@ -76,7 +76,7 @@ class MemberPackageController extends Controller
 
     // Update field pada model package
     $package->update([
-        'packet_name' => $request->packet_name,
+        'package_name' => $request->package_name,
         'price' => $price,
         'duration' => $request->duration,
     ]);
