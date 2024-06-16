@@ -57,23 +57,24 @@ class NTMembershipController extends Controller
     {
         $members = Member::all();
         $npackages = NonPackage::all();
-        $nmemberships = NonMembership::find($id);
-        // dd($memberships);
-        return view('nmemberships.edit', compact( 'members', 'npackages', 'nmemberships'));
+        $nmembership = NonMembership::find($id);
+        return view('nmemberships.edit', compact('members', 'npackages', 'nmembership'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, NonMembership $nmembership)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'member_id' => 'required|exists:members,id',
             'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
             'startdate' => 'required|date',
         ]);
-
+    
+        $nmembership = NonMembership::find($id);
         $nmembership->update($request->all());
+    
         return redirect()->route('non_membership.index')
             ->with('success', 'Membership updated successfully.');
     }
