@@ -120,11 +120,7 @@ class RentPackageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
-    {
-        $rpackages = RentPackage::findOrFail($id);
-        return view('rpackages.show', compact('rpackages'));
-    }
+    
 
     /**
      * Remove the specified resource from storage.
