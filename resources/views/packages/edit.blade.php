@@ -18,8 +18,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Packet Name:</strong>
-                                    <input type="text" name="packet_name" value="{{ $package->package_name }}"
-                                        class="form-control" placeholder="Packet Name">
+                                    <input type="text" name="package_name" value="{{ $package->package_name }}"
+                                        class="form-control" placeholder="Package Name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
