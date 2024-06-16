@@ -51,27 +51,29 @@ class RentController extends Controller
      */
     public function show(string $id)
     {
-        $rental = Rent::findOrFail($id);
+        $rental = Rent::find($id);
+        if (!$rental) {
+            return redirect()->route('rent_book.index')->with('error', 'Rental not found.');
+        }
         return view('rent.show', compact('rental'));
     }
     
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         $users = User::where('userType', 'user')->get();
         $rpackages = RentPackage::all();
         $rental = Rent::findOrFail($id);
-        $authUserType = auth()->user()->userType;
 
-        return view('rent.edit', compact( 'users', 'rpackages', 'rental', 'authUserType'));
+        return view('rent.edit', compact('users', 'rpackages', 'rental'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rent $rental)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'user_id' => 'required|exists:users,id',
@@ -79,6 +81,8 @@ class RentController extends Controller
             'rent_hours' => 'required|integer',
             'startdate' => 'required|date',
         ]);
+
+        $rental = Rent::findOrFail($id);
         $rental->update($request->all());
 
         return redirect()->route('rent_book.index')->with('success', 'Rental list updated successfully.');
@@ -131,7 +135,7 @@ class RentController extends Controller
      */
     public function userShow(string $id)
     {
-        $rental = Rent::all();
+        $rental = Rent::findOrFail($id);
         return view('rent.index', compact('rental'));
     }
 
