@@ -55,6 +55,15 @@ class RentPackageController extends Controller
         // Mengarahkan kembali ke halaman index dengan pesan sukses
         return redirect()->route('rent_package.index')->with('success', 'Rent Package created successfully.');
     }
+
+    public function show(string $id)
+    {
+
+        $rpackages = RentPackage::findOrFail($id); // Mencari rent berdasarkan id
+
+        return view('rpackages.show', compact('rpackages'));
+    }
+
    
     /**
      * Show the form for editing the specified resource.

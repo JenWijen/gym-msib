@@ -6,7 +6,7 @@
     <div class="card">
       <div class="card-body">
         <p class="card-title">Member list</p>
-        <a href="{{ route('staff_members.create') }}" class="btn btn-primary mb-3">Add Member</a>
+        <a href="{{ route('memb_only.create') }}" class="btn btn-primary mb-3">Add Member</a>
           @if ($message = Session::get('success'))
           <div class="alert alert-success">
             {{ $message }}
@@ -31,9 +31,9 @@
                     <td>{{ $member->name }}</td>
                     <td>{{ $member->contact }}</td>
                     <td>
-                        <form action="{{ route('staff_members.destroy', $member->id) }}" method="POST">
-                            <a class="btn btn-info" href="{{ route('staff_members.show', $member->id) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('staff_members.edit', $member->id) }}">Edit</a>
+                        <form action="{{ route('memb_only.destroy', $member->id) }}" method="POST">
+                            <a class="btn btn-info" href="{{ route('memb_only.show', $member->id) }}">Show</a>
+                            <a class="btn btn-primary" href="{{ route('memb_only.edit', $member->id) }}">Edit</a>
         
                             @csrf
                         </form>

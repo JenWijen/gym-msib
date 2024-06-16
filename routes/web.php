@@ -51,26 +51,27 @@ Route::middleware(['auth', 'staff'])->group(function () {
     Route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.master');
 
     // Members routes for staff
-    Route::prefix('staff/members')->name('staff_members.')->group(function () {
+    Route::prefix('staff/stmembers')->name('memb_only.')->group(function () {
         Route::get('/', [MembersController::class, 'staffIndex'])->name('index');
         Route::get('create', [MembersController::class, 'staffCreate'])->name('create');
         Route::post('/', [MembersController::class, 'staffStore'])->name('store');
-        Route::get('{staff_members}', [MembersController::class, 'staffShow'])->name('show');
-        Route::get('{staff_members}/edit', [MembersController::class, 'staffEdit'])->name('edit');
-        Route::put('{staff_members}', [MembersController::class, 'staffUpdate'])->name('update');
-        Route::delete('{staff_members}', [MembersController::class, 'staffDestroy'])->name('destroy');
+        Route::get('{id}', [MembersController::class, 'staffShow'])->name('show');
+        Route::get('{memb_only}/edit', [MembersController::class, 'staffEdit'])->name('edit');
+        Route::put('{memb_only}', [MembersController::class, 'staffUpdate'])->name('update');
+        Route::delete('{memb_only}', [MembersController::class, 'staffDestroy'])->name('destroy');
     });
 
     // Memberships routes for staff
-    Route::prefix('staff/memberships')->name('staff_memberships.')->group(function () {
+    Route::prefix('staff/membershipstrainer')->name('with_trainer.')->group(function () {
         Route::get('/', [MembershipController::class, 'staffIndex'])->name('index');
         Route::get('create', [MembershipController::class, 'staffCreate'])->name('create');
         Route::post('/', [MembershipController::class, 'staffStore'])->name('store');
-        Route::get('{staff_memberships}/show', [MembershipController::class, 'staffShow'])->name('show');
-        Route::get('{staff_memberships}/edit', [MembershipController::class, 'staffEdit'])->name('edit');
-        Route::put('{staff_memberships}', [MembershipController::class, 'staffUpdate'])->name('update');
-        Route::delete('{staff_memberships}', [MembershipController::class, 'staffDestroy'])->name('destroy');
+        Route::get('{with_trainer}/show', [MembershipController::class, 'staffShow'])->name('show');
+        Route::get('{with_trainer}/edit', [MembershipController::class, 'staffEdit'])->name('edit');
+        Route::put('{with_trainer}', [MembershipController::class, 'staffUpdate'])->name('update');
+        Route::delete('{with_trainer}', [MembershipController::class, 'staffDestroy'])->name('destroy');
     });
+    
 
     // Non-TrainerMemberships routes
     Route::prefix('staff/non_membership')->name('staff_non_membership.')->group(function () {
@@ -190,7 +191,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/', [RentController::class, 'index'])->name('index');
         Route::get('create', [RentController::class, 'create'])->name('create');
         Route::post('/', [RentController::class, 'store'])->name('store');
-        Route::get('{rent_book}/show', [RentController::class, 'show'])->name('show');
+        Route::get('{id}/show', [RentController::class, 'show'])->name('show');
         Route::get('{rent_book}/edit', [RentController::class, 'edit'])->name('edit');
         Route::put('{rent_book}', [RentController::class, 'update'])->name('update');
         Route::delete('{rent_book}', [RentController::class, 'destroy'])->name('destroy');

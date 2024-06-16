@@ -19,7 +19,7 @@
                             <th>Picture:</th>
                             <td>
                                 @if ($rpackages->field_picture)
-                                    <img src="{{ asset('path/to/images/' . $rpackages->field_picture) }}" alt="{{ $rpackages->field_name }}" style="max-width: 200px;">
+                                <img src="{{ asset($rpackages->field_picture) }}" alt="{{ $rpackages->field_name }}" style="width: 100px; height: 100px; object-fit: cover;">
                                 @else
                                     No Picture Available
                                 @endif
@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <th>Price:</th>
-                            <td>{{ $rpackages->field_price }}</td>
+                            <td>Rp {{ number_format($rpackages->field_price, 0, ',', '.') }}</td>
                         </tr>
                     </table><br>
                     <a class="btn btn-primary" href="{{ route('rent_package.index') }}">Back</a>

@@ -12,7 +12,7 @@
         <p class="card-description">
           Adding new member
         </p>
-        <form class="forms-sample" action="{{ route('staff_members.store') }}" method="POST">
+        <form class="forms-sample" action="{{ route('memb_only.store') }}" method="POST">
           @csrf
           <div class="form-group">
               <label for="name">Name:</label>
@@ -23,7 +23,7 @@
               <input type="text" class="form-control" name="contact" required>
           </div>
 
-          <a class="btn btn-primary" href="{{ route('staff_members.index') }}">Back</a>
+          <a class="btn btn-primary" href="{{ route('memb_only.index') }}">Back</a>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
       </div>

@@ -32,7 +32,7 @@
 
                         </tr>
                     </table><br>
-                    <a class="btn btn-primary" href="{{ route('staff_memberships.index') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ route('with_trainer.index') }}">Back</a>
                 </div>
             </div>
         </div>

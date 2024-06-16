@@ -119,7 +119,7 @@ class NTMembershipController extends Controller
         ]);
         NonMembership::create($request->all());
 
-        return redirect()->route('staff_non_memberships.index')->with('success', 'Membership created successfully.');
+        return redirect()->route('staff_non_membership.index')->with('success', 'Membership created successfully.');
     }
 
     /**
@@ -140,24 +140,24 @@ class NTMembershipController extends Controller
         $members = Member::all();
         $npackages = NonPackage::all();
         $nmemberships = NonMembership::find($id);
-        // dd($memberships);
         return view('staff.nmemberships.edit', compact( 'members', 'npackages', 'nmemberships'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function staffUpdate(Request $request, NonMembership $nmembership)
-    {
-        $request->validate([
-            'member_id' => 'required|exists:members,id',
-            'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
-            'startdate' => 'required|date',
-        ]);
-        
+    public function staffUpdate(Request $request, NonMembership $staff_non_membership)
+{
+    $request->validate([
+        'member_id' => 'required|exists:members,id',
+        'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
+        'startdate' => 'required|date',
+    ]);
 
-        $nmembership->update($request->all());
-        return redirect()->route('staff_non_membership.index')
-            ->with('success', 'Membership updated successfully.');
-    }
+    $staff_non_membership->update($request->all());
+
+    return redirect()->route('staff_non_membership.index')
+                     ->with('success', 'Membership berhasil diperbarui.');
+}
+
 }
