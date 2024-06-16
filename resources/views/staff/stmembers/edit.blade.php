@@ -27,7 +27,7 @@
 
 <div class="container">
     <h1 class="mt-5">Edit Member</h1>
-    <form action="{{ route('staff_members.update', $member->id) }}" method="POST">
+    <form action="{{ route('memb_only.update', $member->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -52,7 +52,7 @@
           <label for="startdate">Start Date:</label>
           <input type="date" class="form-control" name="startdate" value="{{ $member->startdate }}" required>
       </div>
-        <a class="btn btn-primary" href="{{ route('staff_members.index') }}">Back</a>
+        <a class="btn btn-primary" href="{{ route('memb_only.index') }}">Back</a>
         <button type="submit" class="btn btn-success">Update</button>
     </form>
 </div>

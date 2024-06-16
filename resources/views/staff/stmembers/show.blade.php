@@ -21,7 +21,7 @@
                       <td>{{ $member->contact }}</td>
                   </tr>
               </table><br>
-              <a class="btn btn-primary" href="{{ route('staff_members.index') }}">Back</a>
+              <a class="btn btn-primary" href="{{ route('memb_only.index') }}">Back</a>
           </div>
       </div>
   </div>

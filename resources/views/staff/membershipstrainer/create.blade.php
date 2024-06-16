@@ -12,7 +12,7 @@
         <p class="card-description">
           Adding new membership
         </p>
-        <form class="forms-sample" action="{{ route('staff_memberships.store') }}" method="POST">
+        <form class="forms-sample" action="{{ route('with_trainer.store') }}" method="POST">
           @csrf
           <div class="form-group">
             <label for="member_id">Member:</label>
@@ -45,7 +45,7 @@
             <label for="startdate">Start Date:</label>
             <input type="date" class="form-control" name="startdate" required>
           </div>
-          <a class="btn btn-primary" href="{{ route('staff_memberships.index') }}">Back</a>
+          <a class="btn btn-primary" href="{{ route('with_trainer.index') }}">Back</a>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
       </div>

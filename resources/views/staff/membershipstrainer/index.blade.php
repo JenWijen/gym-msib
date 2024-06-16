@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card-body">
         <p class="card-title">List Membership</p>
-        <a href="{{ route('staff_memberships.create') }}" class="btn btn-primary mb-3">Create New Membership</a>
+        <a href="{{ route('with_trainer.create') }}" class="btn btn-primary mb-3">Create New Membership</a>
         @if ($message = Session::get('success'))
           <div class="alert alert-success">
             {{ $message }}
@@ -36,8 +36,8 @@
                         <td>{{ \Carbon\Carbon::parse($membership->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
                         <td>
                             <form action="{{ route('memberships.destroy', $membership->id) }}" method="POST">
-                                <a class="btn btn-info" href="{{ route('staff_memberships.show', $membership->id) }}">Show</a>
-                                <a class="btn btn-primary" href="{{ route('staff_memberships.edit', $membership->id) }}">Edit</a>
+                                <a class="btn btn-info" href="{{ route('with_trainer.show', $membership->id) }}">Show</a>
+                                <a class="btn btn-primary" href="{{ route('with_trainer.edit', $membership->id) }}">Edit</a>
                                 @csrf
                             </form>
                         </td>

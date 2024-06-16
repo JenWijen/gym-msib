@@ -13,6 +13,7 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>Name:</th>
+
                             <td>{{ $rental->user->name }}</td>
                         </tr>
                         <tr>
@@ -26,6 +27,7 @@
                         <tr>
                             <th>Start Date:</th>
                             <td>{{ \Carbon\Carbon::parse($rental->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
+
                         </tr>
                     </table><br>
                     <a class="btn btn-primary" href="{{ route('staff_rent_book.index') }}">Back</a>
