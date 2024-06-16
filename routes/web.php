@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 //     // return view('auth.login');// diganti dlu ntar diganti lg ke landingpage.master
 //     return view('landingpage.master');
 // });
-Route::get('/', [LandingController::class, 'index'])->name('landingpage.master');
+// Route::get('/', [LandingController::class, 'index'])->name('landingpage.master');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -89,8 +89,6 @@ Route::middleware(['auth', 'staff'])->group(function () {
         Route::get('create', [RentController::class, 'staffCreate'])->name('create');
         Route::post('/', [RentController::class, 'staffStore'])->name('store');
         Route::get('{id}/show', [RentController::class, 'staffShow'])->name('show');
-        // Route::get('{staff_rent_book}/edit', [RentController::class, 'staffEdit'])->name('edit');
-        // Route::put('{staff_rent_book}', [RentController::class, 'staffUpdate'])->name('update');
         Route::get('{id}/edit', [RentController::class, 'staffEdit'])->name('edit');
         Route::put('{id}', [RentController::class, 'staffUpdate'])->name('update');
         Route::delete('{id}', [RentController::class, 'staffDestroy'])->name('destroy');

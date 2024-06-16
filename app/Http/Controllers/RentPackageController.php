@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rent;
 use App\Models\RentPackage;
 use Illuminate\Http\Request;
 
@@ -78,48 +77,50 @@ class RentPackageController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    // Find the RentPackage by ID
-    $rentPackage = RentPackage::findOrFail($id);
-
-    // Validate input
-    $request->validate([
-        'field_name' => 'required|min:5',
-        'field_price' => 'required|string|min:5',
-        'field_picture' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-    ]);
-
-    // Remove dots from the price
-    $field_price = str_replace('.', '', $request->field_price);
-
-    // Update fields
-    $rentPackage->update([
-        'field_name' => $request->field_name,
-        'field_price' => $field_price,
-    ]);
-
-    // Handle the picture file upload
-    if ($request->hasFile('field_picture')) {
-        // Delete the old picture if it exists
-        if ($rentPackage->field_picture) {
-            $oldImagePath = public_path($rentPackage->field_picture);
-            if (file_exists($oldImagePath)) {
-                unlink($oldImagePath);
+    {
+        // Find the RentPackage by ID
+        $rentPackage = RentPackage::findOrFail($id);
+    
+        // Validate input
+        $request->validate([
+            'field_name' => 'required|min:5',
+            'field_price' => 'required|string|min:5',
+            'field_picture' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+        ]);
+    
+        // Remove dots from the price
+        $field_price = str_replace('.', '', $request->field_price);
+    
+        // Update fields
+        $rentPackage->update([
+            'field_name' => $request->field_name,
+            'field_price' => $field_price,
+        ]);
+    
+        // Handle the picture file upload
+        if ($request->hasFile('field_picture')) {
+            // Delete the old picture if it exists
+            if ($rentPackage->field_picture) {
+                $oldImagePath = public_path($rentPackage->field_picture);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
             }
+        
+            // Store the new picture
+            $image = $request->file('field_picture');
+            $imagePath = $image->store('public/images');
+            $rentPackage->update(['field_picture' => 'storage/' . str_replace('public/', '', $imagePath)]);
         }
-
-        // Store the new picture
-        $image = $request->file('field_picture');
-        $image->storeAs('public/images', $image->hashName());
-        $rentPackage->update(['field_picture' => 'storage/images/' . $image->hashName()]);
+    
+        // Redirect back to the index page with a success message
+        return redirect()->route('rent_package.index')->with('success', 'Rent Package updated successfully.');
     }
 
-    // Redirect back to the index page with a success message
-    return redirect()->route('rent_package.index')->with('success', 'Rent Package updated successfully.');
-}
-
-
-
+    /**
+     * Display the specified resource.
+     */
+    
 
     /**
      * Remove the specified resource from storage.
@@ -130,6 +131,5 @@ class RentPackageController extends Controller
         $rpackages->delete();
         return redirect()->route('rent_package.index')
             ->with('success', 'Rent Package deleted successfully.');
-        
     }
 }
