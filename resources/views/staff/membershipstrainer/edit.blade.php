@@ -15,17 +15,13 @@
                         @method('PUT')
 
                         <div class="form-group">
-                            <label for="member_id">Member:</label>
-                            <select class="form-control" name="member_id" required>
-                                @foreach ($members as $member)
-                                    <option value="{{ $member->id }}"
-                                        {{ $membership->member_id == $member->id ? 'selected' : '' }}>
-                                        {{ $member->name }}
-                                    </option>
+                            <label for="user_id">User Name:</label>
+                            <select class="form-control" name="user_id" required>
+                                @foreach ($users as $user)
+                                <option value="{{ $user->id }}" {{ $user->id == $membership->user_id ? 'selected' : '' }}>{{ $user->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label for="package_id">Package:</label>
                             <select class="form-control" name="package_id" required>

@@ -17,13 +17,10 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="member_id">Member:</label>
-                                    <select class="form-control" name="member_id" required>
-                                        @foreach ($members as $member)
-                                            <option value="{{ $member->id }}"
-                                                {{ $nmemberships->member_id == $member->id ? 'selected' : '' }}>
-                                                {{ $member->name }}
-                                            </option>
+                                    <label for="user_id">User Name:</label>
+                                    <select class="form-control" id="user_id" name="user_id" required>
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->id }}" {{ $user->id == $nmemberships->user_id ? 'selected' : '' }}>{{ $user->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -15,12 +15,11 @@
         <form class="forms-sample" action="{{ route('staff_non_membership.store') }}" method="POST">
           @csrf
           <div class="form-group">
-            <label for="member_id">Member:</label>
-            <select class="form-control" name="member_id" required>
-              <option value="" disabled selected>Silakan pilih member</option>
-              @foreach ($members as $member)
-                <option value="{{ $member->id }}">{{ $member->name }}</option>
-              @endforeach
+            <label for="user_id">Name:</label>
+            <select class="form-control" id="user_id" name="user_id" required>
+                @foreach ($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
             </select>
           </div>
           <div class="form-group">

@@ -13,11 +13,11 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link" href="{{ route('memb_only.index') }}">
         <i class="bi bi-people-fill menu-icon"></i>
         <span class="menu-title">Member</span>
-      </a>
+      </a> --}}
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('with_trainer.index') }}">

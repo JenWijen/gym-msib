@@ -113,17 +113,15 @@ class MembershipController extends Controller
 
  public function staffStore(Request $request)
  {
-     $request->validate([
-         'user_id' => 'required|exists:users,id',
-         'package_id' => 'required|exists:packages,id',
-         'trainer_id' => 'required|exists:trainers,id',
-         'startdate' => 'required|date',
-     ]);
+    $request->validate([
+        'user_id' => 'required|exists:users,id',
+        'package_id' => 'required|exists:member_packages,id',
+        'trainer_id' => 'required|exists:trainers,id',
+        'startdate' => 'required|date',
+    ]);
+    Membership::create($request->all());
 
-     Membership::create($request->all());
-
-     return redirect()->route('with_trainer.index')
-         ->with('success', 'Membership + Trainer created successfully.');
+    return redirect()->route('with_trainer.index')->with('success', 'Membership created successfully.');
  }
 
  public function staffShow($id)
@@ -147,31 +145,21 @@ public function staffEdit($id)
 }
 
 
-public function StaffUpdate(Request $request, $id)
+public function staffUpdate(Request $request, $id)
 {
     // Validasi data dari request
     $request->validate([
         'user_id' => 'required|exists:users,id',
-        'package_id' => 'required|exists:packages,id',
+        'package_id' => 'required|exists:member_packages,id',
         'trainer_id' => 'required|exists:trainers,id',
         'startdate' => 'required|date',
     ]);
 
-    // Mengambil data membership berdasarkan $id
     $membership = Membership::findOrFail($id);
-
-    // Update data membership berdasarkan data yang diterima dari request
-    $membership->user_id = $request->user_id;
-    $membership->package_id = $request->package_id;
-    $membership->trainer_id = $request->trainer_id;
-    $membership->startdate = $request->startdate;
+    $membership->update($request->all());
     
-    // Menyimpan perubahan
-    $membership->save();
-
-    // Redirect ke halaman index atau halaman lainnya dengan pesan sukses
     return redirect()->route('with_trainer.index')
-                     ->with('success', 'Membership updated successfully.');
+        ->with('success', 'Membership updated successfully.');
 }
 
 }
