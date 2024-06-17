@@ -13,7 +13,7 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>Packet Name:</th>
-                            <td>{{ $nmembership->member->name }}</td>
+                            <td>{{ $nmembership->user->name }}</td>
 
                         </tr>
                         <tr>
