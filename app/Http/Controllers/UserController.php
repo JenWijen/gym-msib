@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NonPackage;
+use App\Models\Package;
+use App\Models\RentPackage;
 use App\Models\ulasan;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,8 +13,11 @@ class UserController extends Controller
 {
     public function index()
     {
+        $packages = Package::all();
+        $npackages = NonPackage::all();
+        $rpackages = RentPackage::all();
         $ulasan = ulasan::all();
-        return view('user.master', compact('ulasan'));
+        return view('user.master', compact('ulasan','packages','npackages','rpackages'));
     }
 
     public function roleIndex()

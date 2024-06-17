@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [UserController::class, 'index'])->name('user.master');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('ulasan', UlasanController::class);
-
+    Route::resource('user', UserController::class);
     // Rents routes for user
     Route::prefix('user/rent')->name('user.rent.')->group(function () {
         Route::get('/', [RentController::class, 'userIndex'])->name('index');
