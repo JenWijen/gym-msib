@@ -12,8 +12,8 @@
                     </p>
                     <table class="table table-bordered">
                         <tr>
-                            <th>Packet Name:</th>
-                            <td>{{ $membership->member->name }}</td>
+                            <th>User Name:</th>
+                            <td>{{ $membership->user->name }}</td>
 
                         </tr>
                         <tr>

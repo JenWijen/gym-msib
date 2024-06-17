@@ -10,15 +10,15 @@ class Membership extends Model
 {
     use HasFactory,SoftDeletes;
     protected $fillable = [
-        'member_id',
+        'user_id',
         'package_id',
         'trainer_id',
         'startdate'
     ];
 
-    public function member()
+    public function user()
     {
-        return $this->belongsTo(Member::class, 'member_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function package()

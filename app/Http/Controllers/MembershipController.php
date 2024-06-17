@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Membership;
 use App\Models\Trainer;
-use App\Models\Member;
+use App\Models\User;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -24,10 +24,10 @@ class MembershipController extends Controller
      */
     public function create()
     {
-        $members = Member::all();
+        $users = User::where('userType', 'user')->get();
         $packages = Package::all();
         $trainers = Trainer::all();
-        return view('memberships.create', compact('members', 'packages', 'trainers'));
+        return view('memberships.create', compact('users', 'packages', 'trainers'));
     }
 
     /**
@@ -36,7 +36,7 @@ class MembershipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'member_id' => 'required|exists:members,id',
+            'user_id' => 'required|exists:users,id',
             'package_id' => 'required|exists:member_packages,id',
             'trainer_id' => 'required|exists:trainers,id',
             'startdate' => 'required|date',
@@ -61,12 +61,12 @@ class MembershipController extends Controller
      */
     public function edit($id)
     {
-        $members = Member::all();
+        $users = User::where('userType', 'user')->get();
         $packages = Package::all();
         $trainers = Trainer::all();
         $memberships = Membership::find($id);
         // dd($memberships);
-        return view('memberships.edit', compact( 'members', 'packages', 'trainers', 'memberships'));
+        return view('memberships.edit', compact( 'users', 'packages', 'trainers', 'memberships'));
     }
 
     /**
@@ -75,7 +75,7 @@ class MembershipController extends Controller
     public function update(Request $request, Membership $membership)
     {
         $request->validate([
-            'member_id' => 'required|exists:members,id',
+            'user_id' => 'required|exists:users,id',
             'package_id' => 'required|exists:member_packages,id',
             'trainer_id' => 'required|exists:trainers,id',
             'startdate' => 'required|date',
@@ -105,16 +105,16 @@ class MembershipController extends Controller
 
  public function staffCreate()
  {
-     $members = Member::all();
+     $users = User::where('userType', 'user')->get();
      $packages = Package::all();
      $trainers = Trainer::all();
-     return view('staff.membershipstrainer.create', compact('members', 'packages', 'trainers'));
+     return view('staff.membershipstrainer.create', compact('users', 'packages', 'trainers'));
  }
 
  public function staffStore(Request $request)
  {
      $request->validate([
-         'member_id' => 'required|exists:members,id',
+         'user_id' => 'required|exists:users,id',
          'package_id' => 'required|exists:packages,id',
          'trainer_id' => 'required|exists:trainers,id',
          'startdate' => 'required|date',
@@ -138,12 +138,12 @@ public function staffEdit($id)
     $membership = Membership::findOrFail($id);
     
     // Mengambil semua data yang diperlukan untuk form (members, packages, trainers)
-    $members = Member::all();
+    $users = User::where('userType', 'user')->get();
     $packages = Package::all();
     $trainers = Trainer::all();
     
     // Menampilkan view untuk form edit dengan data yang sudah diambil
-    return view('staff.membershipstrainer.edit', compact('membership', 'members', 'packages', 'trainers'));
+    return view('staff.membershipstrainer.edit', compact('membership', 'users', 'packages', 'trainers'));
 }
 
 
@@ -151,7 +151,7 @@ public function StaffUpdate(Request $request, $id)
 {
     // Validasi data dari request
     $request->validate([
-        'member_id' => 'required|exists:members,id',
+        'user_id' => 'required|exists:users,id',
         'package_id' => 'required|exists:packages,id',
         'trainer_id' => 'required|exists:trainers,id',
         'startdate' => 'required|date',
@@ -161,7 +161,7 @@ public function StaffUpdate(Request $request, $id)
     $membership = Membership::findOrFail($id);
 
     // Update data membership berdasarkan data yang diterima dari request
-    $membership->member_id = $request->member_id;
+    $membership->user_id = $request->user_id;
     $membership->package_id = $request->package_id;
     $membership->trainer_id = $request->trainer_id;
     $membership->startdate = $request->startdate;
