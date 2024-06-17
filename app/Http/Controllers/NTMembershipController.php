@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Member;
+use App\Models\User;
 use App\Models\NonPackage;
 use App\Models\NonMembership;
 
@@ -20,9 +20,9 @@ class NTMembershipController extends Controller
      */
     public function create()
     {
-        $members = Member::all();
+        $users = User::where('userType', 'user')->get();
         $npackages = NonPackage::all();
-        return view('nmemberships.create', compact('members', 'npackages'));
+        return view('nmemberships.create', compact('users', 'npackages'));
     }
 
     /**
@@ -31,7 +31,7 @@ class NTMembershipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'member_id' => 'required|exists:members,id',
+            'user_id' => 'required|exists:users,id',
             'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
             'startdate' => 'required|date',
         ]);
@@ -55,10 +55,10 @@ class NTMembershipController extends Controller
      */
     public function edit($id)
     {
-        $members = Member::all();
+        $users = User::where('userType', 'user')->get();
         $npackages = NonPackage::all();
         $nmembership = NonMembership::find($id);
-        return view('nmemberships.edit', compact('members', 'npackages', 'nmembership'));
+        return view('nmemberships.edit', compact('users', 'npackages', 'nmembership'));
     }
 
     /**
@@ -67,7 +67,7 @@ class NTMembershipController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'member_id' => 'required|exists:members,id',
+            'user_id' => 'required|exists:users,id',
             'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
             'startdate' => 'required|date',
         ]);
@@ -103,9 +103,9 @@ class NTMembershipController extends Controller
      */
     public function staffCreate()
     {
-        $members = Member::all();
+        $users = User::where('userType', 'user')->get();
         $npackages = NonPackage::all();
-        return view('staff.nmemberships.create', compact('members', 'npackages'));
+        return view('staff.nmemberships.create', compact('users', 'npackages'));
     }
 
     /**
@@ -114,7 +114,7 @@ class NTMembershipController extends Controller
     public function staffStore(Request $request)
     {
         $request->validate([
-            'member_id' => 'required|exists:members,id',
+            'user_id' => 'required|exists:users,id',
             'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
             'startdate' => 'required|date',
         ]);
@@ -138,10 +138,10 @@ class NTMembershipController extends Controller
      */
     public function staffEdit($id)
     {
-        $members = Member::all();
+        $users = User::where('userType', 'user')->get();
         $npackages = NonPackage::all();
         $nmemberships = NonMembership::find($id);
-        return view('staff.nmemberships.edit', compact( 'members', 'npackages', 'nmemberships'));
+        return view('staff.nmemberships.edit', compact( 'users', 'npackages', 'nmemberships'));
     }
 
     /**
@@ -150,7 +150,7 @@ class NTMembershipController extends Controller
     public function staffUpdate(Request $request, NonMembership $staff_non_membership)
 {
     $request->validate([
-        'member_id' => 'required|exists:members,id',
+        'user_id' => 'required|exists:users,id',
         'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
         'startdate' => 'required|date',
     ]);

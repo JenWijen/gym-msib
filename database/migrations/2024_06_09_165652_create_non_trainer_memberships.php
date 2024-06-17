@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('non_trainer_memberships', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('member_id')
-            ->constrained('members')
+            $table->foreignId('user_id')
+            ->constrained('users')
             ->onDelete('restrict')
             ->onUpdate('cascade');
             $table->foreignId('non_trainer_package_id')

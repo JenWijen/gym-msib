@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('member_id')->constrained('members')
+            $table->foreignId('user_id')
+            ->constrained('users')
             ->onDelete('restrict')
             ->onUpdate('cascade');
             $table->foreignId('trainer_id')->constrained('trainers')

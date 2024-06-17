@@ -25,12 +25,12 @@
         <span class="menu-title">Trainer</span>
       </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link" href="{{ route('member_list.index') }}">
         <i class="bi bi-people-fill menu-icon"></i>
         <span class="menu-title">Member</span>
       </a>
-    </li>
+    </li> --}}
     <li class="nav-item">
       <a class="nav-link" href="{{ route('packages.index') }}">
         <i class="bi bi-box-seam menu-icon"></i>
