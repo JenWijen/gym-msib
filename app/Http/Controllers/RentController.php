@@ -6,6 +6,7 @@ use App\Models\Rent;
 use App\Models\RentPackage;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RentController extends Controller
 {
@@ -100,24 +101,76 @@ class RentController extends Controller
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //User method
-    public function userIndex()
+    public function userindex()
     {
         $rental = Rent::all();
-        return view('rent.index', compact('rental'));
+        return view('user.master', compact('rental'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function userCreate()
+    public function usercreate()
     {
-        return view('rent.create');
+        $users = User::where('userType', 'user')->get();
+        $rpackages = RentPackage::all();
+        $authUserType = auth()->user()->userType;
+        return view('user.rental.create', compact('users', 'rpackages', 'authUserType'));
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
-    public function userStore(Request $request)
+    public function userstore(Request $request)
+    {
+        $userAuth = Auth::user()->id;
+
+        $request->validate([
+            // 'user_id' => 'required|exists:users,id',
+            'rent_package_id' => 'required|exists:rent_packages,id',
+            'rent_hours' => 'required|integer',
+            'startdate' => 'required',
+        ]);
+        // Create the rent
+        Rent::create([
+        'user_id' => $userAuth,
+        'rent_package_id' => $request->rent_package_id,
+        'rent_hours' => $request->rent_hours,
+        'startdate' => $request->startdate,
+    ]);
+
+        return redirect()->route('user.master')->with('success', 'Rent created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function usershow(string $id)
+    {
+        $rental = Rent::find($id);
+        if (!$rental) {
+            return redirect()->route('rental_user.index')->with('error', 'Rental not found.');
+        }
+        return view('user.rental.show', compact('rental'));
+    }
+    
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function useredit($id)
+    {
+        $users = User::where('userType', 'user')->get();
+        $rpackages = RentPackage::all();
+        $rental = Rent::findOrFail($id);
+
+        return view('rent.edit', compact('users', 'rpackages', 'rental'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function userupdate(Request $request, $id)
     {
         $request->validate([
             'user_id' => 'required|exists:users,id',
@@ -125,18 +178,22 @@ class RentController extends Controller
             'rent_hours' => 'required|integer',
             'startdate' => 'required|date',
         ]);
-        Rent::create($request->all());
 
-        return redirect()->route('rent.index')->with('success', 'Rent created successfully.');
+        $rental = Rent::findOrFail($id);
+        $rental->update($request->all());
+
+        return redirect()->route('rent_book.index')->with('success', 'Rental list updated successfully.');
     }
 
     /**
-     * Display the specified resource.
+     * Remove the specified resource from storage.
      */
-    public function userShow(string $id)
+    public function userdestroy(string $id)
     {
         $rental = Rent::findOrFail($id);
-        return view('rent.index', compact('rental'));
+        $rental->delete();
+        return redirect()->route('rent_book.index')
+            ->with('success', 'Rental list deleted successfully.');
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

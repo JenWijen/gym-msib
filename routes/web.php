@@ -37,15 +37,19 @@ Route::get('/', [UserController::class, 'index'])->name('user.master');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('ulasan', UlasanController::class);
     Route::resource('user', UserController::class);
-    // Rents routes for user
-    Route::prefix('user/rent')->name('user.rent.')->group(function () {
-        Route::get('/', [RentController::class, 'userIndex'])->name('index');
-        Route::get('create', [RentController::class, 'userCreate'])->name('create');
-        Route::post('/', [RentController::class, 'userStore'])->name('store');
-        Route::get('{user.rent}', [RentController::class, 'userShow'])->name('show');
-        
+    // Rent routes for user
+    Route::prefix('rental')->name('rental_user.')->group(function () {
+        Route::get('/', [RentController::class, 'userindex'])->name('index');
+        Route::get('create', [RentController::class, 'usercreate'])->name('create');
+        // Route::post('/store', [RentController::class, 'userstore'])->name('storeRent');
+        Route::get('{id}/show', [RentController::class, 'usershow'])->name('show');
+        Route::get('{rental_user}/edit', [RentController::class, 'useredit'])->name('edit');
+        Route::put('{rental_user}', [RentController::class, 'userupdate'])->name('update');
+        Route::delete('{rental_user}', [RentController::class, 'userdestroy'])->name('destroy');
     });
 });
+
+Route::post('/store', [RentController::class, 'userstore'])->name('storeRent');
 
 Route::middleware(['auth', 'staff'])->group(function () {
     Route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.master');
