@@ -138,7 +138,25 @@
       .swiper-button-prev {
           left: 20px;
       }
-      
+      .content-wrapper {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          }
+
+          .container-fluid {
+              flex: 1;
+          }
+
+          .footer {
+              background: #f8f9fa;
+              padding: 20px;
+              text-align: center;
+              position: relative;
+              bottom: 0;
+              width: 100%;
+          }
+
       
       
       </style>

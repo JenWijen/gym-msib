@@ -624,7 +624,11 @@
                                         <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
                                         <li><i class="bi bi-check"></i> <span>Cleaning</span></li>
                                     </ul>
-                                    <a href="/login" class="btn btn-danger">Rent</a>
+                                    @auth
+                                        <a href="{{ route('rental_user.create') }}" class="btn btn-danger">Rent</a>
+                                    @else
+                                        <a href="{{ route('login') }}" class="btn btn-danger">Rent</a>
+                                    @endauth
                                     </div>
                                 </div>
                             
