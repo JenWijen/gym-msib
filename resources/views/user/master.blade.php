@@ -624,23 +624,21 @@
                                         <li><i class="bi bi-check"></i> <span>Unlimited daily hours</span></li>
                                         <li><i class="bi bi-check"></i> <span>Cleaning</span></li>
                                     </ul>
-                                    <a href="#" class="btn btn-danger">Join</a>
+                                    <a href="/login" class="btn btn-danger">Rent</a>
                                     </div>
                                 </div>
-                        
+                            
                             @endforeach
                         </div>
+                        <!-- Add Pagination if needed -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Navigation if needed -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                      <!-- Add Pagination -->
-                      <div class="swiper-pagination"></div>
-
-                      <!-- Add Navigation Arrows -->
-                      <div class="swiper-button-next"></div>
-                      <div class="swiper-button-prev"></div>
                 </div>
-              </div>
-          </div>
-      </div>
+            </div>
+        </div>
     </section><!-- /Pricing Section -->
 
     <!-- Testimonials user Section -->
