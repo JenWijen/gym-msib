@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('field_name');
             $table->string('field_picture');
-            $table->integer('rent_hours');
             $table->integer('field_price');
             $table->timestamps();
             $table->softDeletes();

@@ -19,7 +19,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('skydash') }}/css/vertical-layout-light/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('skydash') }}/images/favicon.png" />
+    <link rel="shortcut icon" href="{{ asset('skydash') }}/images/logo-gymfit.png" />
 </head>
 <style>
     /* Remove sorting icons when column is active */
