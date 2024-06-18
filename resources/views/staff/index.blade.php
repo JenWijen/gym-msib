@@ -12,10 +12,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6 grid-margin stretch-card">
+  <div class="col-md-5 grid-margin stretch-card">
     <div class="card tale-bg">
       <div class="card-people mt-auto">
-        <img src="{{ asset('adminskydash/images/dashboard/people.png') }}" alt="people">
+        <img src="{{ asset('adminskydash/images/dashboard/people1.jpeg') }}" alt="people">
         <div class="weather-info">
           <div class="d-flex">
             <div>
