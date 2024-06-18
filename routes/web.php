@@ -14,7 +14,7 @@ use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 // Route::get('/', function () {
 //     // return view('auth.login');// diganti dlu ntar diganti lg ke landingpage.master
