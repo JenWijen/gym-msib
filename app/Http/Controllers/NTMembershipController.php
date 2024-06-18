@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\NonPackage;
 use App\Models\NonMembership;
+use Illuminate\Support\Facades\Auth;
 
 class NTMembershipController extends Controller
 {
@@ -160,5 +161,39 @@ class NTMembershipController extends Controller
     return redirect()->route('staff_non_membership.index')
                      ->with('success', 'Membership berhasil diperbarui.');
 }
+
+////////////////////////////////////////////////////////////////////////////////////
+    public function userindex()
+    {
+        $nmemberships = NonMembership::all();
+        return view('user.master', compact('nmemberships'));
+    }
+    public function usercreate()
+    {
+        $users = User::where('userType', 'user')->get();
+        $npackages = NonPackage::all();
+        $authUserType = auth()->user()->userType;
+        return view('user.joinminus.create', compact('users', 'npackages','authUserType'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function userstore(Request $request)
+    {
+        $userAuth = Auth::user()->id;
+        $request->validate([
+            // 'user_id' => 'required|exists:users,id',
+            'non_trainer_package_id' => 'required|exists:non_trainer_packages,id',
+            'startdate' => 'required|date',
+        ]);
+        NonMembership::create([
+            'user_id' => $userAuth,
+            'non_trainer_package_id' => $request->non_trainer_package_id,
+            'startdate' => $request->startdate,
+        ]);
+
+        return redirect()->route('user.master')->with('success', 'Membership created successfully.');
+    }
 
 }

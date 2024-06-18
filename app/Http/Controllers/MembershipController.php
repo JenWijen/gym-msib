@@ -7,6 +7,7 @@ use App\Models\Trainer;
 use App\Models\User;
 use App\Models\Package;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MembershipController extends Controller
 {
@@ -161,5 +162,41 @@ public function staffUpdate(Request $request, $id)
     return redirect()->route('with_trainer.index')
         ->with('success', 'Membership updated successfully.');
 }
+////////////////////////////////////////////////////////////////////////////////
+    public function userindex()
+    {
+        $memberships = Membership::all();
+        return view('user.master', compact('memberships'));
+    }
+    public function usercreate()
+    {
+        $users = User::where('userType', 'user')->get();
+        $packages = Package::all();
+        $trainers = Trainer::all();
+        $authUserType = auth()->user()->userType;
+        return view('user.joinplus.create', compact('users', 'packages','trainers','authUserType'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function userstore(Request $request)
+    {
+        $userAuth = Auth::user()->id;
+        $request->validate([
+            // 'user_id' => 'required|exists:users,id',
+            'package_id' => 'required|exists:member_packages,id',
+            'trainer_id' => 'required|exists:trainers,id',
+            'startdate' => 'required|date',
+        ]);
+        Membership::create([
+            'user_id' => $userAuth,
+            'package_id' => $request->package_id,
+            'trainer_id' => $request->trainer_id,
+            'startdate' => $request->startdate,
+        ]);
+
+        return redirect()->route('user.master')->with('success', 'Membership created successfully.');
+    }
 
 }

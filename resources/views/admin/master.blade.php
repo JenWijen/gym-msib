@@ -19,7 +19,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('adminskydash') }}/css/vertical-layout-light/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('adminskydash') }}/images/favicon.png" />
+    <link rel="shortcut icon" href="{{ asset('adminskydash') }}/images/logov3.png" />
 </head>
 <style>
     /* Remove sorting icons when column is active */
