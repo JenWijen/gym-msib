@@ -30,7 +30,7 @@
                         <label for="startdate">Date:</label>
                         <input type="date" class="form-control" id="startdate" name="startdate" required>
                     </div>
-                    <a class="btn btn-primary mt-3" href="{{ route('staff_rent_book.index') }}">Back</a>
+                    <a class="btn btn-primary mt-3" href="{{ route('user.master') }}">Back</a>
                     <button type="submit" class="btn btn-success mt-3">Submit</button>
                 </form>
             </div>
@@ -38,4 +38,35 @@
     </div>
 </div>
 </div>
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel">Payment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Please proceed to the payment.</p>
+                <!-- Add your payment form or information here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Pay Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showPaymentModal(event) {
+        event.preventDefault();
+        // Assuming form submission is successful, show the modal
+        $('#paymentModal').modal('show');
+        // Optionally, you can submit the form via AJAX here
+        // If you use AJAX, submit the form data and then show the modal on success
+    }
+</script>
 @endsection
