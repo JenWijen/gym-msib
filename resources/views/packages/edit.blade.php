@@ -18,14 +18,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Packet Name:</strong>
-                                    <input type="text" name="packet_name" value="{{ $package->package_name }}"
-                                        class="form-control" placeholder="Packet Name">
+                                    <input type="text" name="package_name" value="{{ $package->package_name }}"
+                                        class="form-control" placeholder="Package Name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Price:</strong>
-                                    <input type="text" step="0.01" name="price" value="{{ $package->price }}"
+                                    <input type="text" name="price" value="{{ number_format($package->price, 0, ',', '.') }}"
                                         class="form-control" id="IDR" placeholder="Price">
                                 </div>
                             </div>
@@ -35,9 +35,11 @@
                                     <input type="number" name="duration" value="{{ $package->duration }}"
                                         class="form-control" placeholder="Duration (in days)">
                                  </div>
-                    
-                            <a class="btn btn-primary" href="{{ route('packages.index') }}">Back</a>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                        <a class="btn btn-primary" href="{{ route('packages.index') }}">Back</a>
+                        <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </div>
@@ -48,15 +50,12 @@
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('IDR').addEventListener('keyup', function(e) {
                 let cursorPosition = this.selectionStart;
-                let value = parseInt(this.value.replace(/[^,\d]/g, ''));
+                let value = this.value.replace(/[^0-9]/g, '');
                 let originalLength = this.value.length;
                 if (isNaN(value)) {
                     this.value = "";
                 } else {
-                    this.value = value.toLocaleString('id-ID', {
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0
-                    }).replace(/\./g, '.');
+                    this.value = parseInt(value).toLocaleString('id-ID').replace(/,/g, '.');
                     cursorPosition = this.value.length - originalLength + cursorPosition;
                     this.setSelectionRange(cursorPosition, cursorPosition);
                 }

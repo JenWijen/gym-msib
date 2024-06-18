@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rent;
 use App\Models\RentPackage;
 use Illuminate\Http\Request;
 
@@ -27,62 +26,44 @@ class RentPackageController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
             'field_name' => 'required',
             'field_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'field_price' => 'required',
         ]);
     
+        // Menghilangkan tanda titik dari harga
         $request['field_price'] = str_replace('.', '', $request['field_price']);
     
         if ($request->hasFile('field_picture')) {
             $image = $request->file('field_picture');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('field_picture')->storeAs('public/images', $imageName);
-            $request['field_picture'] = 'storage/images/' . $imageName;
+            $folderPath = 'images/';
+            $imagePath = $image->store($folderPath, 'public');
+            $fieldPicturePath = 'storage/' . $imagePath;
+        } else {
+            $fieldPicturePath = null;
         }
+        $data = [
+            'field_name' => $request->input('field_name'),
+            'field_picture' => $fieldPicturePath,
+            'field_price' => $request->input('field_price'),
+        ];
+        RentPackage::create($data);
     
-        RentPackage::create($request->all());
-    
+        // Mengarahkan kembali ke halaman index dengan pesan sukses
         return redirect()->route('rent_package.index')->with('success', 'Rent Package created successfully.');
     }
-    
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'field_name' => 'required',
-    //         'field_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-    //         'field_price' => 'required',
-    //     ]);
-
-    //     $request['field_price'] = str_replace('.', '', $request['field_price']);
-
-    //     if ($request->hasFile('field_picture')) {
-    //         $image = $request->file('field_picture');
-    //         $imageName = time() . '.' . $image->getClientOriginalExtension();
-    //         $image->storeAs('public/images', $imageName);
-    //         $request['field_picture'] = 'storage/images/' . $imageName;
-    //     }
-
-    //     RentPackage::create($request->all());
-
-    //     return redirect()->route('rent_package.index')->with('success', 'Rent Package created successfully.');
-    // }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        $rpackages = RentPackage::find($id);
+
+        $rpackages = RentPackage::findOrFail($id); // Mencari rent berdasarkan id
 
         return view('rpackages.show', compact('rpackages'));
     }
 
+   
     /**
      * Show the form for editing the specified resource.
      */
@@ -95,37 +76,51 @@ class RentPackageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, RentPackage $rpackages)
+    public function update(Request $request, $id)
     {
+        // Find the RentPackage by ID
+        $rentPackage = RentPackage::findOrFail($id);
+    
+        // Validate input
         $request->validate([
-            'field_name' => 'required',
-            'field_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'field_price' => 'required',
+            'field_name' => 'required|min:5',
+            'field_price' => 'required|string|min:5',
+            'field_picture' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
         ]);
-
-        $request['field_price'] = str_replace('.', '', $request['field_price']);
-
+    
+        // Remove dots from the price
+        $field_price = str_replace('.', '', $request->field_price);
+    
+        // Update fields
+        $rentPackage->update([
+            'field_name' => $request->field_name,
+            'field_price' => $field_price,
+        ]);
+    
+        // Handle the picture file upload
         if ($request->hasFile('field_picture')) {
             // Delete the old picture if it exists
-            if ($rpackages->field_picture) {
-                $oldImagePath = public_path($rpackages->field_picture);
+            if ($rentPackage->field_picture) {
+                $oldImagePath = public_path($rentPackage->field_picture);
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
             }
-    
+        
+            // Store the new picture
             $image = $request->file('field_picture');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/images', $imageName);
-            $request['field_picture'] = 'storage/images/' . $imageName;
-        } else {
-            // If no new picture is uploaded, retain the old picture path
-            $request['field_picture'] = $rpackages->field_picture;
+            $imagePath = $image->store('public/images');
+            $rentPackage->update(['field_picture' => 'storage/' . str_replace('public/', '', $imagePath)]);
         }
-
-        $rpackages->update($request->all());
+    
+        // Redirect back to the index page with a success message
         return redirect()->route('rent_package.index')->with('success', 'Rent Package updated successfully.');
     }
+
+    /**
+     * Display the specified resource.
+     */
+    
 
     /**
      * Remove the specified resource from storage.
@@ -136,6 +131,5 @@ class RentPackageController extends Controller
         $rpackages->delete();
         return redirect()->route('rent_package.index')
             ->with('success', 'Rent Package deleted successfully.');
-        
     }
 }

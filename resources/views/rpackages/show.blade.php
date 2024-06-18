@@ -12,14 +12,14 @@
                     </p>
                     <table class="table table-bordered">
                         <tr>
-                            <th>Court Name:</th>
+                            <th>Field Name:</th>
                             <td>{{ $rpackages->field_name }}</td>
                         </tr>
                         <tr>
                             <th>Picture:</th>
                             <td>
                                 @if ($rpackages->field_picture)
-                                    <img src="{{ asset('path/to/images/' . $rpackages->field_picture) }}" alt="{{ $rpackages->field_name }}" style="max-width: 200px;">
+                                    <img src="{{ asset($rpackages->field_picture) }}" alt="{{ $rpackages->field_name }}" style="width: 100%; max-width: 600px; height: auto; border-radius: 0;">
                                 @else
                                     No Picture Available
                                 @endif
@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <th>Price:</th>
-                            <td>{{ $rpackages->field_price }}</td>
+                            <td>Rp.{{ $rpackages->field_price }} /hour</td>
                         </tr>
                     </table><br>
                     <a class="btn btn-primary" href="{{ route('rent_package.index') }}">Back</a>

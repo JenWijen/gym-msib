@@ -2,16 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MemberPackageController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\MembershipController;
-use App\Http\Controllers\MembersController;
 use App\Http\Controllers\NTMembershipController;
 use App\Http\Controllers\NTPackageController;
 use App\Http\Controllers\RentController;
 use App\Http\Controllers\RentPackageController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +20,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 //     // return view('auth.login');// diganti dlu ntar diganti lg ke landingpage.master
 //     return view('landingpage.master');
 // });
-Route::get('/', [LandingController::class, 'index'])->name('landingpage.master');
+// Route::get('/', [LandingController::class, 'index'])->name('landingpage.master');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,36 +31,93 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::get('/', [UserController::class, 'index'])->name('user.master');
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/user', [UserController::class, 'index'])->name('landingpage.master');
+    Route::resource('ulasan', UlasanController::class);
+    Route::resource('user', UserController::class);
+    // Rent routes for user
+    Route::prefix('rental')->name('rental_user.')->group(function () {
+        Route::get('/', [RentController::class, 'userindex'])->name('index');
+        Route::get('/create_rent', [RentController::class, 'usercreate'])->name('create');
+        // Route::post('/store', [RentController::class, 'userstore'])->name('storeRent');
+        Route::get('{id}/show', [RentController::class, 'usershow'])->name('show');
+        Route::get('{rental_user}/edit', [RentController::class, 'useredit'])->name('edit');
+        Route::put('{rental_user}', [RentController::class, 'userupdate'])->name('update');
+        Route::delete('{rental_user}', [RentController::class, 'userdestroy'])->name('destroy');
+    });
 
-    // Rents routes for user
-    Route::prefix('user/rent')->name('user.rent.')->group(function () {
-        Route::get('/', [RentController::class, 'userIndex'])->name('index');
-        Route::get('create', [RentController::class, 'userCreate'])->name('create');
-        Route::post('/', [RentController::class, 'userStore'])->name('store');
-        Route::get('{user.rent}', [RentController::class, 'userShow'])->name('show');
+    Route::prefix('rental')->name('joinmin_user.')->group(function () {
+        Route::get('/', [NTMembershipController::class, 'userindex'])->name('index');
+        Route::get('/create_joinmin', [NTMembershipController::class, 'usercreate'])->name('create');
+        // Route::post('/store', [RentController::class, 'userstore'])->name('storeRent');
+        Route::get('{id}/show', [NTMembershipController::class, 'usershow'])->name('show');
+        Route::get('{rental_user}/edit', [NTMembershipController::class, 'useredit'])->name('edit');
+        Route::put('{rental_user}', [NTMembershipController::class, 'userupdate'])->name('update');
+        Route::delete('{rental_user}', [NTMembershipController::class, 'userdestroy'])->name('destroy');
+    });
+
+    Route::prefix('rental')->name('joinplus_user.')->group(function () {
+        Route::get('/', [MembershipController::class, 'userindex'])->name('index');
+        Route::get('/create_joinplus', [MembershipController::class, 'usercreate'])->name('create');
+        // Route::post('/store', [RentController::class, 'userstore'])->name('storeRent');
+        Route::get('{id}/show', [MembershipController::class, 'usershow'])->name('show');
+        Route::get('{rental_user}/edit', [MembershipController::class, 'useredit'])->name('edit');
+        Route::put('{rental_user}', [MembershipController::class, 'userupdate'])->name('update');
+        Route::delete('{rental_user}', [MembershipController::class, 'userdestroy'])->name('destroy');
     });
 });
+
+Route::post('/store_rent', [RentController::class, 'userstore'])->name('storeRent');
+Route::post('/store_joinmin', [NTMembershipController::class, 'userstore'])->name('storeJoinmin');
+Route::post('/store_joinplus', [MembershipController::class, 'userstore'])->name('storeJoinplus');
 
 Route::middleware(['auth', 'staff'])->group(function () {
     Route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.master');
 
-    // Members routes for staff
-    Route::prefix('staff/members')->name('staff.members.')->group(function () {
-        Route::get('/', [MembersController::class, 'staffIndex'])->name('index');
-        Route::get('create', [MembersController::class, 'staffCreate'])->name('create');
-        Route::post('/', [MembersController::class, 'staffStore'])->name('store');
-        Route::get('{staff.members}', [MembersController::class, 'staffShow'])->name('show');
-        Route::get('{staff.members}/edit', [MembersController::class, 'staffEdit'])->name('edit');
-        Route::put('{staff.members}', [MembersController::class, 'staffUpdate'])->name('update');
-        Route::delete('{staff.members}', [MembersController::class, 'staffDestroy'])->name('destroy');
+    // Memberships routes for staff
+    Route::prefix('staff/membershipstrainer')->name('with_trainer.')->group(function () {
+        Route::get('/', [MembershipController::class, 'staffIndex'])->name('index');
+        Route::get('create', [MembershipController::class, 'staffCreate'])->name('create');
+        Route::post('/', [MembershipController::class, 'staffStore'])->name('store');
+        Route::get('{with_trainer}/show', [MembershipController::class, 'staffShow'])->name('show');
+        Route::get('{with_trainer}/edit', [MembershipController::class, 'staffEdit'])->name('edit');
+        Route::put('{with_trainer}', [MembershipController::class, 'staffUpdate'])->name('update');
+        Route::delete('{with_trainer}', [MembershipController::class, 'staffDestroy'])->name('destroy');
+    });
+    
+
+    // Non-TrainerMemberships routes
+    Route::prefix('staff/non_membership')->name('staff_non_membership.')->group(function () {
+        Route::get('/', [NTMembershipController::class, 'staffIndex'])->name('index');
+        Route::get('create', [NTMembershipController::class, 'staffCreate'])->name('create');
+        Route::post('/', [NTMembershipController::class, 'staffStore'])->name('store');
+        Route::get('{staff_non_membership}/show', [NTMembershipController::class, 'staffShow'])->name('show');
+        Route::get('{staff_non_membership}/edit', [NTMembershipController::class, 'staffEdit'])->name('edit');
+        Route::put('{staff_non_membership}', [NTMembershipController::class, 'staffUpdate'])->name('update');
+    });
+
+    // Rent routes for staff
+    Route::prefix('staff/rent_book')->name('staff_rent_book.')->group(function () {
+        Route::get('/', [RentController::class, 'staffIndex'])->name('index');
+        Route::get('create', [RentController::class, 'staffCreate'])->name('create');
+        Route::post('/', [RentController::class, 'staffStore'])->name('store');
+        Route::get('{id}/show', [RentController::class, 'staffShow'])->name('show');
+        Route::get('{id}/edit', [RentController::class, 'staffEdit'])->name('edit');
+        Route::put('{id}', [RentController::class, 'staffUpdate'])->name('update');
+        Route::delete('{id}', [RentController::class, 'staffDestroy'])->name('destroy');
+        Route::delete('{staff_rent_book}', [RentController::class, 'staffDestroy'])->name('destroy');
     });
 });
 
+
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.master');
+
+    // Role routes
+    Route::prefix('admin/roles')->name('roles.')->group(function () {
+        Route::get('/', [UserController::class, 'roleIndex'])->name('index');
+        Route::patch('/{id}/updateType', [UserController::class, 'updateType'])->name('updateType');    
+    });
 
     // Trainers routes
     Route::prefix('admin/trainers')->name('trainers.')->group(function () {
@@ -94,18 +150,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('{non_package}/edit', [NTPackageController::class, 'edit'])->name('edit');
         Route::put('{non_package}', [NTPackageController::class, 'update'])->name('update');
         Route::delete('{non_package}', [NTPackageController::class, 'destroy'])->name('destroy');
-    });
-
-
-    // Members routes for admin
-    Route::prefix('admin/member_list')->name('member_list.')->group(function () {
-        Route::get('/', [MembersController::class, 'adminIndex'])->name('index');
-        Route::get('create', [MembersController::class, 'adminCreate'])->name('create');
-        Route::post('/', [MembersController::class, 'adminStore'])->name('store');
-        Route::get('{member_list}/show', [MembersController::class, 'adminShow'])->name('show');
-        Route::get('{member_list}/edit', [MembersController::class, 'adminEdit'])->name('edit');
-        Route::put('{member_list}', [MembersController::class, 'adminUpdate'])->name('update');
-        Route::delete('{member_list}', [MembersController::class, 'adminDestroy'])->name('destroy');
     });
     
     // Memberships routes
@@ -146,14 +190,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/', [RentController::class, 'index'])->name('index');
         Route::get('create', [RentController::class, 'create'])->name('create');
         Route::post('/', [RentController::class, 'store'])->name('store');
-        Route::get('{rent_book}/show', [RentController::class, 'show'])->name('show');
+        Route::get('{id}/show', [RentController::class, 'show'])->name('show');
         Route::get('{rent_book}/edit', [RentController::class, 'edit'])->name('edit');
         Route::put('{rent_book}', [RentController::class, 'update'])->name('update');
         Route::delete('{rent_book}', [RentController::class, 'destroy'])->name('destroy');
     });
 
 });
-
 // Route::get('admin/dashboard',[AdminController::class,'index'])->
 //     middleware(['auth', 'admin']);
 

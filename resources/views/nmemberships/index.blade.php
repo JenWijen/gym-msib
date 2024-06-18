@@ -18,7 +18,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Member Name</th>
+                        <th>User Name</th>
                         <th>Package</th>
                         <th>Start Date</th>
                         <th width="280px">Action</th>
@@ -29,7 +29,7 @@
                     @foreach ($nmemberships as $nmembership)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $nmembership->member->name }}</td>
+                        <td>{{ $nmembership->user->name }}</td>
                         <td>{{ $nmembership->package->package_name }}</td>
                         <td>{{ \Carbon\Carbon::parse($nmembership->startdate)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
                         <td>

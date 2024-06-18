@@ -19,7 +19,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Court Name</th>
+                                    <th>Field Name</th>
                                     <th>Picture</th>
                                     <th>Price</th>
                                     <th width="280px">Action</th>

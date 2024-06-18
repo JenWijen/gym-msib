@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::table('memberships', function (Blueprint $table) {
             $table->dropColumn(['packet_name', 'price']);
-            $table->foreignId('member_id')->after('id')
-            ->constrained('members')
+            // $table->foreignId('member_id')->after('id')
+            // ->constrained('members')
+            // ->onDelete('restrict')
+            // ->onUpdate('cascade');
+            $table->foreignId('user_id')->after('id')
+            ->constrained('users')
             ->onDelete('restrict')
             ->onUpdate('cascade');
-            $table->foreignId('package_id')->after('member_id')
+            $table->foreignId('package_id')->after('user_id')
             ->constrained('member_packages')
             ->onDelete('restrict')
             ->onUpdate('cascade');

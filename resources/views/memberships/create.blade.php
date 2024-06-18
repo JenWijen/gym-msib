@@ -15,18 +15,17 @@
         <form class="forms-sample" action="{{ route('memberships.store') }}" method="POST">
           @csrf
           <div class="form-group">
-            <label for="member_id">Member:</label>
-            <select class="form-control" name="member_id" required>
-              <option value="" disabled selected>Silakan pilih member</option>
-              @foreach ($members as $member)
-                <option value="{{ $member->id }}">{{ $member->name }}</option>
-              @endforeach
+            <label for="user_id">User Name:</label>
+            <select class="form-control" id="user_id" name="user_id" required>
+                @foreach ($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
             </select>
           </div>
           <div class="form-group">
             <label for="package_id">Package:</label>
             <select class="form-control" name="package_id" required>
-              <option value="" disabled selected>Silakan pilih package</option>
+              <option value="" disabled selected>Choose what you want!</option>>
               @foreach ($packages as $package)
                 <option value="{{ $package->id }}">{{ $package->package_name }}</option>
               @endforeach
@@ -35,7 +34,7 @@
           <div class="form-group">
             <label for="trainer_id">Trainer:</label>
             <select class="form-control" name="trainer_id" required>
-              <option value="" disabled selected>Silakan pilih trainer</option>
+              <option value="" disabled selected>choose your trainer!</option>
               @foreach ($trainers as $trainer)
                 <option value="{{ $trainer->id }}">{{ $trainer->trainer_name }}</option>
               @endforeach

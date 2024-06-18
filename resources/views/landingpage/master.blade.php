@@ -389,33 +389,53 @@
       <p>What they are saying</p>
   </div>
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="testimonials-slider swiper">
-          <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                  <div class="testimonial-item">
-                      <img src="https://khabarfakt.com/wp-content/uploads/2022/12/1601223708_jacqueline-fernandez_workout_pose-6.jpg" class="testimonial-img" alt="">
-                      <h3>Sara Wilsson</h3>
-                      <h4>Member</h4>
-                      <div class="stars">
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                      </div>
-                      <p>
-                          <i class="bi bi-quote"></i>
-                          Excellent facilities and great support from the trainers.
-                          <i class="bi bi-quote"></i>
-                      </p>
-                  </div>
-              </div><!-- End Testimonial Item -->
-              <!-- Additional testimonial items can be added here -->
+      <div class="row gy-4">
+          <div class="col-lg-6">
+
+          @auth
+        <form action="{{ route('ulasan.store') }}" method="post">
+            @csrf
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" required readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="ulasan" class="form-label">Ulasan</label>
+                <textarea class="form-control" id="ulasan" name="ulasan" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+@else
+    <p>Please log in to send a message.</p>
+@endauth
+
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="col-lg-6">
+          <div class="testimonials-carousel swiper">
+    <div class="swiper-wrapper">
+        @foreach ($ulasan as $ulasans)
+            <div class="swiper-slide">
+                <div class="testimonial-item">
+                    <h3>{{ $ulasans->name }}</h3>
+                    <p>
+                        <i class="bi bi-quote"></i>
+                        {{ $ulasans->ulasan }}
+                        <i class="bi bi-quote"></i>
+                    </p>
+                </div>
+            </div><!-- End Testimonial Item -->
+        @endforeach
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+          </div>
       </div>
   </div>
-</section><!-- /Testimonials Section -->
+</section>
+<!-- /Testimonials Section -->
 
 <!-- Contact Section -->
 <section id="contact" class="contact section">

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Membership;
 use App\Models\Trainer;
-use App\Models\Member;
+use App\Models\User;
 use App\Models\Package;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MembershipController extends Controller
 {
@@ -24,10 +25,10 @@ class MembershipController extends Controller
      */
     public function create()
     {
-        $members = Member::all();
+        $users = User::where('userType', 'user')->get();
         $packages = Package::all();
         $trainers = Trainer::all();
-        return view('memberships.create', compact('members', 'packages', 'trainers'));
+        return view('memberships.create', compact('users', 'packages', 'trainers'));
     }
 
     /**
@@ -36,7 +37,7 @@ class MembershipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'member_id' => 'required|exists:members,id',
+            'user_id' => 'required|exists:users,id',
             'package_id' => 'required|exists:member_packages,id',
             'trainer_id' => 'required|exists:trainers,id',
             'startdate' => 'required|date',
@@ -61,12 +62,12 @@ class MembershipController extends Controller
      */
     public function edit($id)
     {
-        $members = Member::all();
+        $users = User::where('userType', 'user')->get();
         $packages = Package::all();
         $trainers = Trainer::all();
         $memberships = Membership::find($id);
         // dd($memberships);
-        return view('memberships.edit', compact( 'members', 'packages', 'trainers', 'memberships'));
+        return view('memberships.edit', compact( 'users', 'packages', 'trainers', 'memberships'));
     }
 
     /**
@@ -75,7 +76,7 @@ class MembershipController extends Controller
     public function update(Request $request, Membership $membership)
     {
         $request->validate([
-            'member_id' => 'required|exists:members,id',
+            'user_id' => 'required|exists:users,id',
             'package_id' => 'required|exists:member_packages,id',
             'trainer_id' => 'required|exists:trainers,id',
             'startdate' => 'required|date',
@@ -95,4 +96,107 @@ class MembershipController extends Controller
         return redirect()->route('memberships.index')
             ->with('success', 'Membership deleted successfully.');
     }
+
+ ////////////////////////////////////////////////////////////////////////////////////////////   
+ public function staffIndex()
+ {
+     $memberships = Membership::all();
+     return view('staff.membershipstrainer.index', compact('memberships'));
+ }
+
+ public function staffCreate()
+ {
+     $users = User::where('userType', 'user')->get();
+     $packages = Package::all();
+     $trainers = Trainer::all();
+     return view('staff.membershipstrainer.create', compact('users', 'packages', 'trainers'));
+ }
+
+ public function staffStore(Request $request)
+ {
+    $request->validate([
+        'user_id' => 'required|exists:users,id',
+        'package_id' => 'required|exists:member_packages,id',
+        'trainer_id' => 'required|exists:trainers,id',
+        'startdate' => 'required|date',
+    ]);
+    Membership::create($request->all());
+
+    return redirect()->route('with_trainer.index')->with('success', 'Membership created successfully.');
+ }
+
+ public function staffShow($id)
+ {
+     $membership = Membership::findOrFail($id);
+     return view('staff.membershipstrainer.show', compact('membership'));
+ }
+
+public function staffEdit($id)
+{
+    // Mengambil data membership berdasarkan $id
+    $membership = Membership::findOrFail($id);
+    
+    // Mengambil semua data yang diperlukan untuk form (members, packages, trainers)
+    $users = User::where('userType', 'user')->get();
+    $packages = Package::all();
+    $trainers = Trainer::all();
+    
+    // Menampilkan view untuk form edit dengan data yang sudah diambil
+    return view('staff.membershipstrainer.edit', compact('membership', 'users', 'packages', 'trainers'));
+}
+
+
+public function staffUpdate(Request $request, $id)
+{
+    // Validasi data dari request
+    $request->validate([
+        'user_id' => 'required|exists:users,id',
+        'package_id' => 'required|exists:member_packages,id',
+        'trainer_id' => 'required|exists:trainers,id',
+        'startdate' => 'required|date',
+    ]);
+
+    $membership = Membership::findOrFail($id);
+    $membership->update($request->all());
+    
+    return redirect()->route('with_trainer.index')
+        ->with('success', 'Membership updated successfully.');
+}
+////////////////////////////////////////////////////////////////////////////////
+    public function userindex()
+    {
+        $memberships = Membership::all();
+        return view('user.master', compact('memberships'));
+    }
+    public function usercreate()
+    {
+        $users = User::where('userType', 'user')->get();
+        $packages = Package::all();
+        $trainers = Trainer::all();
+        $authUserType = auth()->user()->userType;
+        return view('user.joinplus.create', compact('users', 'packages','trainers','authUserType'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function userstore(Request $request)
+    {
+        $userAuth = Auth::user()->id;
+        $request->validate([
+            // 'user_id' => 'required|exists:users,id',
+            'package_id' => 'required|exists:member_packages,id',
+            'trainer_id' => 'required|exists:trainers,id',
+            'startdate' => 'required|date',
+        ]);
+        Membership::create([
+            'user_id' => $userAuth,
+            'package_id' => $request->package_id,
+            'trainer_id' => $request->trainer_id,
+            'startdate' => $request->startdate,
+        ]);
+
+        return redirect()->route('user.master')->with('success', 'Membership created successfully.');
+    }
+
 }
