@@ -52,6 +52,7 @@
     <script src="{{ asset('adminskydash') }}/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
+    <script src="{{ asset('adminskydash') }}/vendors/sweetalert/sweetalert.min.js"></script>
     <script src="{{ asset('adminskydash') }}/vendors/chart.js/Chart.min.js"></script>
     <script src="{{ asset('adminskydash') }}/vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="{{ asset('adminskydash') }}/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
@@ -88,6 +89,59 @@
             $(this).addClass("active");
         });
     </script>
+    <script>
+        $(document).ready(function() {
+          $('.warning-message-and-cancel').click(function(event) {
+              event.preventDefault(); // Prevent form from submitting immediately
+              var form = $(this).closest('form');
+              
+              swal({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  icon: 'warning',
+                  buttons: {
+                      cancel: {
+                          text: "Cancel",
+                          value: null,
+                          visible: true,
+                          className: "btn btn-danger",
+                          closeModal: true,
+                      },
+                      confirm: {
+                          text: "OK",
+                          value: true,
+                          visible: true,
+                          className: "btn btn-primary",
+                          closeModal: true
+                      }
+                  }
+              }).then((willDelete) => {
+                  if (willDelete) {
+                      form.submit(); // Submit the form if the user confirms
+                  }
+              });
+          });
+        });
+      </script>
+    
+    <script>
+        $(document).ready(function() {
+          $('.alerts').click(function(event) {
+              event.preventDefault(); // Prevent form from submitting immediately
+              var form = $(this).closest('form');
+            swal({
+              title: "Success!",
+              text: "Successfully added",
+              icon: "success",
+              button: "OK",
+            }).then((willSubmit) => {
+                  if (willSubmit) {
+                      form.submit(); // Submit the form if the user confirms
+                  }
+              });
+          });
+        });
+      </script>
 </body>
 
 </html>

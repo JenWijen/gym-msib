@@ -34,7 +34,7 @@
                     <input type="date" class="form-control" id="startdate" name="startdate" required>
                 </div>
                 <a class="btn btn-primary" href="{{ route('staff_rent_book.index') }}">Back</a>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success alerts">Submit</button>
             </form>
         </div>
     </div>

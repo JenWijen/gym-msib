@@ -53,7 +53,7 @@
           <input type="date" class="form-control" name="startdate" value="{{ $member->startdate }}" required>
       </div>
         <a class="btn btn-primary" href="{{ route('memb_only.index') }}">Back</a>
-        <button type="submit" class="btn btn-success">Update</button>
+        <button type="submit" class="btn btn-success alerts">Update</button>
     </form>
 </div>
 @endsection

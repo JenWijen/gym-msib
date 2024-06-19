@@ -42,7 +42,7 @@
                                                     <a class="btn btn-primary" href="{{ route('rent_book.edit', $rent->id) }}">Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger warning-message-and-cancel">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -60,5 +60,6 @@
         </div>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('adminskydash/vendor/sweetalert/sweetalert.min.js') }}"></script>
 @endsection

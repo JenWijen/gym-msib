@@ -24,7 +24,7 @@
           </div>
 
           <a class="btn btn-primary" href="{{ route('memb_only.index') }}">Back</a>
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success alerts">Submit</button>
         </form>
       </div>
     </div>

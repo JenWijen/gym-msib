@@ -54,7 +54,7 @@
 
                         <div class="form-group">
                             <a class="btn btn-primary" href="{{ route('with_trainer.index') }}">Back</a>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success alerts">Submit</button>
                         </div>
                     </form>
                 </div>

@@ -36,11 +36,12 @@
             <input type="date" class="form-control" name="startdate" required>
           </div>
           <a class="btn btn-primary" href="{{ route('non_membership.index') }}">Back</a>
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success alerts">Submit</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('adminskydash/vendor/sweetalert/sweetalert.min.js') }}"></script>
 @endsection
