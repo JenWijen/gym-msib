@@ -48,7 +48,7 @@
                                 </div>
                             
                             <a class="btn btn-primary" href="{{ route('staff_non_membership.index') }}">Back</a>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success alert">Submit</button>
                     </form>
                 </div>
             </div>

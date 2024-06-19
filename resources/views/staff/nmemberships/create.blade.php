@@ -36,7 +36,7 @@
             <input type="date" class="form-control" name="startdate" required>
           </div>
           <a class="btn btn-primary" href="{{ route('staff_non_membership.index') }}">Back</a>
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success alerts">Submit</button>
         </form>
       </div>
     </div>

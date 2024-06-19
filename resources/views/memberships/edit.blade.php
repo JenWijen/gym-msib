@@ -63,10 +63,14 @@
                                 </div>
                             
                             <a class="btn btn-primary" href="{{ route('memberships.index') }}">Back</a>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success alerts">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Include jQuery if not already included -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include SweetAlert JS from local directory -->
+<script src="{{ asset('adminskydash/vendor/sweetalert/sweetalert.min.js') }}"></script>
 @endsection

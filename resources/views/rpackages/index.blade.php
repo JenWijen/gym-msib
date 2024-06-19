@@ -45,7 +45,7 @@
                                                 <a class="btn btn-primary" href="{{ route('rent_package.edit', $rpackage->id) }}">Edit</a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger warning-message-and-cancel">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
